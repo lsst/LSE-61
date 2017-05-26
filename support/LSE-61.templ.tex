@@ -108,7 +108,7 @@ $refine.getSource().get(0).documentation
 #set($length = $refine.getSource().get(0).name.length() + 3)
 $refine.getSource().get(0).get_constraintOfConstrainedElement().get(0).getSpecification().getBody().get(0).substring($length)
 &
-$report.getStereotypeProperty($refine.getSource().get(0),"ConstraintElement","unit").get(0).name
+$refine.getSource().get(0).unit.name
 &
 \paramname{$refine.getSource().get(0).name} \\\hline
 #end

@@ -93,6 +93,12 @@ with open(sys.argv[1], "r") as fh:
                 outparam += c
             line = re.sub(param, outparam, line)
 
+        # Units in long tables need to be told how to split
+        prefix = re.match(r"(milli)\w+$", line)
+        if prefix:
+            si = prefix.group(1)
+            line = re.sub(r"^"+si, si+r"\-", line)
+
         # Now that the line is fixed up, look for list
         if re.match(r"\s*\* ", line):
             if not in_table:
