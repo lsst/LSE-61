@@ -99,6 +99,11 @@ with open(sys.argv[1], "r") as fh:
             si = prefix.group(1)
             line = re.sub(r"^"+si, si+r"\-", line)
 
+        # Replace mentions of document handles with a citation
+        # but not if this is defining the document handle itself
+        if not re.search(r"(setDocRef|addtohist)", line):
+            line = re.sub(r"(L[PDTS]\w\-\d+)", r"\\citeds{\1}", line)
+
         # Now that the line is fixed up, look for list
         if re.match(r"\s*\* ", line):
             if not in_table:
