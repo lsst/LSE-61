@@ -17,8 +17,6 @@ with open(sys.argv[1], "r") as fh:
     in_table = False
     in_list = False
     for line in fh.readlines():
-        line = line.rstrip()
-
         # Remove html pre wrappers. They can be ignored
         line = re.sub(r"<html><pre>", "", line)
         line = re.sub(r"</pre></html>", "", line)
@@ -113,5 +111,8 @@ with open(sys.argv[1], "r") as fh:
         elif in_table and re.match(r"^\s*$", line):
             in_table = False
             print("\\end{itemize}")
+
+        # Strip trailing whitespace
+        line = line.rstrip()
 
         print(line)
