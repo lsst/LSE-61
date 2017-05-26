@@ -74,29 +74,6 @@ with open(sys.argv[1], "r") as fh:
         # HTML Entity replacement
         line = html.unescape(line)
 
-        # Parameter names need some help to be hyphenated properly
-        # if they are too long for the table. We look for case changes
-        # and hint to latex. The template makes this easy by using
-        # \paramname{} to tell us which are names
-        name = re.search(r"paramname{([A-Za-z0-9]+)}", line)
-        if name:
-            param = name.group(1)
-            outparam = param[0]
-            was_upper = outparam.isupper()
-            for c in param[1:]:
-                is_upper = c.isupper()
-                if is_upper and not was_upper:
-                    outparam += r"\-"
-                was_upper = is_upper
-                outparam += c
-            line = re.sub(param, outparam, line)
-
-        # Units in long tables need to be told how to split
-        prefix = re.match(r"(milli)\w+$", line)
-        if prefix:
-            si = prefix.group(1)
-            line = re.sub(r"^"+si, si+r"\-", line)
-
         # Replace mentions of document handles with a citation
         # but not if this is defining the document handle itself
         if not re.search(r"(setDocRef|addtohist)", line):

@@ -10,9 +10,10 @@
 ## the fixup.py script to ensure that the embedded HTML and list directives
 ## are handled properly in the LaTeX.
 
-% We use a command to make it easy to find where parameter names are defined
-% in the tables
-\newcommand{\paramname}[1]{#1}
+% We use commands to make it easy to find where parameter names and units
+% are defined in the tables, and to allow hyphenation.
+\newcommand{\paramname}[1]{\hspace{0pt}#1}
+\newcommand{\unitname}[1]{\hspace{0pt}#1}
 
 #set($scopedPackage = $packageScope.get(0))
 
@@ -108,9 +109,13 @@ $refine.getSource().get(0).documentation
 #set($length = $refine.getSource().get(0).name.length() + 3)
 $refine.getSource().get(0).get_constraintOfConstrainedElement().get(0).getSpecification().getBody().get(0).substring($length)
 &
+\unitname{%
 $refine.getSource().get(0).unit.name
+}
 &
-\paramname{$refine.getSource().get(0).name} \\\hline
+\paramname{%
+$refine.getSource().get(0).name
+} \\\hline
 #end
 \end{parameters}
 
