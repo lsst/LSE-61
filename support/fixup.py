@@ -74,6 +74,10 @@ with open(sys.argv[1], "r") as fh:
         # HTML Entity replacement
         line = html.unescape(line)
 
+        # Quick search for URLs. Do not need to do anything fancy
+        # until we find we do. We do not handle <a> tags.
+        line = re.sub("(?P<url>https?://[^\s,\)]+)", r"\\url{\1}", line)
+
         # Replace mentions of document handles with a citation
         # but not if this is defining the document handle itself
         if not re.search(r"(setDocRef|addtohist)", line):
