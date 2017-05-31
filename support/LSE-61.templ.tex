@@ -80,6 +80,7 @@ $element.documentation
 #properHeading($element.name,$depth)
 #if(!$report.getStereotypeProperty($element,"Requirement","Id").isEmpty())
 
+\label{$report.getStereotypeProperty($element,"Requirement","Id").get(0)}
 \textbf{ID:} $report.getStereotypeProperty($element,"Requirement","Id").get(0)
 
 #end
@@ -136,9 +137,7 @@ $refine.getSource().get(0).name
 #foreach($derive in $derives)
 #set($dername = $derive.getTarget().get(0).name)
 #if(!$dername.isEmpty())
-\textbf{%
-$report.getStereotypeProperty($derive.getTarget().get(0),"Requirement","Id").get(0)
-}:
+$report.getStereotypeProperty($derive.getTarget().get(0),"Requirement","Id").get(0):
 $derive.getTarget().get(0).name \newline
 #end
 #end

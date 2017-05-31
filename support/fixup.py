@@ -83,6 +83,12 @@ with open(sys.argv[1], "r") as fh:
         if not re.search(r"(setDocRef|addtohist)", line):
             line = re.sub(r"(L[PDTS]\w\-\d+)", r"\\citeds{\1}", line)
 
+        # Use hyperlinks when mentioning DMS requirements from other
+        # requirements
+        if re.search(r"DMS-REQ", line) and not re.match(r"\\label{DMS", line) \
+                and not re.search(r"ID:.*DMS-REQ", line):
+            line = re.sub(r"(DMS-REQ-\d\d\d\d)", r"\\hyperref[\1]{\1}", line)
+
         # Now that the line is fixed up, look for list
         if re.match(r"\s*\* ", line):
             if not in_table:
