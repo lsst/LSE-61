@@ -120,6 +120,31 @@ $refine.getSource().get(0).name
 \end{parameters}
 
 #end
+
+## Get requirements from which this requirement is derived.
+
+#set($derives = $array.createArray())
+#foreach($subRelation in $element.get_directedRelationshipOfSource())
+#if($report.containsStereotype($subRelation,"DeriveReqt"))
+#set($filler = $derives.add($subRelation))
+#end
+#end
+#if(!$derives.isEmpty())
+
+\emph{Derived from Requirements:}
+
+#foreach($derive in $derives)
+#set($dername = $derive.getTarget().get(0).name)
+#if(!$dername.isEmpty())
+\textbf{%
+$report.getStereotypeProperty($derive.getTarget().get(0),"Requirement","Id").get(0)
+}:
+$derive.getTarget().get(0).name \newline
+#end
+#end
+
+#end
+
 #foreach($subElement in $element.getOwnedElement())
 #if($report.containsStereotype($subElement,"Requirement") || $report.containsStereotype($subElement,"interfaceRequirement") || $subElement.getHumanType() == 'Package')
 #set($depth = $depth + 1)
