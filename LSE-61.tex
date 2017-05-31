@@ -310,6 +310,33 @@ Wavefront Sensor Data \newline
 
 
 
+\begin{parameters}
+Maximum time from the acquisition of science data to the public release of associated Level 1 Data Products (except alerts)
+&
+24
+&
+\unitname{%
+hour
+}
+&
+\paramname{%
+L1PublicT
+} \\\hline
+The latency of reporting optical transients following the completion of readout of the last image of a visit
+&
+1
+&
+\unitname{%
+minute
+}
+&
+\paramname{%
+OTT1
+} \\\hline
+\end{parameters}
+
+
+
 
 \emph{Derived from Requirements:}
 
@@ -535,16 +562,16 @@ Catalogs (Level 1) \newline
 
 
 \begin{parameters}
-
+The signal-to-noise ratio in single-visit difference images above which all optical transients are to be reported.
 &
-
+5
 &
 \unitname{%
 TBD
 }
 &
 \paramname{%
-diaSourceCat
+transSNR
 } \\\hline
 \end{parameters}
 
@@ -570,6 +597,22 @@ Faint DIASource Measurements \newline
 
 
 
+\begin{parameters}
+
+&
+
+&
+\unitname{%
+
+}
+&
+\paramname{%
+transSNR
+} \\\hline
+\end{parameters}
+
+
+
 
 \emph{Derived from Requirements:}
 
@@ -582,14 +625,14 @@ Alert Completeness and Purity \newline
 \label{DMS-REQ-0319}
 \textbf{ID:} DMS-REQ-0319
 
-\textbf{Specification:} For alert production, DIAObject variability characterization shall include data collected during the time period from the present to diaCharacterizationCutoff in the past.
+    \textbf{Specification:} For alert production, DIAObject variability characterization shall include data collected during the time period from the present to \textbf{diaCharacterizationCutoff} in the past.
 
 \textbf{Discussion}: These measurements can come from the live L1 database. For level 1 processing during Data Release Production, all data should be used for characterization.
 
 
 
 \begin{parameters}
-
+Time-period to use for characterizing variability in L1 system
 &
 1
 &
@@ -617,16 +660,38 @@ diaCharacterizationCutoff
 
 
 \begin{parameters}
-
+Maximum number of stars that can be associated with a DIASource
 &
-
+3
 &
 \unitname{%
 integer
 }
 &
 \paramname{%
-diaObjectCat
+diaNearbyObjMaxStar
+} \\\hline
+Maximum number of nearby galaxies that can be associated with a DIASource.
+&
+3
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+diaNearbyObjMaxGalaxy
+} \\\hline
+Radius within which an Object is considered to be near, and possibly coincident with, the DIASource.
+&
+60
+&
+\unitname{%
+arcsecond
+}
+&
+\paramname{%
+diaNearbyObjRadius
 } \\\hline
 \end{parameters}
 
@@ -937,16 +1002,16 @@ Co-added Exposures \newline
 
 
 \begin{parameters}
-
+Maximum range in observed epoch over which input Exposures may contribute to a template image
 &
-
+1
 &
 \unitname{%
 year
 }
 &
 \paramname{%
-templateCoadds
+templateMaxTimespan
 } \\\hline
 \end{parameters}
 
@@ -1093,16 +1158,16 @@ Produce Co-Added Exposures \newline
 
 
 \begin{parameters}
-
+S/N threshold for detecting sources in Co-Add images for building the Source Catalog
 &
-
+5
 &
 \unitname{%
 float
 }
 &
 \paramname{%
-coaddSourceCat
+coaddDetectThresh
 } \\\hline
 \end{parameters}
 
@@ -1164,7 +1229,7 @@ Catalogs (Level 2) \newline
 
 \textbf{Specification:} The DMS shall produce images for EPO purposes, according to the requirements in the DM-EPO ICD.
 
-\textbf{Discussion: }This is expected to include polychromatic (e.g., RGB JPEG) images for casual users.
+    \textbf{Discussion: }This is expected to include polychromatic (e.g., RGB JPEG) images for casual users. The DM-EPO ICD is \citeds{LSE-131}.
 
 
 
@@ -1398,6 +1463,33 @@ Correct for Instrument Sensitivity Variation \newline
 
 
 
+\begin{parameters}
+Maximum time from the acquisition of science data to the public release of associated Level 1 Data Products (except alerts)
+&
+24
+&
+\unitname{%
+hour
+}
+&
+\paramname{%
+L1PublicT
+} \\\hline
+The latency of reporting optical transients following the completion of readout of the last image of a visit
+&
+1
+&
+\unitname{%
+minute
+}
+&
+\paramname{%
+OTT1
+} \\\hline
+\end{parameters}
+
+
+
 
 \subsubsection{Special Programs Database}
 
@@ -1506,7 +1598,7 @@ Correct for Instrument Sensitivity Variation \newline
 \label{DMS-REQ-0131}
 \textbf{ID:} DMS-REQ-0131
 
-\textbf{Specification:} Calibration products from a group of up to \textbf{nCalibExpProc} related exposures that should be processed together, shall be available from the DMS image archive within \textbf{calProcTime} of the end of the acquisition of images/data for that group.
+    \textbf{Specification:} Calibration products from a group of up to \textbf{nCalExpProc} related exposures that should be processed together, shall be available from the DMS image archive within \textbf{calProcTime} of the end of the acquisition of images/data for that group.
 
 \textbf{Discussion: }The motivation here is that calibration images will be needed at least 1 hour prior to the start of observing and this requirement allows the calibration observations to be planned accordingly.
 
@@ -1666,16 +1758,38 @@ numBrokerUsers
 
 
 \begin{parameters}
-
+Maximum look-back time for precovery
 &
-
+30
 &
 \unitname{%
 day
 }
 &
 \paramname{%
-diaSourcePrecovery
+precoveryWindow
+} \\\hline
+Maximum time from the acquisition of science data to the public release of associated Level 1 Data Products (except alerts)
+&
+24
+&
+\unitname{%
+hour
+}
+&
+\paramname{%
+L1PublicT
+} \\\hline
+Lifetime in the cache of un-archived Level 1 data
+&
+30
+&
+\unitname{%
+day
+}
+&
+\paramname{%
+l1CacheLifetime
 } \\\hline
 \end{parameters}
 
@@ -1726,16 +1840,16 @@ Produce Orbit Catalog \newline
 
 
 \begin{parameters}
-
+Latency for producing Level 1 Data Quality Report
 &
-
+4
 &
 \unitname{%
 hour
 }
 &
 \paramname{%
-dqReport
+dqReportComplTime
 } \\\hline
 \end{parameters}
 
@@ -1754,16 +1868,16 @@ dqReport
 
 
 \begin{parameters}
-
+Latency for producing Level 1 DMS Performance Report
 &
-
+4
 &
 \unitname{%
 hour
 }
 &
 \paramname{%
-perfReport
+perfReportComplTime
 } \\\hline
 \end{parameters}
 
@@ -1782,16 +1896,16 @@ perfReport
 
 
 \begin{parameters}
-
+Latency for producing Level 1 Calibration Report
 &
-
+4
 &
 \unitname{%
 hour
 }
 &
 \paramname{%
-calibReport
+calibReportComplTime
 } \\\hline
 \end{parameters}
 
@@ -2322,16 +2436,16 @@ Keep Exposure Archive \newline
 
 
 \begin{parameters}
-
+Maximum fraction of raw images that are permitted to be permanently lost or corrupted, including the loss or corruption of essential associated metadata, once acquired by the DMS
 &
-
+1.0e-5
 &
 \unitname{%
 float
 }
 &
 \paramname{%
-rawArchiveReliability
+dataLossMax
 } \\\hline
 \end{parameters}
 
@@ -2368,16 +2482,16 @@ Alert Attributes \newline
 
 
 \begin{parameters}
-
+Lifetime in the cache of un-archived Level 1 data
 &
-
+30
 &
 \unitname{%
 day
 }
 &
 \paramname{%
-l1Cache
+l1CacheLifetime
 } \\\hline
 \end{parameters}
 
@@ -2661,16 +2775,16 @@ productionMaxDowntime
 
 
 \begin{parameters}
-
+Duration of the Data Release Production, including quality validation.
 &
-
+1
 &
 \unitname{%
 year
 }
 &
 \paramname{%
-drProductionInfrastructure
+drProcessingPeriod
 } \\\hline
 \end{parameters}
 
@@ -2815,16 +2929,16 @@ Optimization of Cost, Reliability and Availability in Order \newline
 
 
 \begin{parameters}
-
+Maximum time interval to transfer a full Raw Exposure and all related metadata from the Summit Facility to the Base facility.
 &
-
+6
 &
 \unitname{%
 second
 }
 &
 \paramname{%
-summToBaseNetwork
+summToBaseMaxTransferTime
 } \\\hline
 \end{parameters}
 
@@ -2843,16 +2957,16 @@ summToBaseNetwork
 
 
 \begin{parameters}
-
+Mean time between failures, measured over a 1-yr period.
 &
-
+90
 &
 \unitname{%
 day
 }
 &
 \paramname{%
-summToBaseAvailability
+summToBaseNetMTBF
 } \\\hline
 \end{parameters}
 
@@ -2877,16 +2991,16 @@ Optimization of Cost, Reliability and Availability in Order \newline
 
 
 \begin{parameters}
-
+Mean time to repair, measured over a 1-yr period.
 &
-
+4
 &
 \unitname{%
 hour
 }
 &
 \paramname{%
-summToBaseReliability
+summToBaseNetMTTR
 } \\\hline
 \end{parameters}
 
@@ -2911,16 +3025,16 @@ Optimization of Cost, Reliability and Availability in Order \newline
 
 
 \begin{parameters}
-
+Maximum time to transfer one night of data via the network secondary link.
 &
-
+72
 &
 \unitname{%
 hour
 }
 &
 \paramname{%
-summToBaseSecNetwork
+summToBaseNet2TransMax
 } \\\hline
 \end{parameters}
 
@@ -2978,23 +3092,23 @@ Summit to Base Network Availability \newline
 \label{DMS-REQ-0177}
 \textbf{ID:} DMS-REQ-0177
 
-\textbf{Specification:} The Base Facility shall provide at least a time \textbf{minBaseStorage }(or half of that amount, redundantly) of raw data storage in the event of Base to Archive Center network outage.
+    \textbf{Specification:} The Base Facility shall provide at least a time \textbf{minBaseDataStorage }(or half of that amount, redundantly) of raw data storage in the event of Base to Archive Center network outage.
 
 
 
 
 
 \begin{parameters}
-
+Low-latency storage buffer capacity, expressed in units of data volume equivalent for a typical day's data collection
 &
-
+14
 &
 \unitname{%
 day
 }
 &
 \paramname{%
-baseStorage
+minBaseDataStorage
 } \\\hline
 \end{parameters}
 
@@ -3073,16 +3187,16 @@ Pipeline Throughput \newline
 
 
 \begin{parameters}
-
+Mean time between failures, measured over a 1-yr period.
 &
-
+180
 &
 \unitname{%
 day
 }
 &
 \paramname{%
-baseToArchAvailability
+baseToArchNetMTBF
 } \\\hline
 \end{parameters}
 
@@ -3109,16 +3223,16 @@ Pipeline Throughput \newline
 
 
 \begin{parameters}
-
+Mean time to repair, measured over a 1-yr period.
 &
-
+48
 &
 \unitname{%
 hour
 }
 &
 \paramname{%
-baseToArchReliability
+baseToArchNetMTTR
 } \\\hline
 \end{parameters}
 
@@ -3229,16 +3343,16 @@ Optimization of Cost, Reliability and Availability in Order \newline
 
 
 \begin{parameters}
-
+Aggregate bandwidth capacity for data transfers between the Archive and Data Access Centers.
 &
-
+10000
 &
 \unitname{%
-TBD
+megabit per second
 }
 &
 \paramname{%
-archToDacNetwork
+archToDacBandwidth
 } \\\hline
 \end{parameters}
 
@@ -3257,16 +3371,16 @@ archToDacNetwork
 
 
 \begin{parameters}
-
+Mean Time Between Failures for data link between Archive and DACs, averaged over a one-year period.
 &
-
+180
 &
 \unitname{%
 day
 }
 &
 \paramname{%
-archToDacAvailability
+archToDacNetMTBF
 } \\\hline
 \end{parameters}
 
@@ -3291,16 +3405,16 @@ Optimization of Cost, Reliability and Availability in Order \newline
 
 
 \begin{parameters}
-
+Mean time to repair, measured over a 1-yr period.
 &
-
+48
 &
 \unitname{%
 hour
 }
 &
 \paramname{%
-archToDacReliability
+archToDacNetMTTR
 } \\\hline
 \end{parameters}
 
@@ -3363,16 +3477,16 @@ Archive to Data Access Center Network Reliability \newline
 
 
 \begin{parameters}
-
+Minimum simultaneous connections to end-users.
 &
-
+300
 &
 \unitname{%
 integer
 }
 &
 \paramname{%
-dacConnections
+dacMinConnections
 } \\\hline
 \end{parameters}
 
