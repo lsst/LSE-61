@@ -1,0 +1,51 @@
+## This is a template file that can be used to generate OSS to DMSR matrix
+
+#set($scopedPackage = $packageScope.get(0))
+
+#foreach($child in $scopedPackage.getOwnedElement())
+#if($report.containsStereotype($child,"Requirement") || $report.containsStereotype($child,"interfaceRequirement") || $child.getHumanType() == 'Package')
+#recursiveReqs($child,1)
+#end
+#end
+#macro( recursiveReqs $element $depth)
+
+#if(($report.containsStereotype($element,"Requirement") || $report.containsStereotype($element,"interfaceRequirement")) && !$report.containsStereotype($element,"VerificationPlanningElement"))
+
+#if(!$report.getStereotypeProperty($element,"Requirement","Id").isEmpty())
+
+## list every requirement even if no relationships
+$report.getStereotypeProperty($element,"Requirement","Id").get(0) None
+
+#end
+
+#end
+
+## Get requirements from which this requirement is derived.
+
+#set($derives = $array.createArray())
+#foreach($subRelation in $element.get_directedRelationshipOfSource())
+#if($report.containsStereotype($subRelation,"DeriveReqt"))
+#set($filler = $derives.add($subRelation))
+#end
+#end
+#if(!$derives.isEmpty())
+
+
+
+#foreach($derive in $derives)
+#set($dername = $derive.getTarget().get(0).name)
+#if(!$dername.isEmpty())
+$report.getStereotypeProperty($element,"Requirement","Id").get(0) $report.getStereotypeProperty($derive.getTarget().get(0),"Requirement","Id").get(0)
+#end
+#end
+
+#end
+
+#foreach($subElement in $element.getOwnedElement())
+#if($report.containsStereotype($subElement,"Requirement") || $report.containsStereotype($subElement,"interfaceRequirement") || $subElement.getHumanType() == 'Package')
+#set($depth = $depth + 1)
+#recursiveReqs($subElement,$depth)
+#set($depth = $depth - 1)
+#end
+#end
+#end
