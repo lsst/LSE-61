@@ -10,7 +10,7 @@
 
 
 \setcounter{secnumdepth}{5}
-\title{Data Management System Requirements}
+\title{Data Management System (DMS) Requirements}
 \author{Gregory Dubois-Felsmann}
 \date{\today}
 \setDocRef{LSE-61}
@@ -57,34 +57,120 @@
 \begin{document}
 \maketitle
 
+
 This document contains the top-level requirements for the Data Management subsystem of the LSST, when combined with the Data Management-related requirements in the LSST System Requirements (LSR, \citeds{LSE-29}) and Observatory System Specifications (OSS, \citeds{LSE-30}).
+
+
+
+
+
+
+
+
 
 \textbf{Supporting Documents}
 
-\begin{enumerate}
- \item{LSST Science Requirements Document (document \citeds{LPM-17})    }
- \item{LSST System Requirements (document \citeds{LSE-29})    }
- \item{LSST Observatory System Specifications (document \citeds{LSE-30})    }
- \item{LSST Document Tree (document \citeds{LSE-39})    }
-\end{enumerate}
+
+
+    \begin{enumerate}
+\item
+LSST Science Requirements Document (document \citeds{LPM-17})
+
+\item
+LSST System Requirements (document \citeds{LSE-29})
+
+\item
+LSST Observatory System Specifications (document \citeds{LSE-30})
+
+\item
+LSST Document Tree (document \citeds{LSE-39})
+
+    \end{enumerate}
 
 \textbf{Definition of Terms:}
-In this document a \textbf{\textit{requirement}} refers to a declaration of a specified function or quantitative performance that the delivered system or subsystem must meet.  It is a statement that identifies a necessary attribute, capability, characteristic, or quality of a system in order for the delivered system or subsystem to meet a derived or higher requirement, constraint, or function.
+
+
+
+
+
+
+
+
+
+In this document a \textbf{\textit{requirement}} refers to a declaration of a specified function or quantitative performance that the delivered system or subsystem must meet. It is a statement that identifies a necessary attribute, capability, characteristic, or quality of a system in order for the delivered system or subsystem to meet a derived or higher requirement, constraint, or function.
+
+
+
+
+
+
+
+
 
 This document uses the term \textbf{\textit{specification(s)}} to mean one or more performance parameter(s) being established by a requirement that the delivered system or subsystem must meet.
 
+
+
+
+
+
+
+
+
 An \textbf{\textit{attribute}} specifies a quantitative performance \textbf{\textit{parameter}} in the context of the SysML based SysArch model used to generate this document.
 
-A \textbf{\textit{constraint}} is used to refer to an external limitation imposed on a delivered item under which it must meet its requirements (e.g., the survey performance must be met under the constraint of the historical weather pattern of the chosen site).  A constraint in not a characteristic the system or subsystem itself possesses.
+
+
+
+
+
+
+
+
+A \textbf{\textit{constraint}} is used to refer to an external limitation imposed on a delivered item under which it must meet its requirements (e.g., the survey performance must be met under the constraint of the historical weather pattern of the chosen site). A constraint in not a characteristic the system or subsystem itself possesses.
+
+
+
+
+
+
+
+
 
 \textbf{Verb Usage:}
-Statements of need, requirements, and constraints are written using one of three verbs that have a specific meaning with respect to verification.  All statements in this specification that convey operational, functional, or performance needs, requirements, constraints, or goals on the LSST system will contain one of these three verbs.
 
-\begin{itemize}
- \item{\textbf{Will} – A statement of fact. Will statements document something that will occur through the course of normal design practice, project process, etc. These statements do not get formally verified. }
- \item{\textbf{Should} – A goal. Should statements document a stretch goal. A should statement is typically partnered with a shall statement. Should statements do not get formally verified. }
- \item{\textbf{Shall - }A requirement that gets formally verified. Shall statements document critical requirements that must be verified through inspection, demonstration, analysis, or test during the verification phase of the project to ensure objectively that the as-built design meets the requirement. }
-\end{itemize}
+
+
+
+
+
+
+
+
+Statements of need, requirements, and constraints are written using one of three verbs that have a specific meaning with respect to verification. All statements in this specification that convey operational, functional, or performance needs, requirements, constraints, or goals on the LSST system will contain one of these three verbs.
+
+
+
+    \begin{itemize}
+\item
+\textbf{Will} – A statement of fact. Will statements document something that will occur through the course of normal design practice, project process, etc. These statements do not get formally verified.
+
+\item
+\textbf{Should} – A goal. Should statements document a stretch goal. A should statement is typically partnered with a shall statement. Should statements do not get formally verified.
+
+\item
+\textbf{Shall - }A requirement that gets formally verified. Shall statements document critical requirements that must be verified through inspection, demonstration, analysis, or test during the verification phase of the project to ensure objectively that the as-built design meets the requirement.
+
+    \end{itemize}
+
+
+
+
+
+
+
+
+
 
 \section{Data Products}
 
@@ -427,7 +513,7 @@ Extended Object Shape Parameters \newline
 
 
 \begin{parameters}
-Absolute accuracy of the WCS across the focal plane (approximately one-quarter of a pixel)
+Absolute accuracy of the WCS across the focal plane (approximately one-quarter of a pixel).
 &
 50
 &
@@ -438,7 +524,7 @@ milliarcsecond
 \paramname{%
 astrometricAccuracy
 } \\\hline
-Minimum number of astrometric standards per CCD
+Minimum number of astrometric standards per CCD.
 &
 5
 &
@@ -632,7 +718,7 @@ Alert Completeness and Purity \newline
 
 
 \begin{parameters}
-Time-period to use for characterizing variability in L1 system
+Time-period to use for characterizing variability in L1 system.
 &
 1
 &
@@ -660,17 +746,6 @@ diaCharacterizationCutoff
 
 
 \begin{parameters}
-Maximum number of stars that can be associated with a DIASource
-&
-3
-&
-\unitname{%
-integer
-}
-&
-\paramname{%
-diaNearbyObjMaxStar
-} \\\hline
 Maximum number of nearby galaxies that can be associated with a DIASource.
 &
 3
@@ -681,6 +756,17 @@ integer
 &
 \paramname{%
 diaNearbyObjMaxGalaxy
+} \\\hline
+Maximum number of stars that can be associated with a DIASource.
+&
+3
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+diaNearbyObjMaxStar
 } \\\hline
 Radius within which an Object is considered to be near, and possibly coincident with, the DIASource.
 &
@@ -1002,7 +1088,7 @@ Co-added Exposures \newline
 
 
 \begin{parameters}
-Maximum range in observed epoch over which input Exposures may contribute to a template image
+Maximum range in observed epoch over which input Exposures may contribute to a template image.
 &
 1
 &
@@ -1158,7 +1244,7 @@ Produce Co-Added Exposures \newline
 
 
 \begin{parameters}
-S/N threshold for detecting sources in Co-Add images for building the Source Catalog
+S/N threshold for detecting sources in Co-Add images for building the Source Catalog.
 &
 5
 &
@@ -1227,9 +1313,14 @@ Catalogs (Level 2) \newline
 \label{DMS-REQ-0103}
 \textbf{ID:} DMS-REQ-0103
 
-\textbf{Specification:} The DMS shall produce images for EPO purposes, according to the requirements in the DM-EPO ICD.
+    \textbf{Specification:} The DMS shall produce images for EPO purposes, according to the requirements in the DM-EPO ICD.
 
     \textbf{Discussion: }This is expected to include polychromatic (e.g., RGB JPEG) images for casual users. The DM-EPO ICD is \citeds{LSE-131}.
+
+
+
+
+
 
 
 
@@ -1616,7 +1707,11 @@ second
 \paramname{%
 calProcTime
 } \\\hline
+
 Maximum number of calibration exposures that can be processed together within time \textbf{calProcTime}.
+
+
+
 &
 25
 &
@@ -1758,7 +1853,7 @@ numBrokerUsers
 
 
 \begin{parameters}
-Maximum look-back time for precovery
+Maximum look-back time for precovery measurments on prior Exposures.
 &
 30
 &
@@ -1780,7 +1875,7 @@ hour
 \paramname{%
 L1PublicT
 } \\\hline
-Lifetime in the cache of un-archived Level 1 data
+Lifetime in the cache of un-archived Level-1 data products.
 &
 30
 &
@@ -1840,7 +1935,7 @@ Produce Orbit Catalog \newline
 
 
 \begin{parameters}
-Latency for producing Level 1 Data Quality Report
+Latency for producing Level 1 Data Quality Report.
 &
 4
 &
@@ -1868,7 +1963,7 @@ dqReportComplTime
 
 
 \begin{parameters}
-Latency for producing Level 1 DMS Performance Report
+Latency for producing Level 1 DMS Performance Report.
 &
 4
 &
@@ -1896,7 +1991,7 @@ perfReportComplTime
 
 
 \begin{parameters}
-Latency for producing Level 1 Calibration Report
+Latency for producing Level 1 Calibration Report.
 &
 4
 &
@@ -2436,7 +2531,7 @@ Keep Exposure Archive \newline
 
 
 \begin{parameters}
-Maximum fraction of raw images that are permitted to be permanently lost or corrupted, including the loss or corruption of essential associated metadata, once acquired by the DMS
+Maximum fraction of raw images that are permitted to be permanently lost or corrupted, including the loss or corruption of essential associated metadata, once acquired by the DMS.
 &
 1.0e-5
 &
@@ -2482,7 +2577,7 @@ Alert Attributes \newline
 
 
 \begin{parameters}
-Lifetime in the cache of un-archived Level 1 data
+Lifetime in the cache of un-archived Level-1 data products.
 &
 30
 &
@@ -2571,7 +2666,7 @@ Keep Science Data Archive \newline
 
     \textbf{Specification: }Every query of LSST databases shall be logged. The logging shall contain at least the query itself, the user who submitted the query, the date and time the query was submitted, the execution time of the query, and the number of rows returned. The query history shall be available to the user that made the query but shall otherwise be private and only accessible by administrators.
 
-    \textbf{Discussion: }The logs can be used for auditing in case of a dispute regarding data release timing. They can also be used by the data access team to learn the usage patterns of the system (such as the times of day/month with high load, or the most popular queries) and provide statistics for focusing on future developments and improvements of LSST. Whilst queries are private by default, in conjunction with \hyperref[DMS-REQ-0291]{DMS-REQ-0291}, it would be desirable for a query to be published and associated with a DOI.
+    \textbf{Discussion: }The logs can be used for auditing in case of a dispute regarding data release timing. They can also be used by the data access team to learn the usage patterns of the system (such as the times of day/month with high load, or the most popular queries) and provide statistics for focusing on future developments and improvements of LSST. Whilst queries are private by default, in conjunction with \hyperref[DMS-REQ-0291]{DMS-REQ-0291}, it would be desirable for a query to be published and associated with a DOI.
 
 
 
@@ -2677,7 +2772,7 @@ This requirement does not invoke the need to verify by reliability analysis. Ver
 
 
 \begin{parameters}
-Unplanned downtime per year
+Unplanned downtime per year.
 &
 1
 &
@@ -2993,7 +3088,7 @@ Optimization of Cost, Reliability and Availability in Order \newline
 \begin{parameters}
 Mean time to repair, measured over a 1-yr period.
 &
-4
+24
 &
 \unitname{%
 hour
@@ -3099,7 +3194,7 @@ Summit to Base Network Availability \newline
 
 
 \begin{parameters}
-Low-latency storage buffer capacity, expressed in units of data volume equivalent for a typical day's data collection
+Low-latency storage buffer capacity, expressed in units of data volume equivalent for a typical day's data collection.
 &
 14
 &
