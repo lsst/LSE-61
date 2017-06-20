@@ -18,24 +18,9 @@
 #set($scopedPackage = $packageScope.get(0))
 
 \setcounter{secnumdepth}{5}
-\title{$scopedPackage.name}
-\author{Gregory Dubois-Felsmann}
-\date{\today}
-\setDocRef{LSE-61}
 
-% Change history defined here. Will be inserted into
-% correct place with \maketitle
-% OLDEST FIRST: VERSION, DATE, DESCRIPTION, OWNER NAME
-\setDocChangeRecord{%
-\addtohist{0.1}{2007}{Initial version}{G.~Dubois-Felsmann}
-\addtohist{0.5}{2009 Feb}{Approved as a content-controlled document by the CCB.}{G.~Dubois-Felsmann}
-\addtohist{1.0}{2011-06-28}{Captured DM Functional Requirements Specification as version 1 of new document LSE-61.}{G.~Dubois-Felsmann}
-\addtohist{1.1}{2011-08-03}{Requirements numbering applied.  Original numbering preserved for a transition period.}{G.~Dubois-Felsmann}
-\addtohist{2.0}{2013-10-08}{Extensive reorganization and partial rewrite; corresponds to CVS revision 1.44 in SysArch.}{D.~Shaw, M.~Juric, G.~Dubois-Felsmann}
-\addtohist{2.0.1}{2013-10-08}{Corrections affecting DMS-REQ-0176, -0267, -0268, -0287, and the creation of -0317.  CVS revision 1.45.}{G.~Dubois-Felsmann}
-\addtohist{2.0.2}{2013-10-08}{Incorrect statements removed from Discussion in DMS-REQ-0271 and DMS-REQ-0283, many typos corrected. CVS revision 1.46.}{G.~Dubois-Felsmann}
-\addtohist{3.0}{2016-02-01}{Incorporation of LCR-188 (addition of DMS-REQ-0318 Data Management Unscheduled Downtime)}{G.~Dubois-Felsmann, and B.~Selvy}
-}
+%% Define the document title, authors, date and change record
+\input metadata.tex
 
 % Environment for displaying the parameter tables in
 % a consistent manner. No arguments as there are no

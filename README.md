@@ -18,3 +18,6 @@ $ ./support/fixup.py /wherever/LSE-61.tex > LSE-61.tex
 The resultant file should be buildable at this point.
 Check that it builds before committing it.
 The document requires the [lsst-texmf](https://lsst-texmf.lsst.io) LaTeX classes are available.
+
+The document title, author, date, document handle, and change record are defined in the file `metadata.tex`.
+This allows you to specify these outside of the generic MagicDraw template file.
