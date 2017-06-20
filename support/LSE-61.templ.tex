@@ -66,18 +66,17 @@
 \maketitle
 
 $scopedPackage.documentation
-
-#foreach($child in $scopedPackage.getOwnedElement())
+#foreach($child in $sorter.sort($scopedPackage.getOwnedElement()))
 #if($report.containsStereotype($child,"Requirement") || $report.containsStereotype($child,"interfaceRequirement") || $child.getHumanType() == 'Package')
 #recursiveReqs($child,1)
 #end
 #end
 #macro( recursiveReqs $element $depth)
 #if($element.getHumanType() == 'Package')
-#properHeading($element.name,$depth)
+#parseHeader($element.name,$depth)
 $element.documentation
-#elseif(($report.containsStereotype($element,"Requirement") || $report.containsStereotype($element,"interfaceRequirement")) && !$report.containsStereotype($element,"VerificationPlanningElement"))
-#properHeading($element.name,$depth)
+#elseif(($report.containsStereotype($element,"Requirement") || $report.containsStereotype($element,"interfaceRequirement")) && !$report.containsStereotype($element,"VerificationElement"))
+#parseHeader($element.name,$depth)
 #if(!$report.getStereotypeProperty($element,"Requirement","Id").isEmpty())
 
 \label{$report.getStereotypeProperty($element,"Requirement","Id").get(0)}
@@ -175,6 +174,14 @@ $derive.getTarget().get(0).name \newline
 #else
 $string
 
+#end
+#end
+## This could all be done in the python fixup script rather than in VTL
+#macro( parseHeader $header $depth)
+#if($header.charAt(0)=='0' || $header.charAt(0)=='1' || $header.charAt(0)=='2' || $header.charAt(0)=='3' || $header.charAt(0)=='4' || $header.charAt(0)=='5' || $header.charAt(0)=='6' || $header.charAt(0)=='7' || $header.charAt(0)=='8' || $header.charAt(0)=='9')
+#properHeading($header.substring($header.indexOf(" ")),$depth)
+#else
+#properHeading($header,$depth)
 #end
 #end
 
