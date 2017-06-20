@@ -33,6 +33,14 @@ with open(sys.argv[1], "r") as fh:
                 skip_line = True
                 break
 
+        # Standalone closing </li> tags should be ignored
+        for t in ("li",):
+            if skip_line:
+                break
+            if re.search(r"^\s*</{}>\s*$".format(t), line):
+                skip_line = True
+                break
+
         # Style is irrelevant here
         if re.search(r"padding:\d+px", line):
             skip_line = True
@@ -52,7 +60,7 @@ with open(sys.argv[1], "r") as fh:
         # style handles the document ref itself and it should not be part
         # of the title
         if "title" in line:
-            line = re.sub(r"L\w\w\-\d+: ", "", line)
+            line = re.sub(r"L\w\w\-\d+ ", "", line)
 
         # Handle <ol> and <ul> tags
         line = re.sub("<ol>", r"\\begin{enumerate}", line)
@@ -65,11 +73,26 @@ with open(sys.argv[1], "r") as fh:
         if re.search(r"section\{.* & ", line):
             line = re.sub(r" & ", r" \& ", line)
 
-        # Handle style tabs for bold and italic
+        # Remove any spaces between the section{ and beginning of title.
+        # Useful for consistent git history as updated template leaves space.
+        if re.search(r"section\{ ", line):
+            line = re.sub(r"section\{\s+", "section{", line)
+
+        # Handle style tags for bold and italic
         tags = {"b": "textbf", "i": "textit", "li": "item"}
         for t in tags:
             line = re.sub(r"<{0}>(.*?)</{0}>".format(t),
                           r"\\{}{{\1}}".format(tags[t]), line)
+
+        # Newer version of model seems to put <li> tags on line of their own
+        # </p> and <p> get converted to blank lines rather than skipped
+        # to ensure that a paragraph boundary will really happen in latex
+        isolated_tags = {"li": "\\item", "p": ""}
+        for t in isolated_tags:
+            line = re.sub(r"^\s*<{0}>\s*$".format(t),
+                          r"{}".format(isolated_tags[t]), line)
+            # the end tag is stripped
+            line = re.sub(r"^\s*</{0}>\s*$".format(t), "", line)
 
         # HTML Entity replacement
         line = html.unescape(line)
