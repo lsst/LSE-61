@@ -181,6 +181,16 @@ Statements of need, requirements, and constraints are written using one of three
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0004:
+The Archive Facility \newline
+OSS-REQ-0167:
+Data Archiving \newline
+OSS-REQ-0313:
+Telemetry Database Retention \newline
+
+
 \subsubsection{Measurements in catalogs}
 
 \label{DMS-REQ-0347}
@@ -264,6 +274,8 @@ Statements of need, requirements, and constraints are written using one of three
 
 OSS-REQ-0114:
 Acquisition of Science Sensor data \newline
+OSS-REQ-0129:
+Exposures (Level 1) \newline
 
 
 \subsubsection{Raw Science Image Data Acquisition}
@@ -308,6 +320,8 @@ OSS-REQ-0122:
 Provenance \newline
 \hyperref[DMS-REQ-0066]{DMS-REQ-0066}:
 Keep Exposure Archive \newline
+OSS-REQ-0171:
+Engineering and Facilities Data \newline
 
 
 \subsubsection{Crosstalk Corrected Science Image Data Acquisition}
@@ -362,6 +376,12 @@ Wavefront Sensor Data \newline
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0194:
+Calibration Exposures Per Day \newline
 
 
 \subsection{Level 1 Data Products}
@@ -450,6 +470,12 @@ Exposures (Level 1) \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0056:
+System Monitoring \& Diagnostics \newline
+
+
 \paragraph{Generate Photometric Zeropoint for Visit Image}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0029}
@@ -466,6 +492,10 @@ Exposures (Level 1) \newline
 
 \hyperref[DMS-REQ-0090]{DMS-REQ-0090}:
 Generate Alerts \newline
+OSS-REQ-0056:
+System Monitoring \& Diagnostics \newline
+OSS-REQ-0152:
+Level 1 Photometric Zero Point Error \newline
 
 
 \paragraph{Generate PSF for Visit Images}\hfill  % Force subsequent text onto new line
@@ -484,6 +514,8 @@ Generate Alerts \newline
 
 \hyperref[DMS-REQ-0116]{DMS-REQ-0116}:
 Extended Object Shape Parameters \newline
+OSS-REQ-0056:
+System Monitoring \& Diagnostics \newline
 
 
 \paragraph{Generate WCS for Visit Images}\hfill  % Force subsequent text onto new line
@@ -531,6 +563,10 @@ astrometricMinStandards
 Produce Co-Added Exposures \newline
 \hyperref[DMS-REQ-0090]{DMS-REQ-0090}:
 Generate Alerts \newline
+OSS-REQ-0162:
+Level 2 Catalog Accuracy \newline
+OSS-REQ-0149:
+Level 1 Catalog Precision \newline
 
 
 \paragraph{Documenting Image Characterization}\hfill  % Force subsequent text onto new line
@@ -561,6 +597,8 @@ Generate Alerts \newline
 
 \hyperref[DMS-REQ-0066]{DMS-REQ-0066}:
 Keep Exposure Archive \newline
+OSS-REQ-0129:
+Exposures (Level 1) \newline
 
 
 \subsubsection{Difference Exposures}
@@ -601,6 +639,8 @@ Provide Source Detection Software \newline
 
 \hyperref[DMS-REQ-0066]{DMS-REQ-0066}:
 Keep Exposure Archive \newline
+OSS-REQ-0122:
+Provenance \newline
 
 
 \subsubsection{Exposure Catalog}
@@ -787,6 +827,12 @@ Catalogs (Level 1) \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0130:
+Catalogs (Level 1) \newline
+
+
 \subsubsection{SSObject Catalog}
 
 \label{DMS-REQ-0273}
@@ -937,6 +983,12 @@ Generate Calibration Report Within Specified Time \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0130:
+Catalogs (Level 1) \newline
+
+
 \subsection{Level 2 Data Products}
 
 
@@ -955,6 +1007,12 @@ Generate Calibration Report Within Specified Time \newline
 \textbf{Discussion:} This requirement is intended to list all the data products that must be archived rather than regenerated on demand. \hyperref[DMS-REQ-0069]{DMS-REQ-0069} indicates in discussion that Processed Visit Images are not archived. \hyperref[DMS-REQ-0010]{DMS-REQ-0010} indicates in the discussion that Difference Exposures are not archived.
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0136:
+Co-added Exposures \newline
 
 
 \subsubsection{Source Catalog}
@@ -1021,6 +1079,12 @@ Enable BAO Analysis \newline
 \textbf{Discussion: }These measurements are intended to enable LSST "static sky" science.
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0137:
+Catalogs (Level 2) \newline
 
 
 \subsubsection{Associate Sources to Objects}
@@ -1125,6 +1189,12 @@ Co-added Exposures \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0136:
+Co-added Exposures \newline
+
+
 \subsubsection{PSF-Matched Coadds}
 
 \label{DMS-REQ-0335}
@@ -1149,6 +1219,12 @@ Co-added Exposures \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0136:
+Co-added Exposures \newline
+
+
 \subsubsection{Targeted Coadds}
 
 \label{DMS-REQ-0338}
@@ -1159,6 +1235,14 @@ Co-added Exposures \newline
 \textbf{Discussion:} This supports quality assessment and targeted science.
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0136:
+Co-added Exposures \newline
+LSR-REQ-0040:
+Data Quality Monitoring \newline
 
 
 \subsubsection{Coadd Image Method Constraints}
@@ -1195,6 +1279,12 @@ Co-added Exposures \newline
 
 \hyperref[DMS-REQ-0041]{DMS-REQ-0041}:
 Measure Intrinsic Ellipticities of Small Galaxies \newline
+OSS-REQ-0153:
+World Coordinate System Accuracy \newline
+OSS-REQ-0316:
+Wavefront Sensor Data \newline
+OSS-REQ-0136:
+Co-added Exposures \newline
 
 
 \subsubsection{Coadded Image Provenance}
@@ -1249,6 +1339,8 @@ coaddDetectThresh
 
 \hyperref[DMS-REQ-0267]{DMS-REQ-0267}:
 Source Catalog \newline
+OSS-REQ-0137:
+Catalogs (Level 2) \newline
 
 
 \paragraph{Detecting extended  low surface brightness objects}\hfill  % Force subsequent text onto new line
@@ -1293,6 +1385,12 @@ Catalogs (Level 2) \newline
 
 
 
+\emph{Derived from Requirements:}
+
+LSR-REQ-0040:
+Data Quality Monitoring \newline
+
+
 \subsubsection{Produce Images for EPO}
 
 \label{DMS-REQ-0103}
@@ -1328,6 +1426,12 @@ Co-added Exposures \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0136:
+Co-added Exposures \newline
+
+
 \subsubsection{Regenerating Data Products from Previous Data Releases}
 
 \label{DMS-REQ-0336}
@@ -1338,6 +1442,12 @@ Co-added Exposures \newline
 \textbf{Discussion:} This is similar to \hyperref[DMS-REQ-0311]{DMS-REQ-0311}, but covering prior data releases. The intent is for the software to be runnable in the same environment as was used for the original data release without the software having to be ported to a modern operating system.
 
 
+
+
+\emph{Derived from Requirements:}
+
+LSR-REQ-0049:
+Data Product Archiving \newline
 
 
 \subsection{Calibration Data Products}
@@ -1362,6 +1472,12 @@ Co-added Exposures \newline
 
 \hyperref[DMS-REQ-0076]{DMS-REQ-0076}:
 Keep Science Data Archive \newline
+OSS-REQ-0129:
+Exposures (Level 1) \newline
+OSS-REQ-0194:
+Calibration Exposures Per Day \newline
+OSS-REQ-0271:
+Supported Image Types \newline
 
 
 \subsubsection{Calibration Image Provenance}
@@ -1380,6 +1496,10 @@ Keep Science Data Archive \newline
 
 \hyperref[DMS-REQ-0130]{DMS-REQ-0130}:
 Calibration Data Products \newline
+OSS-REQ-0122:
+Provenance \newline
+OSS-REQ-0123:
+Reproducibility \newline
 
 
 \subsubsection{Bad Pixel Map}
@@ -1398,6 +1518,10 @@ Calibration Data Products \newline
 
 \hyperref[DMS-REQ-0058]{DMS-REQ-0058}:
 Correct for Instrument Sensitivity Variation \newline
+OSS-REQ-0129:
+Exposures (Level 1) \newline
+OSS-REQ-0271:
+Supported Image Types \newline
 
 
 \subsubsection{Bias Residual Image}
@@ -1416,6 +1540,10 @@ Correct for Instrument Sensitivity Variation \newline
 
 \hyperref[DMS-REQ-0055]{DMS-REQ-0055}:
 Correct for Camera Bias Structure \newline
+OSS-REQ-0271:
+Supported Image Types \newline
+OSS-REQ-0046:
+Calibration \newline
 
 
 \subsubsection{Crosstalk Correction Matrix}
@@ -1434,6 +1562,8 @@ Correct for Camera Bias Structure \newline
 
 \hyperref[DMS-REQ-0056]{DMS-REQ-0056}:
 Correct for Camera Crosstalk \newline
+OSS-REQ-0349:
+Data Release Production Crosstalk Correction \newline
 
 
 \subsubsection{Dark Current Correction Frame}
@@ -1446,6 +1576,14 @@ Correct for Camera Crosstalk \newline
 \textbf{Discussion: }The need for a dark current correction will have to be quantified during Commissioning. Collecting closed-dome dark exposures may be deemed necessary to monitor the health of the detectors, even if not used in calibration processing.
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0271:
+Supported Image Types \newline
+OSS-REQ-0046:
+Calibration \newline
 
 
 \subsubsection{Monochromatic Flatfield Data Cube}
@@ -1466,6 +1604,10 @@ Correct for Camera Crosstalk \newline
 Correct for Instrument Sensitivity Variation \newline
 \hyperref[DMS-REQ-0057]{DMS-REQ-0057}:
 Correct for Detector Fringing \newline
+OSS-REQ-0271:
+Supported Image Types \newline
+OSS-REQ-0046:
+Calibration \newline
 
 
 \subsubsection{Illumination Correction Frame}
@@ -1484,6 +1626,10 @@ Correct for Detector Fringing \newline
 
 \hyperref[DMS-REQ-0058]{DMS-REQ-0058}:
 Correct for Instrument Sensitivity Variation \newline
+OSS-REQ-0271:
+Supported Image Types \newline
+OSS-REQ-0046:
+Calibration \newline
 
 
 \subsubsection{Fringe Correction Frame}
@@ -1496,6 +1642,14 @@ Correct for Instrument Sensitivity Variation \newline
 \textbf{Discussion: }Fringing is likely to affect only the reddest filters, where the CCD substrate becomes semi-transparent to incident light.
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0271:
+Supported Image Types \newline
+OSS-REQ-0046:
+Calibration \newline
 
 
 \subsection{Special Programs}
@@ -1514,6 +1668,12 @@ Correct for Instrument Sensitivity Variation \newline
 \textbf{Discussion: }This affects both L1 and L2 data products. The scope of special programs processing is currently undefined.
 
 
+
+
+\emph{Derived from Requirements:}
+
+LSR-REQ-0075:
+Survey Time Allocation \newline
 
 
 \subsubsection{Level 1 Processing of Special Programs Data}
@@ -1598,6 +1758,12 @@ OTT1
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0181:
+Data Products Query and Download Infrastructure \newline
+
+
 \subsection{Uniqueness of IDs Across Data Releases}
 
 \label{DMS-REQ-0292}
@@ -1613,6 +1779,14 @@ OTT1
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0137:
+Catalogs (Level 2) \newline
+OSS-REQ-0130:
+Catalogs (Level 1) \newline
+
+
 \subsection{Selection of Datasets}
 
 \label{DMS-REQ-0293}
@@ -1623,6 +1797,14 @@ OTT1
 \textbf{Discussion: }Logical groupings might be pairs of Exposures in a Visit, along with supporting metadata and provenance information, or might be groupings defined in the context of Level-3 processing.
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0118:
+Consistency and Completeness \newline
+OSS-REQ-0176:
+Data Access \newline
 
 
 \subsection{Processing of Datasets}
@@ -1638,6 +1820,18 @@ OTT1
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0117:
+Automated Production \newline
+OSS-REQ-0118:
+Consistency and Completeness \newline
+OSS-REQ-0119:
+Completeness \newline
+OSS-REQ-0120:
+Consistency \newline
+
+
 \subsection{Transparent Data Access}
 
 \label{DMS-REQ-0295}
@@ -1649,6 +1843,12 @@ OTT1
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0176:
+Data Access \newline
 
 
 \subsection{Alert Production}
@@ -1667,6 +1867,12 @@ OTT1
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0052:
+Summit Data Buffer \newline
 
 
 \subsubsection{Calibration Images Available Within Specified Time}
@@ -1716,6 +1922,12 @@ nCalExpProc
 
 \hyperref[DMS-REQ-0130]{DMS-REQ-0130}:
 Calibration Data Products \newline
+OSS-REQ-0021:
+Base Site \newline
+OSS-REQ-0046:
+Calibration \newline
+OSS-REQ-0194:
+Calibration Exposures Per Day \newline
 
 
 \subsubsection{Transient Alert Distribution}
@@ -1751,6 +1963,12 @@ Transient Alert Publication \newline
 
 
 
+\emph{Derived from Requirements:}
+
+LSR-REQ-0025:
+Transient Filtering \newline
+
+
 \paragraph{Pre-defined alert filters}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0348}
@@ -1761,6 +1979,12 @@ Transient Alert Publication \newline
 \textbf{Discussion:} See LSR-REQ-0026
 
 
+
+
+\emph{Derived from Requirements:}
+
+LSR-REQ-0026:
+Predefined Transient Filters \newline
 
 
 \paragraph{Performance Requirements for LSST Alert Filtering Service}\hfill  % Force subsequent text onto new line
@@ -1802,6 +2026,12 @@ numBrokerUsers
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0184:
+Transient Alert Publication \newline
+
+
 \subsubsection{Level 1 Source Association}
 
 \label{DMS-REQ-0285}
@@ -1814,6 +2044,16 @@ numBrokerUsers
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0159:
+Level 1 Moving Object Quality \newline
+OSS-REQ-0160:
+Level 1 Difference Source - Difference Object Association Quality \newline
+OSS-REQ-0130:
+Catalogs (Level 1) \newline
+
+
 \subsubsection{SSObject Precovery}
 
 \label{DMS-REQ-0286}
@@ -1824,6 +2064,12 @@ numBrokerUsers
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0159:
+Level 1 Moving Object Quality \newline
 
 
 \subsubsection{DIASource Precovery}
@@ -1876,6 +2122,12 @@ l1CacheLifetime
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0130:
+Catalogs (Level 1) \newline
+
+
 \subsubsection{Use of External Orbit Catalogs}
 
 \label{DMS-REQ-0288}
@@ -1886,6 +2138,12 @@ l1CacheLifetime
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0159:
+Level 1 Moving Object Quality \newline
 
 
 \subsubsection{Solar System Objects Available Within Specified Time}
@@ -1906,6 +2164,8 @@ l1CacheLifetime
 Nightly Data Accessible Within 24 hrs \newline
 \hyperref[DMS-REQ-0086]{DMS-REQ-0086}:
 Produce Orbit Catalog \newline
+OSS-REQ-0127:
+Level 1 Data Product Availability \newline
 
 
 \subsubsection{Generate Data Quality Report Within Specified Time}
@@ -1936,6 +2196,12 @@ dqReportComplTime
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0131:
+Nightly Summary Products \newline
+
+
 \subsubsection{Generate DMS Performance Report Within Specified Time}
 
 \label{DMS-REQ-0098}
@@ -1962,6 +2228,12 @@ perfReportComplTime
 \end{parameters}
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0131:
+Nightly Summary Products \newline
 
 
 \subsubsection{Generate Calibration Report Within Specified Time}
@@ -1992,6 +2264,12 @@ calibReportComplTime
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0131:
+Nightly Summary Products \newline
+
+
 \subsection{Calibration Production}
 
 
@@ -2008,6 +2286,14 @@ calibReportComplTime
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0170:
+Calibration Data \newline
+OSS-REQ-0004:
+The Archive Facility \newline
 
 
 \subsection{Data Release Production}
@@ -2046,6 +2332,8 @@ calibReportComplTime
 
 \hyperref[DMS-REQ-0005]{DMS-REQ-0005}:
 Produce Data Releases \newline
+OSS-REQ-0134:
+Level 2 Data Product Availability \newline
 
 
 \subsection{Level 3 Production}
@@ -2067,6 +2355,16 @@ Produce Data Releases \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0142:
+Access \newline
+OSS-REQ-0176:
+Data Access \newline
+OSS-REQ-0187:
+Information Security \newline
+
+
 \subsubsection{Level 3 Data Import}
 
 \label{DMS-REQ-0290}
@@ -2077,6 +2375,12 @@ Produce Data Releases \newline
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0140:
+Production \newline
 
 
 \subsubsection{DAC resource allocation for Level 3 processing}
@@ -2091,6 +2395,12 @@ Produce Data Releases \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0143:
+Resource Allocation \newline
+
+
 \subsubsection{Level 3 Data Product Self Consistency}
 
 \label{DMS-REQ-0120}
@@ -2101,6 +2411,14 @@ Produce Data Releases \newline
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0120:
+Consistency \newline
+OSS-REQ-0118:
+Consistency and Completeness \newline
 
 
 \subsubsection{Provenance for Level 3 processing at DACs}
@@ -2115,6 +2433,12 @@ Produce Data Releases \newline
 \textbf{Rationale:} the DMS should facilitate Level 3 processing users in being able to carry out their work in a reproducible way.
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0122:
+Provenance \newline
 
 
 \subsubsection{Software framework for Level 3 catalog processing}
@@ -2133,6 +2457,10 @@ Produce Data Releases \newline
 
 \hyperref[DMS-REQ-0120]{DMS-REQ-0120}:
 Level 3 Data Product Self Consistency \newline
+OSS-REQ-0121:
+Open Source, Open Configuration \newline
+OSS-REQ-0122:
+Provenance \newline
 
 
 \subsubsection{Software framework for Level 3 image processing}
@@ -2151,6 +2479,10 @@ Level 3 Data Product Self Consistency \newline
 
 \hyperref[DMS-REQ-0120]{DMS-REQ-0120}:
 Level 3 Data Product Self Consistency \newline
+OSS-REQ-0121:
+Open Source, Open Configuration \newline
+OSS-REQ-0122:
+Provenance \newline
 
 
 \section{Software}
@@ -2169,6 +2501,12 @@ Level 3 Data Product Self Consistency \newline
 \textbf{Discussion: }The high data volume and short processing timeline for LSST Productions anticipates the use of high-performance compute infrastructure, while the need to make the science algorithms immediately applicable to science teams for Level-3 processing drives the need for easy interoperability with desktop compute environments.
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0121:
+Open Source, Open Configuration \newline
 
 
 \subsection{Applications Software}
@@ -2193,6 +2531,12 @@ Level 3 Data Product Self Consistency \newline
 
 \hyperref[DMS-REQ-0007]{DMS-REQ-0007}:
 Pipeline Infrastructure \newline
+OSS-REQ-0351:
+Difference Source Spurious Probability Metric \newline
+OSS-REQ-0353:
+Difference Source Spuriousness Threshold - Transients \newline
+OSS-REQ-0354:
+Difference Source Spuriousness Threshold - MOPS \newline
 
 
 \subsubsection{Pre-cursor, and Real Data}
@@ -2219,6 +2563,14 @@ Pipeline Infrastructure \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0121:
+Open Source, Open Configuration \newline
+OSS-REQ-0129:
+Exposures (Level 1) \newline
+
+
 \subsubsection{Provide Source Detection Software}
 
 \label{DMS-REQ-0033}
@@ -2235,6 +2587,12 @@ Pipeline Infrastructure \newline
 
 \hyperref[DMS-REQ-0080]{DMS-REQ-0080}:
 Difference Sources Available within 24 hours \newline
+OSS-REQ-0121:
+Open Source, Open Configuration \newline
+OSS-REQ-0130:
+Catalogs (Level 1) \newline
+OSS-REQ-0137:
+Catalogs (Level 2) \newline
 
 
 \subsubsection{Provide Calibrated Photometry}
@@ -2249,6 +2607,16 @@ Difference Sources Available within 24 hours \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0137:
+Catalogs (Level 2) \newline
+OSS-REQ-0130:
+Catalogs (Level 1) \newline
+OSS-REQ-0275:
+Calibration Processing Performance Allocations \newline
+
+
 \subsubsection{Provide Astrometric Model}
 
 \label{DMS-REQ-0042}
@@ -2259,6 +2627,18 @@ Difference Sources Available within 24 hours \newline
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0149:
+Level 1 Catalog Precision \newline
+OSS-REQ-0153:
+World Coordinate System Accuracy \newline
+OSS-REQ-0160:
+Level 1 Difference Source - Difference Object Association Quality \newline
+OSS-REQ-0162:
+Level 2 Catalog Accuracy \newline
 
 
 \subsubsection{Provide Beam Projector Coordinate Calculation Software}
@@ -2285,6 +2665,12 @@ Difference Sources Available within 24 hours \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0137:
+Catalogs (Level 2) \newline
+
+
 \subsubsection{Provide User Interface Services}
 
 \label{DMS-REQ-0160}
@@ -2295,6 +2681,12 @@ Difference Sources Available within 24 hours \newline
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0057:
+Image Visualization \newline
 
 
 \subsection{Middleware Software}
@@ -2315,6 +2707,18 @@ Difference Sources Available within 24 hours \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0041:
+Subsystem Activation \newline
+OSS-REQ-0307:
+Subsystem Initialization \newline
+OSS-REQ-0121:
+Open Source, Open Configuration \newline
+OSS-REQ-0122:
+Provenance \newline
+
+
 \subsubsection{Provide Data Access Services}
 
 \label{DMS-REQ-0155}
@@ -2327,6 +2731,12 @@ Difference Sources Available within 24 hours \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0176:
+Data Access \newline
+
+
 \paragraph{Data Product Ingest}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0299}
@@ -2337,6 +2747,14 @@ Difference Sources Available within 24 hours \newline
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0141:
+Storage \newline
+OSS-REQ-0004:
+The Archive Facility \newline
 
 
 \paragraph{Data Product and Raw Data Access}\hfill  % Force subsequent text onto new line
@@ -2352,6 +2770,12 @@ Difference Sources Available within 24 hours \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0176:
+Data Access \newline
+
+
 \paragraph{Bulk Download Service}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0300}
@@ -2362,6 +2786,12 @@ Difference Sources Available within 24 hours \newline
 \textbf{Discussion:} This includes bulk download of older data releases.
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0178:
+Data Distribution \newline
 
 
 \subsubsection{Provide Image Access Services}
@@ -2380,6 +2810,12 @@ Difference Sources Available within 24 hours \newline
 
 \hyperref[DMS-REQ-0066]{DMS-REQ-0066}:
 Keep Exposure Archive \newline
+OSS-REQ-0180:
+Data Products Query and Download Availability \newline
+OSS-REQ-0181:
+Data Products Query and Download Infrastructure \newline
+OSS-REQ-0176:
+Data Access \newline
 
 
 \subsubsection{Control of Level-1 Production}
@@ -2394,6 +2830,12 @@ Keep Exposure Archive \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0044:
+Standard Operating States \newline
+
+
 \subsubsection{Provide Pipeline Execution Services}
 
 \label{DMS-REQ-0156}
@@ -2404,6 +2846,14 @@ Keep Exposure Archive \newline
 (This is a composite requirement in the SysML model, which simply aggregates its children.)
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0037:
+Observatory Control System Definition \newline
+OSS-REQ-0117:
+Automated Production \newline
 
 
 \paragraph{Production Orchestration}\hfill  % Force subsequent text onto new line
@@ -2418,6 +2868,16 @@ Keep Exposure Archive \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0004:
+The Archive Facility \newline
+OSS-REQ-0038:
+Scope of Control \newline
+OSS-REQ-0117:
+Automated Production \newline
+
+
 \paragraph{Production Monitoring}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0303}
@@ -2430,6 +2890,16 @@ Keep Exposure Archive \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0004:
+The Archive Facility \newline
+OSS-REQ-0038:
+Scope of Control \newline
+OSS-REQ-0034:
+System Control \newline
+
+
 \paragraph{Production Fault Tolerance}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0304}
@@ -2440,6 +2910,12 @@ Keep Exposure Archive \newline
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0117:
+Automated Production \newline
 
 
 \subsubsection{Provide Pipeline Construction Services}
@@ -2466,6 +2942,14 @@ Keep Exposure Archive \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0121:
+Open Source, Open Configuration \newline
+OSS-REQ-0122:
+Provenance \newline
+
+
 \paragraph{Task Specification}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0305}
@@ -2476,6 +2960,14 @@ Keep Exposure Archive \newline
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0121:
+Open Source, Open Configuration \newline
+OSS-REQ-0122:
+Provenance \newline
 
 
 \subsubsection{Unique Processing Coverage}
@@ -2490,6 +2982,14 @@ Keep Exposure Archive \newline
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0120:
+Consistency \newline
+OSS-REQ-0118:
+Consistency and Completeness \newline
 
 
 \section{Facilities}
@@ -2532,6 +3032,12 @@ dataLossMax
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0111:
+Science Image Archiving Reliability \newline
+
+
 \subsubsection{Keep Historical Alert Archive}
 
 \label{DMS-REQ-0094}
@@ -2548,6 +3054,8 @@ dataLossMax
 
 \hyperref[DMS-REQ-0092]{DMS-REQ-0092}:
 Alert Attributes \newline
+OSS-REQ-0128:
+Alerts \newline
 
 
 \subsubsection{Un-Archived Data Product Cache}
@@ -2578,6 +3086,12 @@ l1CacheLifetime
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0130:
+Catalogs (Level 1) \newline
+
+
 \subsubsection{Regenerate Un-archived Data Products}
 
 \label{DMS-REQ-0311}
@@ -2588,6 +3102,12 @@ l1CacheLifetime
 \textbf{Discussion: }Unarchived data products currently include Processed Visit Images for single visits, some Coadds, and Difference Images. Scientifically reasonable tolerances means well within the formal uncertainties of the data product, given the same production software, calibrations, and compute platform, all of which are expected to change (and improve) during the course of the survey.
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0129:
+Exposures (Level 1) \newline
 
 
 \subsubsection{Level 1 Data Product Access}
@@ -2602,6 +3122,14 @@ l1CacheLifetime
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0127:
+Level 1 Data Product Availability \newline
+OSS-REQ-0185:
+Transient Alert Query \newline
+
+
 \subsubsection{Level 1 \& 2 Catalog Access}
 
 \label{DMS-REQ-0313}
@@ -2614,16 +3142,44 @@ l1CacheLifetime
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0186:
+Access to Previous Data Releases \newline
+
+
 \subsubsection{Provide Engineering \& Facility Database Archive}
 
 \label{DMS-REQ-0102}
 \textbf{ID:} DMS-REQ-0102
 
-\textbf{Specification:} Engineering and Facility data from the Observatory Control System and associated metadata shall be permanently archived by the DMS and available for public access within 24 hours of their generation by the OCS.
+    \textbf{Specification:} Engineering and Facility data from the Observatory Control System and associated metadata shall be permanently archived by the DMS and available for public access within \textbf{L1PublicT} hours of their generation by the OCS.
 
 
 
 
+
+\begin{parameters}
+Maximum time from the acquisition of science data to the public release of associated Level 1 Data Products (except alerts)
+&
+24
+&
+\unitname{%
+hour
+}
+&
+\paramname{%
+L1PublicT
+} \\\hline
+\end{parameters}
+
+
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0132:
+Engineering and Facility Database Archive \newline
 
 
 \subsubsection{Catalog Queries}
@@ -2642,6 +3198,8 @@ l1CacheLifetime
 
 \hyperref[DMS-REQ-0076]{DMS-REQ-0076}:
 Keep Science Data Archive \newline
+OSS-REQ-0176:
+Data Access \newline
 
 
 \subsubsection{Logging of catalog queries}
@@ -2654,6 +3212,12 @@ Keep Science Data Archive \newline
     \textbf{Discussion: }The logs can be used for auditing in case of a dispute regarding data release timing. They can also be used by the data access team to learn the usage patterns of the system (such as the times of day/month with high load, or the most popular queries) and provide statistics for focusing on future developments and improvements of LSST. Whilst queries are private by default, in conjunction with \hyperref[DMS-REQ-0291]{DMS-REQ-0291}, it would be desirable for a query to be published and associated with a DOI.
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0134:
+Level 2 Data Product Availability \newline
 
 
 \subsubsection{Providing a Precovery Service}
@@ -2717,6 +3281,8 @@ precoveryServicePeakUsers
 
 \hyperref[DMS-REQ-0076]{DMS-REQ-0076}:
 Keep Science Data Archive \newline
+OSS-REQ-0176:
+Data Access \newline
 
 
 \subsubsection{Maintain Archive Publicly Accessible}
@@ -2735,6 +3301,8 @@ Keep Science Data Archive \newline
 
 \hyperref[DMS-REQ-0076]{DMS-REQ-0076}:
 Keep Science Data Archive \newline
+OSS-REQ-0186:
+Access to Previous Data Releases \newline
 
 
 \subsection{Computational Infrastructure}
@@ -2803,6 +3371,14 @@ Unscheduled Downtime Subsystem Allocations \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0177:
+Data Access Environment \newline
+OSS-REQ-0124:
+Software Development Standards \newline
+
+
 \subsubsection{Pipeline Throughput}
 
 \label{DMS-REQ-0162}
@@ -2813,6 +3389,14 @@ Unscheduled Downtime Subsystem Allocations \newline
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0127:
+Level 1 Data Product Availability \newline
+OSS-REQ-0020:
+Usable Observing Time \newline
 
 
 \subsubsection{Pipeline Availability}
@@ -2871,14 +3455,36 @@ drProcessingPeriod
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0134:
+Level 2 Data Product Availability \newline
+
+
 \subsubsection{Temporary Storage for Communications Links}
 
 \label{DMS-REQ-0164}
 \textbf{ID:} DMS-REQ-0164
 
-\textbf{Specification: }The infrastructure will provide for temporary storage for a minimum of 200% of the mean time to repair of any communications network link at the source end of that link.
+    \textbf{Specification: }The infrastructure will provide for temporary storage for a minimum of \textbf{tempStorageRelMTTR} of the mean time to repair of any communications network link at the source end of that link.
 
 
+
+
+
+\begin{parameters}
+Temporary storage required relative to network Mean Time to Repair.
+&
+200
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+tempStorageRelMTTR
+} \\\hline
+\end{parameters}
 
 
 
@@ -2905,6 +3511,12 @@ Pipeline Throughput \newline
 
 \hyperref[DMS-REQ-0162]{DMS-REQ-0162}:
 Pipeline Throughput \newline
+OSS-REQ-0050:
+Summit Power Grid Loss \newline
+OSS-REQ-0051:
+Summit-Base Connectivity Loss \newline
+OSS-REQ-0052:
+Summit Data Buffer \newline
 
 
 \subsubsection{Incorporate Fault-Tolerance}
@@ -2961,6 +3573,12 @@ Incorporate Fault-Tolerance \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0002:
+The Summit Facility \newline
+
+
 \subsubsection{Prefer Computing and Storage Down}
 
 \label{DMS-REQ-0170}
@@ -2989,6 +3607,12 @@ Optimization of Cost, Reliability and Availability in Order \newline
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0003:
+The Base Facility \newline
 
 
 \subsection{Summit to Base}
@@ -3025,6 +3649,14 @@ summToBaseMaxTransferTime
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0003:
+The Base Facility \newline
+OSS-REQ-0127:
+Level 1 Data Product Availability \newline
+
+
 \subsubsection{Summit to Base Network Availability}
 
 \label{DMS-REQ-0172}
@@ -3057,6 +3689,8 @@ summToBaseNetMTBF
 
 \hyperref[DMS-REQ-0161]{DMS-REQ-0161}:
 Optimization of Cost, Reliability and Availability in Order \newline
+OSS-REQ-0373:
+Unscheduled Downtime Subsystem Allocations \newline
 
 
 \subsubsection{Summit to Base Network Reliability}
@@ -3091,6 +3725,8 @@ summToBaseNetMTTR
 
 \hyperref[DMS-REQ-0161]{DMS-REQ-0161}:
 Optimization of Cost, Reliability and Availability in Order \newline
+OSS-REQ-0373:
+Unscheduled Downtime Subsystem Allocations \newline
 
 
 \subsubsection{Summit to Base Network Secondary Link}
@@ -3127,6 +3763,8 @@ summToBaseNet2TransMax
 Summit to Base Network Availability \newline
 \hyperref[DMS-REQ-0173]{DMS-REQ-0173}:
 Summit to Base Network Reliability \newline
+OSS-REQ-0049:
+Degraded Operational States \newline
 
 
 \subsubsection{Summit to Base Network Ownership and Operation}
@@ -3147,6 +3785,8 @@ Summit to Base Network Reliability \newline
 Summit to Base Network Reliability \newline
 \hyperref[DMS-REQ-0172]{DMS-REQ-0172}:
 Summit to Base Network Availability \newline
+OSS-REQ-0036:
+Local Autonomous Administration of System Sites \newline
 
 
 \subsection{Base Facility}
@@ -3165,6 +3805,12 @@ Summit to Base Network Availability \newline
 \textbf{Discussion:} The Base Facility is co-located with the Chilean DAC, and also serves as a back-up for the Archive Center in the event of disaster.
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0003:
+The Base Facility \newline
 
 
 \subsubsection{Base Facility Temporary Storage}
@@ -3199,6 +3845,10 @@ minBaseDataStorage
 
 \hyperref[DMS-REQ-0164]{DMS-REQ-0164}:
 Temporary Storage for Communications Links \newline
+OSS-REQ-0053:
+Base-Archive Connectivity Loss \newline
+OSS-REQ-0054:
+Base Data Buffer \newline
 
 
 \subsubsection{Base Facility Co-Location with Existing Facility}
@@ -3217,6 +3867,8 @@ Temporary Storage for Communications Links \newline
 
 \hyperref[DMS-REQ-0161]{DMS-REQ-0161}:
 Optimization of Cost, Reliability and Availability in Order \newline
+OSS-REQ-0006:
+Sites \newline
 
 
 \subsubsection{Commissioning Cluster}
@@ -3224,9 +3876,25 @@ Optimization of Cost, Reliability and Availability in Order \newline
 \label{DMS-REQ-0316}
 \textbf{ID:} DMS-REQ-0316
 
-\textbf{Specification:} The Base Facility shall include a compute cluster to be made available to the Systems Engineering group for use in commissioning.  Data Management will not administer or otherwise maintain this cluster following hardware installation. The budget for this cluster shall be at least 10% of the budget for Alert Production hardware.
+    \textbf{Specification:} The Base Facility shall include a compute cluster to be made available to the Systems Engineering group for use in commissioning.  Data Management will not administer or otherwise maintain this cluster following hardware installation. The budget for this cluster shall be at least \textbf{budgetRelAlertProd} of the budget for Alert Production hardware.
 
 
+
+
+
+\begin{parameters}
+Budget relative to the cost of the Alert Production system.
+&
+10
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+budgetRelAlertProd
+} \\\hline
+\end{parameters}
 
 
 
@@ -3253,6 +3921,10 @@ Optimization of Cost, Reliability and Availability in Order \newline
 
 \hyperref[DMS-REQ-0162]{DMS-REQ-0162}:
 Pipeline Throughput \newline
+OSS-REQ-0053:
+Base-Archive Connectivity Loss \newline
+OSS-REQ-0055:
+Base Updating from Archive \newline
 
 
 \subsubsection{Base to Archive Network Availability}
@@ -3289,6 +3961,8 @@ baseToArchNetMTBF
 Optimization of Cost, Reliability and Availability in Order \newline
 \hyperref[DMS-REQ-0162]{DMS-REQ-0162}:
 Pipeline Throughput \newline
+OSS-REQ-0053:
+Base-Archive Connectivity Loss \newline
 
 
 \subsubsection{Base to Archive Network Reliability}
@@ -3323,6 +3997,8 @@ baseToArchNetMTTR
 
 \hyperref[DMS-REQ-0161]{DMS-REQ-0161}:
 Optimization of Cost, Reliability and Availability in Order \newline
+OSS-REQ-0053:
+Base-Archive Connectivity Loss \newline
 
 
 \subsubsection{Base to Archive Network Secondary Link}
@@ -3343,6 +4019,8 @@ Optimization of Cost, Reliability and Availability in Order \newline
 Base to Archive Network Reliability \newline
 \hyperref[DMS-REQ-0181]{DMS-REQ-0181}:
 Base to Archive Network Availability \newline
+OSS-REQ-0049:
+Degraded Operational States \newline
 
 
 \subsection{Archive Center}
@@ -3367,6 +4045,8 @@ Base to Archive Network Availability \newline
 
 \hyperref[DMS-REQ-0163]{DMS-REQ-0163}:
 Re-processing Capacity \newline
+OSS-REQ-0004:
+The Archive Facility \newline
 
 
 \subsubsection{Archive Center Disaster Recovery}
@@ -3385,6 +4065,8 @@ Re-processing Capacity \newline
 
 \hyperref[DMS-REQ-0161]{DMS-REQ-0161}:
 Optimization of Cost, Reliability and Availability in Order \newline
+OSS-REQ-0176:
+Data Access \newline
 
 
 \subsubsection{Archive Center Co-Location with Existing Facility}
@@ -3403,6 +4085,8 @@ Optimization of Cost, Reliability and Availability in Order \newline
 
 \hyperref[DMS-REQ-0161]{DMS-REQ-0161}:
 Optimization of Cost, Reliability and Availability in Order \newline
+OSS-REQ-0022:
+Archive Site \newline
 
 
 \subsection{Archive to Data Access Center}
@@ -3545,6 +4229,12 @@ Archive to Data Access Center Network Reliability \newline
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0004:
+The Archive Facility \newline
+
+
 \subsubsection{Data Access Center Simultaneous Connections}
 
 \label{DMS-REQ-0194}
@@ -3585,6 +4275,14 @@ dacMinConnections
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0140:
+Production \newline
+OSS-REQ-0180:
+Data Products Query and Download Availability \newline
+
+
 \subsubsection{Access to images for external Level 3 processing}
 
 \label{DMS-REQ-0126}
@@ -3595,6 +4293,14 @@ dacMinConnections
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0140:
+Production \newline
+OSS-REQ-0180:
+Data Products Query and Download Availability \newline
 
 
 \subsubsection{Access to input catalogs for DAC-based Level 3 processing}
@@ -3609,6 +4315,12 @@ dacMinConnections
 
 
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0140:
+Production \newline
+
+
 \subsubsection{Access to input images for DAC-based Level 3 processing}
 
 \label{DMS-REQ-0127}
@@ -3619,6 +4331,12 @@ dacMinConnections
 
 
 
+
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0140:
+Production \newline
 
 
 \subsubsection{Federation with external catalogs}
@@ -3637,6 +4355,8 @@ dacMinConnections
 
 \hyperref[DMS-REQ-0125]{DMS-REQ-0125}:
 Software framework for Level 3 catalog processing \newline
+OSS-REQ-0140:
+Production \newline
 
 
 \subsubsection{Data Access Center Geographical Distribution}
@@ -3655,6 +4375,10 @@ Software framework for Level 3 catalog processing \newline
 
 \hyperref[DMS-REQ-0193]{DMS-REQ-0193}:
 Data Access Centers \newline
+OSS-REQ-0021:
+Base Site \newline
+OSS-REQ-0022:
+Archive Site \newline
 
 
 \subsubsection{No Limit on Data Access Centers}
@@ -3673,6 +4397,10 @@ Data Access Centers \newline
 
 \hyperref[DMS-REQ-0193]{DMS-REQ-0193}:
 Data Access Centers \newline
+OSS-REQ-0021:
+Base Site \newline
+OSS-REQ-0022:
+Archive Site \newline
 
 
 
