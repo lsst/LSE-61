@@ -73,6 +73,12 @@ with open(sys.argv[1], "r") as fh:
         if re.search(r"section\{.* & ", line):
             line = re.sub(r" & ", r" \& ", line)
 
+        # Sometimes traced requirements have & in their name and we have no
+        # control over that part of the model.
+        # Try to replace them by assuming none of the tables end in \newline
+        if re.search(r" & .*newline$", line):
+            line = re.sub(r" & ", r" \& ", line)
+
         # Remove any spaces between the section{ and beginning of title.
         # Useful for consistent git history as updated template leaves space.
         if re.search(r"section\{ ", line):
