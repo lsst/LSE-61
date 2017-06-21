@@ -14,7 +14,7 @@
 #if(!$report.getStereotypeProperty($element,"Requirement","Id").isEmpty())
 
 ## list every requirement even if no relationships
-$report.getStereotypeProperty($element,"Requirement","Id").get(0) None
+$report.getStereotypeProperty($element,"Requirement","Id").get(0) $element.name
 
 #end
 
@@ -35,7 +35,7 @@ $report.getStereotypeProperty($element,"Requirement","Id").get(0) None
 #foreach($derive in $derives)
 #set($dername = $derive.getTarget().get(0).name)
 #if(!$dername.isEmpty())
-$report.getStereotypeProperty($element,"Requirement","Id").get(0) $report.getStereotypeProperty($derive.getTarget().get(0),"Requirement","Id").get(0)
+$report.getStereotypeProperty($element,"Requirement","Id").get(0) $report.getStereotypeProperty($derive.getTarget().get(0),"Requirement","Id").get(0) $derive.getTarget().get(0).name
 #end
 #end
 
