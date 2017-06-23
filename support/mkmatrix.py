@@ -43,6 +43,7 @@ def text2tex(title):
     title = re.sub("&", r"\&", title)
     return title
 
+
 def dumpdict(name1, name2, lut, reqtitles):
     """Put dict of lists into longtable.
     name1 and name2 are the column names for table.
@@ -89,6 +90,7 @@ def dumpdict(name1, name2, lut, reqtitles):
 \end{longtable}
 \end{small}
 """)
+
 
 if make_doc:
     print(r"""
