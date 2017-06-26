@@ -208,7 +208,7 @@ Telemetry Database Retention \newline
 \label{DMS-REQ-0331}
 \textbf{ID:} DMS-REQ-0331
 
-\textbf{Specification:} Common derived quantities shall be made available to end-users by either providing pre-computed columns or providing functions that can be used dynamically in queries. These should at least include the ability to calculate the reduced chi-squared and make it as easy as possible to calculate color-color diagrams.
+    \textbf{Specification:} Common derived quantities shall be made available to end-users by either providing pre-computed columns or providing functions that can be used dynamically in queries. These should at least include the ability to calculate the reduced chi-squared of fitted models and make it as easy as possible to calculate color-color diagrams.
 
 \textbf{Discussion}: Example quantities include those used to assess model fit quality or those required for calculating color-magnitude diagrams. Care should be taken to name the derived columns in a clear unambiguous way.
 
@@ -736,7 +736,7 @@ Alert Completeness and Purity \newline
 \label{DMS-REQ-0319}
 \textbf{ID:} DMS-REQ-0319
 
-    \textbf{Specification:} For alert production, DIAObject variability characterization shall include data collected during the time period from the present to \textbf{diaCharacterizationCutoff} in the past.
+    \textbf{Specification:} For alert production, DIAObject variability characterization shall include data collected during the time period from the present to at least \textbf{diaCharacterizationCutoff} in the past.
 
 \textbf{Discussion}: These measurements can come from the live L1 database. For level 1 processing during Data Release Production, all data should be used for characterization.
 
@@ -1200,7 +1200,7 @@ Co-added Exposures \newline
 \label{DMS-REQ-0335}
 \textbf{ID:} DMS-REQ-0335
 
-\textbf{Specification:} One (ugrizyM) set of PSF-matched coadds shall be made but shall not be archived.
+    \textbf{Specification:} One (ugrizy plus multi-band) set of PSF-matched coadds shall be made but shall not be archived.
 
 \textbf{Discussion:} These are used to measure colors and shapes of objects at "standard" seeing. Sufficient provenance information will be made available to allow these coadds to be recreated by Level 3 users.
 
@@ -1665,7 +1665,7 @@ Calibration \newline
 
 \textbf{Specification:} It shall be possible for special programs to trigger their own data processing recipes.
 
-\textbf{Discussion: }This affects both L1 and L2 data products. The scope of special programs processing is currently undefined.
+    \textbf{Discussion: }This affects both L1 and L2 data products. For some special programs there may be minimalist L1 processing, for other special programs the L1 processing may be the standard alert generation processing. The scope of special programs processing is currently undefined.
 
 
 
