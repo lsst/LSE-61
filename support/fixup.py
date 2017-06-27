@@ -16,6 +16,7 @@ LaTeX template file to allow it to work with LaTeX.
 with open(sys.argv[1], "r") as fh:
     in_table = False
     in_list = False
+    stripping = False
     for line in fh.readlines():
         # Remove html pre wrappers. They can be ignored
         line = re.sub(r"<html><pre>", "", line)
@@ -134,5 +135,19 @@ with open(sys.argv[1], "r") as fh:
 
         # Strip trailing whitespace
         line = line.rstrip()
+
+        # Template can insert Specification and Discussion text but we need
+        # to remove any blank lines after that line. These blank lines are
+        # caused by stripping out the useles HTML tags early so we have to
+        # filter them out here.
+        if not line:
+            if stripping:
+                continue
+        else:
+            if re.match(r"\\textbf{(Discussion|Specification):}$", line):
+                stripping = True
+                print("Trigger: {}".format(line), file=sys.stderr)
+            else:
+                stripping = False
 
         print(line)

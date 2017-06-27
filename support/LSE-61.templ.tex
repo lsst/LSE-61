@@ -69,10 +69,10 @@ $element.documentation
 
 #end
 #if(!$report.getStereotypeProperty($element,"Requirement","Text").isEmpty())
-$report.getStereotypeProperty($element,"Requirement","Text").get(0)
-
+#writeReqText($report.getStereotypeProperty($element,"Requirement","Text").get(0), "Specification:")
 #end
-$element.documentation
+
+#writeReqText($element.documentation, "Discussion:")
 #end
 
 #set($refines = $array.createArray())
@@ -167,6 +167,18 @@ $string
 #properHeading($header.substring($header.indexOf(" ")),$depth)
 #else
 #properHeading($header,$depth)
+#end
+#end
+
+## See if the supplied substring exists within the supplied text. If it does
+## not then write it out ourselves. Then write the element text.
+#macro( writeReqText $text $substring)
+#if(!$text.isEmpty())
+#set ($index = $text.indexOf($substring))
+#if($index < 0)
+\textbf{$substring}
+#end
+$text
 #end
 #end
 
