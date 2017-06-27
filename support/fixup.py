@@ -73,6 +73,10 @@ with open(sys.argv[1], "r") as fh:
         if re.search(r"section\{.* & ", line):
             line = re.sub(r" & ", r" \& ", line)
 
+        # Handle underscores that are surrounded by text
+        if re.search(r"\w_\w", line):
+            line = re.sub(r"(\w)_(\w)", r"\1\_\2", line)
+
         # Sometimes traced requirements have & in their name and we have no
         # control over that part of the model.
         # Try to replace them by assuming none of the tables end in \newline
