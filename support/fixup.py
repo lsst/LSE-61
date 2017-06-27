@@ -133,20 +133,26 @@ with open(sys.argv[1], "r") as fh:
             in_table = False
             print("\\end{itemize}")
 
+        # Strip leading spaces from requirements text
+        if re.match(r"\s+\\textbf{(Discussion|Specification):}", line):
+            line = line.lstrip()
+
         # Strip trailing whitespace
         line = line.rstrip()
 
         # Template can insert Specification and Discussion text but we need
         # to remove any blank lines after that line. These blank lines are
         # caused by stripping out the useles HTML tags early so we have to
-        # filter them out here.
+        # filter them out here. We also want to ensure we don't have lots of
+        # blank lines together (they appear when we strip tags).
         if not line:
             if stripping:
                 continue
+            # Compress multiple blank lines into a single blank line
+            stripping = True
         else:
             if re.match(r"\\textbf{(Discussion|Specification):}$", line):
                 stripping = True
-                print("Trigger: {}".format(line), file=sys.stderr)
             else:
                 stripping = False
 
