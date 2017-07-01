@@ -1,4 +1,4 @@
-\documentclass[SE,toc]{lsstdoc}
+\documentclass[SE,toc,lsstdraft]{lsstdoc}
 
 % We use commands to make it easy to find where parameter names and units
 % are defined in the tables, and to allow hyphenation.
@@ -9,7 +9,7 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{240}
+\setDocUpstreamVersion{241}
 
 \date{2017-06-30}
 
@@ -2662,9 +2662,9 @@ The Base Facility \newline
 \textbf{Specification:} The DMS shall provide communications infrastructure between the Summit Facility and the Base Facility sufficient to carry scientific data and associated metadata for each image in no more than time \textbf{summToBaseMaxTransferTime}.
 
 \begin{parameters}
-Maximum time interval to transfer a full Raw Exposure and all related metadata from the Summit Facility to the Base facility.
+Maximum time interval to transfer a full Crosstalk Corrected Exposure and all related metadata from the Summit Facility to the Base facility.
 &
-6
+2
 &
 \unitname{%
 second
@@ -2865,6 +2865,33 @@ budgetRelAlertProd
 } \\\hline
 \end{parameters}
 
+\subsubsection{Base Wireless LAN (WiFi)}
+
+\label{DMS-REQ-0352}
+\textbf{ID:} DMS-REQ-0352
+
+\textbf{Specification:}
+The Base LAN shall provide \textbf{minBaseWiFi} Wireless LAN (WiFi) and Wireless Access Points in the Base Facility to support connectivity of individual user's computers to the network backbones.
+
+\begin{parameters}
+Maximum allowable outage of active DM production.
+&
+1000
+&
+\unitname{%
+megabit per second
+}
+&
+\paramname{%
+minBaseWifi
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0003:
+The Base Facility \newline
+
 \subsection{Base to Archive}
 
 \subsubsection{Base to Archive Network}
@@ -2872,7 +2899,21 @@ budgetRelAlertProd
 \label{DMS-REQ-0180}
 \textbf{ID:} DMS-REQ-0180
 
-\textbf{Specification:} The DMS shall provide communications infrastructure between the Base Facility and the Archive Center sufficient to carry scientific data and associated metadata for a given night to support the Alert Production and related Level-1 processing at the Archive Center.
+\textbf{Specification:} The DMS shall provide communications infrastructure between the Base Facility and the Archive Center sufficient to carry scientific data and associated metadata for each image in no more than time \textbf{baseToArchiveMaxTransferTime}.
+
+\begin{parameters}
+Maximum time interval to transfer a full Crosstalk Corrected Exposure and all related metadata from the Base Facility to the Archive Center.
+&
+5
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+baseToArchiveMaxTransferTime
+} \\\hline
+\end{parameters}
 
 \emph{Derived from Requirements:}
 
@@ -3032,7 +3073,7 @@ archToDacBandwidth
 \textbf{Specification:} The Archive to Data Access Center communications shall be highly available, with MTBF > \textbf{archToDacNetMTBF}.
 
 \begin{parameters}
-Mean Time Between Failures for data link between Archive and DACs, averaged over a one-year period.
+Mean Time Between Failures for data service between Archive and DACs, averaged over a one-year period.
 &
 180
 &
