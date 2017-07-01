@@ -1049,20 +1049,6 @@ Co-added Exposures \newline
 OSS-REQ-0136:
 Co-added Exposures \newline
 
-\subsubsection{Regenerating Data Products from Previous Data Releases}
-
-\label{DMS-REQ-0336}
-\textbf{ID:} DMS-REQ-0336
-
-\textbf{Specification:} The DMS shall be able to regenerate data products from previous data releases to within scientifically reasonable tolerances.
-
-\textbf{Discussion:} This is similar to \hyperref[DMS-REQ-0311]{DMS-REQ-0311}, but covering prior data releases. The intent is for the software to be runnable in the same environment as was used for the original data release without the software having to be ported to a modern operating system.
-
-\emph{Derived from Requirements:}
-
-LSR-REQ-0049:
-Data Product Archiving \newline
-
 \subsection{Calibration Data Products}
 
 \subsubsection{Calibration Data Products}
@@ -1719,22 +1705,6 @@ The Archive Facility \newline
 \textbf{Specification:} It shall be possible to associate an Object in one data release to the most likely match in the Object table from another data release. This shall be possible without the previous data releases being online.
 
 \textbf{Discussion:} This could be done with a database table mapping every Object in one data release to the matched Object in every other data release.
-
-\subsubsection{Timely Publication of Level 2 Data Releases}
-
-\label{DMS-REQ-0006}
-\textbf{ID:} DMS-REQ-0006
-
-\textbf{Specification:} The DMS shall make available to end-users all Level-2 data products as soon as possible following the execution of the Data Release Production and the verification of science data quality.
-
-\textbf{Commentary: }Verifying "as soon as possible" is impossible. This requirement seems to be more a statement of operations rather than something that can be verified in construction. The intent here is to ensure that observatory scientists do not sit on the release to get a head start on science publications. This requirement should be retired and integrated into the concept of operations plan. \hyperref[DMS-REQ-0345]{DMS-REQ-0345} has been added to allow auditing of system access in cases where science papers are published suspiciously quickly.
-
-\emph{Derived from Requirements:}
-
-\hyperref[DMS-REQ-0005]{DMS-REQ-0005}:
-Produce Data Releases \newline
-OSS-REQ-0134:
-Level 2 Data Product Availability \newline
 
 \subsection{Level 3 Production}
 
