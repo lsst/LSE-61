@@ -1,4 +1,4 @@
-\documentclass[SE,toc,lsstdraft]{lsstdoc}
+\documentclass[SE,toc]{lsstdoc}
 
 % We use commands to make it easy to find where parameter names and units
 % are defined in the tables, and to allow hyphenation.
@@ -7,7 +7,13 @@
 
 \setcounter{secnumdepth}{5}
 
-%% Define the document title, authors, date and change record
+%% Retrieve date and model version
+\setDocUpstreamLocation{MagicDraw SysML}
+\setDocUpstreamVersion{240}
+
+\date{2017-06-30}
+
+%% Define the document title, authors, handle, and change record
 \input metadata.tex
 
 % Environment for displaying the parameter tables in
