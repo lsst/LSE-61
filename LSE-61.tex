@@ -87,20 +87,27 @@ Statements of need, requirements, and constraints are written using one of three
 
     \end{itemize}
 
-\textbf{Prioritization:}
+ \textbf{Prioritization:}
 
-The following definition of requirement priorities is used in this document:
+    \begin{enumerate}
+\item
+ "This must be done to enter commissioning (a) or operations (b); no waivers will be granted if not met."
+        \begin{itemize}
+\item
+\textbf{1a:} Must be demonstrated to be working before the start of the commissioning period.
 
-\begin{description}
-  \item[\#1] ``This must be done to enter commissioning (a) or operations (b); no waivers will be granted if not met.''
-  \begin{description}
-    \item[\#1a:] Must be demonstrated to be working before the start of the commissioning period
-    \item[\#1b:] Must be demonstrated to be working before the start of the observing
-  \end{description}
-  \item[\#2:] ``Should be done to enter Ops; but waiver is likely to be granted if not met,'' i.e. we could enter operations w/o this fulfilled, for first 3 years.
-  \item[\#3:] ``Overall capability/efficiency/ease of use/etc. may be reduced but science will not critically suffer if not done.''
-  Could enter operations w/o this requirement fulfilled, and have the operations team decide whether they want to pursue it
-\end{description}
+\item
+\textbf{1b:} Must be demonstrated to be working before the start of the observing.
+
+        \end{itemize}
+
+\item
+"Should be done to enter Operations; but waiver likely to be granted if not met," i.e., we could enter Operations without this fulfilled, for first 3 years.
+
+\item
+"Overall capability/efficiency/ease of use/etc., may be reduced but science will not critically suffer if not done." Could enter operations without this requirement fulfilled, and have the operations team decide whether they want to pursue it.
+
+    \end{enumerate}
 
 \section{Data Products}
 
@@ -109,7 +116,7 @@ The following definition of requirement priorities is used in this document:
 \subsubsection{Data Availability}
 
 \label{DMS-REQ-0346}
-\textbf{ID:} DMS-REQ-0346
+\textbf{ID:} DMS-REQ-0346 (Priority: 1b)
 
 \textbf{Specification: }All raw data used to generate any public data product (raw exposures, calibration frames, telemetry, configuration metadata, etc.) shall be kept and made available for download.
 
@@ -125,7 +132,7 @@ Telemetry Database Retention \newline
 \subsubsection{Measurements in catalogs}
 
 \label{DMS-REQ-0347}
-\textbf{ID:} DMS-REQ-0347
+\textbf{ID:} DMS-REQ-0347 (Priority: 1b)
 
 \textbf{Specification: }All catalogs shall record source measurements in flux units.
 
@@ -134,7 +141,7 @@ Telemetry Database Retention \newline
 \subsubsection{Computing Derived Quantities}
 
 \label{DMS-REQ-0331}
-\textbf{ID:} DMS-REQ-0331
+\textbf{ID:} DMS-REQ-0331 (Priority: 1b)
 
 \textbf{Specification:} Common derived quantities shall be made available to end-users by either providing pre-computed columns or providing functions that can be used dynamically in queries. These should at least include the ability to calculate the reduced chi-squared of fitted models and make it as easy as possible to calculate color-color diagrams.
 
@@ -143,14 +150,14 @@ Telemetry Database Retention \newline
 \subsubsection{Denormalizing Database Tables}
 
 \label{DMS-REQ-0332}
-\textbf{ID:} DMS-REQ-0332
+\textbf{ID:} DMS-REQ-0332 (Priority: 2)
 
 \textbf{Specification:} The database tables shall contain views presented to the users that will be appropriately denormalized for ease of use.
 
 \subsubsection{Maximum Likelihood Values and Covariances}
 
 \label{DMS-REQ-0333}
-\textbf{ID:} DMS-REQ-0333
+\textbf{ID:} DMS-REQ-0333 (Priority: 1b)
 
 \textbf{Specification:} Quantities delivered by all measurement algorithms shall include maximum likelihood values and covariances.
 
@@ -159,7 +166,7 @@ Telemetry Database Retention \newline
 \subsubsection{Storing Approximations of Per-pixel Metadata}
 
 \label{DMS-REQ-0326}
-\textbf{ID:} DMS-REQ-0326
+\textbf{ID:} DMS-REQ-0326 (Priority: 2)
 
 \textbf{Specification:} Image depth and mask information shall be available in a parametrized approximate form in addition to a full per-pixel form.
 
@@ -327,7 +334,7 @@ Exposures (Level 1) \newline
 \paragraph{Background Model Calculation}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0327}
-\textbf{ID:} DMS-REQ-0327
+\textbf{ID:} DMS-REQ-0327 (Priority: 1b)
 
 \textbf{Specification: }The DMS shall derive and persist a background model (both due to night sky and astrophysical) for each visit image, per CCD.
 
@@ -414,7 +421,7 @@ Level 1 Catalog Precision \newline
 \paragraph{Documenting Image Characterization}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0328}
-\textbf{ID:} DMS-REQ-0328
+\textbf{ID:} DMS-REQ-0328 (Priority: 1b)
 
 \textbf{Specification:} The persisted format for Processed Visit Images shall be fully documented, and shall include a description of all image characterization data products.
 
@@ -1355,7 +1362,7 @@ Data Access \newline
 \subsection{Processing of Datasets}
 
 \label{DMS-REQ-0294}
-\textbf{ID:} DMS-REQ-0294
+\textbf{ID:} DMS-REQ-0294 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall process all requested datasets until either a successful result is recorded or a permanent failure is recognized. If any dataset is processed, in part or in whole, more than once, only one of the wholly processed results will be recorded for further processing.
 
@@ -2022,7 +2029,7 @@ Provenance \newline
 \subsubsection{Provide Data Access Services}
 
 \label{DMS-REQ-0155}
-\textbf{ID:} DMS-REQ-0155
+\textbf{ID:} DMS-REQ-0155 (Priority: 1a)
 
 \textbf{Discussion:}
 (This is a composite requirement in the SysML model, which simply aggregates its children.)
@@ -2109,7 +2116,7 @@ Standard Operating States \newline
 \subsubsection{Provide Pipeline Execution Services}
 
 \label{DMS-REQ-0156}
-\textbf{ID:} DMS-REQ-0156
+\textbf{ID:} DMS-REQ-0156 (Priority: 1a)
 
 \textbf{Discussion:}
 (This is a composite requirement in the SysML model, which simply aggregates its children.)
@@ -2168,7 +2175,7 @@ Automated Production \newline
 \subsubsection{Provide Pipeline Construction Services}
 
 \label{DMS-REQ-0158}
-\textbf{ID:} DMS-REQ-0158
+\textbf{ID:} DMS-REQ-0158 (Priority: 1a)
 
 \textbf{Discussion:}
 (This is a composite requirement in the SysML model, which simply aggregates its children.)
@@ -2492,14 +2499,14 @@ Unscheduled Downtime Subsystem Allocations \newline
 \subsubsection{Optimization of Cost, Reliability and Availability in Order}
 
 \label{DMS-REQ-0161}
-\textbf{ID:} DMS-REQ-0161
+\textbf{ID:} DMS-REQ-0161 (Priority: 1b)
 
 \textbf{Specification:} Within a fixed cost envelope for the Data Management subsystem, the allocation of processing and storage facilities will optimize reliability over availability to end users.
 
 \subsubsection{Compute Platform Heterogeneity}
 
 \label{DMS-REQ-0314}
-\textbf{ID:} DMS-REQ-0314
+\textbf{ID:} DMS-REQ-0314 (Priority: 1b)
 
 \textbf{Specification:} At any given LSST computational facility the DMS shall be capable of operations on a heterogeneous cluster of machines. The hardware, operating system, and other machine parameters shall be limited to a project-approved set.
 
@@ -2662,7 +2669,7 @@ The Summit Facility \newline
 \subsubsection{Prefer Computing and Storage Down}
 
 \label{DMS-REQ-0170}
-\textbf{ID:} DMS-REQ-0170
+\textbf{ID:} DMS-REQ-0170 (Priority: 1b)
 
 \textbf{Specification: }The DMS computing and storage equipment will be preferentially located at a lower altitude Facility (Base or Archive Center) versus the Summit Facility due to lower support costs and fewer reliability issues. Therefore any processing that can be done in either location will be allocated to a lower altitude Facility.
 
@@ -2802,7 +2809,7 @@ Degraded Operational States \newline
 \subsubsection{Summit to Base Network Ownership and Operation}
 
 \label{DMS-REQ-0175}
-\textbf{ID:} DMS-REQ-0175
+\textbf{ID:} DMS-REQ-0175 (Priority: 1b)
 
 \textbf{Specification:} The Summit to Base communications link shall be owned and operated by LSST and/or the operations entity to ensure responsiveness of support.
 
@@ -2864,7 +2871,7 @@ Base Data Buffer \newline
 \subsubsection{Base Facility Co-Location with Existing Facility}
 
 \label{DMS-REQ-0178}
-\textbf{ID:} DMS-REQ-0178
+\textbf{ID:} DMS-REQ-0178 (Priority: 1b)
 
 \textbf{Specification:} The Base Facility shall be co-located at an existing facility to leverage existing support and facility resources
 
@@ -3062,7 +3069,7 @@ Data Access \newline
 \subsubsection{Archive Center Co-Location with Existing Facility}
 
 \label{DMS-REQ-0187}
-\textbf{ID:} DMS-REQ-0187
+\textbf{ID:} DMS-REQ-0187 (Priority: 1b)
 
 \textbf{Specification:} The Archive Center shall be hosted at an existing NSF/DOE-funded supercomputing center.
 
@@ -3305,7 +3312,7 @@ This section contains requirements that are not yet part of the approved baselin
 \textbf{ID:} DMS-REQ-0353 (Priority: 1b)
 
 \textbf{Specification:}
-A service shall be provided to publish to the community the next visit location and the predicted telescope schedule provided by the OCS. This service shall consist of both a web page for human inspection and a web API to allow automated tools to respond promptly.
+A service shall be provided to publish to the community the next visit location and the predicted visit schedule provided by the OCS. This service shall consist of both a web page for human inspection and a web API to allow automated tools to respond promptly.
 
 \textbf{Discussion:}
 The next visit and advanced schedule do not need to be published using the same service or protocol.
@@ -3319,18 +3326,18 @@ Advanced Publishing of Scheduler Sequence \newline
 
 These requirements were originally approved in narrative text in \citeds{LDM-135}, but are now being promoted to \citeds{LSE-61}.
 
-\subsubsection{EFD Query Performance}
+\subsubsection{Fast turnaround for high-volume queries}
 
-\label{DMS-REQ-0354}
-\textbf{ID:} DMS-REQ-0354
+\label{DMS-REQ-0357}
+\textbf{ID:} DMS-REQ-0357 (Priority: 1b)
 
 \textbf{Specification:}
-The queryable EFD shall support at least 5 simultaneous queries, assuming each query lasts no more than 10 seconds.
+High-volume queries – queries that involve full-sky scans – shall be answered in 1 hour, while more complex full-sky spatial and temporal correlations shall be answered in less than 12 hours. The system shall support 50 simultaneous high-volume queries to be running at any given time.
 
 \subsubsection{L1 Database Query Performance}
 
 \label{DMS-REQ-0355}
-\textbf{ID:} DMS-REQ-0355
+\textbf{ID:} DMS-REQ-0355 (Priority: 1b)
 
 \textbf{Specification:}
 The live L1 database shall support at least 20 simultaneous queries, assuming each query lasts no more than 10 seconds.
@@ -3338,7 +3345,7 @@ The live L1 database shall support at least 20 simultaneous queries, assuming ea
 \subsubsection{Real time query performance}
 
 \label{DMS-REQ-0356}
-\textbf{ID:} DMS-REQ-0356
+\textbf{ID:} DMS-REQ-0356 (Priority: 1b)
 
 \textbf{Specification:}
 Low volume queries shall respond within 10 seconds under a load of approximately 100 simultaneous queries.
@@ -3346,18 +3353,18 @@ Low volume queries shall respond within 10 seconds under a load of approximately
 \textbf{Discussion:}
 A large fraction of ad-hoc user access will involve so called “low-volume” queries – queries that touch small area of sky, or request small number of objects.
 
-\subsubsection{Fast turnaround for high-volume queries}
+\subsubsection{EFD Query Performance}
 
-\label{DMS-REQ-0357}
-\textbf{ID:} DMS-REQ-0357
+\label{DMS-REQ-0354}
+\textbf{ID:} DMS-REQ-0354 (Priority: 1b)
 
 \textbf{Specification:}
-High-volume queries – queries that involve full-sky scans – shall be answered in 1 hour, while more complex full-sky spatial and temporal correlations shall be answered in less than 12 hours. The system shall support 50 simultaneous high-volume queries to be running at any given time.
+The queryable EFD shall support at least 5 simultaneous queries, assuming each query lasts no more than 10 seconds.
 
 \subsection{Regenerating Data Products from Previous Data Releases}
 
 \label{DMS-REQ-0336}
-\textbf{ID:} DMS-REQ-0336 (Priority: 2)
+\textbf{ID:} DMS-REQ-0336 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall be able to regenerate data products from previous data releases to within scientifically reasonable tolerances.
 
