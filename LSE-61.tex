@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{241}
+\setDocUpstreamVersion{337}
 
-\date{2017-06-30}
+\date{2017-08-11}
 
 %% Define the document title, authors, handle, and change record
 \input metadata.tex
@@ -476,7 +476,7 @@ The signal-to-noise ratio in single-visit difference images above which all opti
 5
 &
 \unitname{%
-TBD
+float
 }
 &
 \paramname{%
@@ -506,7 +506,7 @@ The signal-to-noise ratio in single-visit difference images above which all opti
 5
 &
 \unitname{%
-TBD
+float
 }
 &
 \paramname{%
@@ -717,6 +717,22 @@ Generate Calibration Report Within Specified Time \newline
 
 OSS-REQ-0135:
 Uniformly calibrated and processed versions of Level 1 Data Products \newline
+
+\subsubsection{Publishing predicted visit schedule}
+
+\label{DMS-REQ-0353}
+\textbf{ID:} DMS-REQ-0353
+
+\textbf{Specification:}
+A service shall be provided to publish to the community the next visit location and the predicted visit schedule provided by the OCS. This service shall consist of both a web page for human inspection and a web API to allow automated tools to respond promptly.
+
+\textbf{Discussion:}
+The next visit and advanced schedule do not need to be published using the same service or protocol.
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0378:
+Advanced Publishing of Scheduler Sequence \newline
 
 \subsection{Level 2 Data Products}
 
