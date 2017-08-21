@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{337}
+\setDocUpstreamVersion{342}
 
-\date{2017-08-11}
+\date{2017-08-21}
 
 %% Define the document title, authors, handle, and change record
 \input metadata.tex
@@ -743,7 +743,7 @@ Uniformly calibrated and processed versions of Level 1 Data Products \newline
 \subsubsection{Publishing predicted visit schedule}
 
 \label{DMS-REQ-0353}
-\textbf{ID:} DMS-REQ-0353
+\textbf{ID:} DMS-REQ-0353 (Priority: 1b)
 
 \textbf{Specification:}
 A service shall be provided to publish to the community the next visit location and the predicted visit schedule provided by the OCS. This service shall consist of both a web page for human inspection and a web API to allow automated tools to respond promptly.
@@ -3302,25 +3302,30 @@ Base Site \newline
 OSS-REQ-0022:
 Archive Site \newline
 
-\section{Pending Requirements}
+\section{Deleted Requirements}
 
-This section contains requirements that are not yet part of the approved baseline, but which are being considered for inclusion.
+This sections lists all the requirements that have been deleted from the official baseline.
 
-\subsection{Publishing predicted telescope schedule}
+\subsection{Timely Publication of Level 2 Data Releases}
 
-\label{DMS-REQ-0353}
-\textbf{ID:} DMS-REQ-0353 (Priority: 1b)
+\label{DMS-REQ-0006}
+\textbf{ID:} DMS-REQ-0006 (Priority: 1b)
 
-\textbf{Specification:}
-A service shall be provided to publish to the community the next visit location and the predicted visit schedule provided by the OCS. This service shall consist of both a web page for human inspection and a web API to allow automated tools to respond promptly.
+\textbf{Specification:} The DMS shall make available to end-users all Level-2 data products as soon as possible following the execution of the Data Release Production and the verification of science data quality.
 
 \textbf{Discussion:}
-The next visit and advanced schedule do not need to be published using the same service or protocol.
+Removed as part of LCR-962.
 
 \emph{Derived from Requirements:}
 
-OSS-REQ-0378:
-Advanced Publishing of Scheduler Sequence \newline
+\hyperref[DMS-REQ-0005]{DMS-REQ-0005}:
+Produce Data Releases \newline
+OSS-REQ-0134:
+Level 2 Data Product Availability \newline
+
+\section{Pending Requirements}
+
+This section contains requirements that are not yet part of the approved baseline, but which are being considered for inclusion.
 
 \subsection{Query Performance}
 
