@@ -3323,63 +3323,6 @@ Produce Data Releases \newline
 OSS-REQ-0134:
 Level 2 Data Product Availability \newline
 
-\section{Pending Requirements}
-
-This section contains requirements that are not yet part of the approved baseline, but which are being considered for inclusion.
-
-\subsection{Query Performance}
-
-These requirements were originally approved in narrative text in \citeds{LDM-135}, but are now being promoted to \citeds{LSE-61}.
-
-\subsubsection{Fast turnaround for high-volume queries}
-
-\label{DMS-REQ-0357}
-\textbf{ID:} DMS-REQ-0357 (Priority: 1b)
-
-\textbf{Specification:}
-High-volume queries – queries that involve full-sky scans – shall be answered in 1 hour, while more complex full-sky spatial and temporal correlations shall be answered in less than 12 hours. The system shall support 50 simultaneous high-volume queries to be running at any given time.
-
-\subsubsection{L1 Database Query Performance}
-
-\label{DMS-REQ-0355}
-\textbf{ID:} DMS-REQ-0355 (Priority: 1b)
-
-\textbf{Specification:}
-The live L1 database shall support at least 20 simultaneous queries, assuming each query lasts no more than 10 seconds.
-
-\subsubsection{Real time query performance}
-
-\label{DMS-REQ-0356}
-\textbf{ID:} DMS-REQ-0356 (Priority: 1b)
-
-\textbf{Specification:}
-Low volume queries shall respond within 10 seconds under a load of approximately 100 simultaneous queries.
-
-\textbf{Discussion:}
-A large fraction of ad-hoc user access will involve so called “low-volume” queries – queries that touch small area of sky, or request small number of objects.
-
-\subsubsection{EFD Query Performance}
-
-\label{DMS-REQ-0354}
-\textbf{ID:} DMS-REQ-0354 (Priority: 1b)
-
-\textbf{Specification:}
-The queryable EFD shall support at least 5 simultaneous queries, assuming each query lasts no more than 10 seconds.
-
-\subsection{Regenerating Data Products from Previous Data Releases}
-
-\label{DMS-REQ-0336}
-\textbf{ID:} DMS-REQ-0336 (Priority: 1b)
-
-\textbf{Specification:} The DMS shall be able to regenerate data products from previous data releases to within scientifically reasonable tolerances.
-
-\textbf{Discussion:} This is similar to \hyperref[DMS-REQ-0311]{DMS-REQ-0311}, but covering prior data releases. The intent is for the software to be runnable in the same environment as was used for the original data release without the software having to be ported to a modern operating system.
-
-\emph{Derived from Requirements:}
-
-LSR-REQ-0049:
-Data Product Archiving \newline
-
 \bibliography{lsst}
 
 \end{document}
