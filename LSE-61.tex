@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{337}
+\setDocUpstreamVersion{342 (2017-08-21)}
 
-\date{2017-08-11}
+\date{2017-09-12}
 
 %% Define the document title, authors, handle, and change record
 \input metadata.tex
@@ -87,6 +87,28 @@ Statements of need, requirements, and constraints are written using one of three
 
     \end{itemize}
 
+ \textbf{Prioritization:}
+
+    \begin{enumerate}
+\item
+ "This must be done to enter commissioning (a) or operations (b); no waivers will be granted if not met."
+        \begin{itemize}
+\item
+\textbf{1a:} Must be demonstrated to be working before the start of the commissioning period.
+
+\item
+\textbf{1b:} Must be demonstrated to be working before the start of the observing.
+
+        \end{itemize}
+
+\item
+"Should be done to enter Operations; but waiver likely to be granted if not met," i.e., we could enter Operations without this fulfilled, for first 3 years.
+
+\item
+"Overall capability/efficiency/ease of use/etc., may be reduced but science will not critically suffer if not done." Could enter operations without this requirement fulfilled, and have the operations team decide whether they want to pursue it.
+
+    \end{enumerate}
+
 \section{Data Products}
 
 \subsection{General Considerations}
@@ -94,7 +116,7 @@ Statements of need, requirements, and constraints are written using one of three
 \subsubsection{Data Availability}
 
 \label{DMS-REQ-0346}
-\textbf{ID:} DMS-REQ-0346
+\textbf{ID:} DMS-REQ-0346 (Priority: 1b)
 
 \textbf{Specification: }All raw data used to generate any public data product (raw exposures, calibration frames, telemetry, configuration metadata, etc.) shall be kept and made available for download.
 
@@ -110,7 +132,7 @@ Telemetry Database Retention \newline
 \subsubsection{Measurements in catalogs}
 
 \label{DMS-REQ-0347}
-\textbf{ID:} DMS-REQ-0347
+\textbf{ID:} DMS-REQ-0347 (Priority: 1b)
 
 \textbf{Specification: }All catalogs shall record source measurements in flux units.
 
@@ -119,7 +141,7 @@ Telemetry Database Retention \newline
 \subsubsection{Computing Derived Quantities}
 
 \label{DMS-REQ-0331}
-\textbf{ID:} DMS-REQ-0331
+\textbf{ID:} DMS-REQ-0331 (Priority: 1b)
 
 \textbf{Specification:} Common derived quantities shall be made available to end-users by either providing pre-computed columns or providing functions that can be used dynamically in queries. These should at least include the ability to calculate the reduced chi-squared of fitted models and make it as easy as possible to calculate color-color diagrams.
 
@@ -128,14 +150,14 @@ Telemetry Database Retention \newline
 \subsubsection{Denormalizing Database Tables}
 
 \label{DMS-REQ-0332}
-\textbf{ID:} DMS-REQ-0332
+\textbf{ID:} DMS-REQ-0332 (Priority: 2)
 
 \textbf{Specification:} The database tables shall contain views presented to the users that will be appropriately denormalized for ease of use.
 
 \subsubsection{Maximum Likelihood Values and Covariances}
 
 \label{DMS-REQ-0333}
-\textbf{ID:} DMS-REQ-0333
+\textbf{ID:} DMS-REQ-0333 (Priority: 1b)
 
 \textbf{Specification:} Quantities delivered by all measurement algorithms shall include maximum likelihood values and covariances.
 
@@ -144,7 +166,7 @@ Telemetry Database Retention \newline
 \subsubsection{Storing Approximations of Per-pixel Metadata}
 
 \label{DMS-REQ-0326}
-\textbf{ID:} DMS-REQ-0326
+\textbf{ID:} DMS-REQ-0326 (Priority: 2)
 
 \textbf{Specification:} Image depth and mask information shall be available in a parametrized approximate form in addition to a full per-pixel form.
 
@@ -155,7 +177,7 @@ Telemetry Database Retention \newline
 \subsubsection{Raw Image Assembly}
 
 \label{DMS-REQ-0024}
-\textbf{ID:} DMS-REQ-0024
+\textbf{ID:} DMS-REQ-0024 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall assemble the combination of raw exposure data from all the readout channels from a single Sensor to form a single image for that sensor. The image data and relevant exposure metadata shall be integrated into a standard format suitable for down-stream processing, archiving, and distribution to the user community.
 
@@ -171,7 +193,7 @@ Exposures (Level 1) \newline
 \subsubsection{Raw Science Image Data Acquisition}
 
 \label{DMS-REQ-0018}
-\textbf{ID:} DMS-REQ-0018
+\textbf{ID:} DMS-REQ-0018 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall acquire raw Exposure data from the Camera science sensors during normal operations, calibration data collection, and in any other required engineering modes.
 
@@ -185,7 +207,7 @@ Acquisition of Science Sensor data \newline
 \subsubsection{Raw Science Image Metadata}
 
 \label{DMS-REQ-0068}
-\textbf{ID:} DMS-REQ-0068
+\textbf{ID:} DMS-REQ-0068 (Priority: 1a)
 
 \textbf{Specification:} For each raw science image, the DMS shall store image metadata including at least:
 \begin{itemize}
@@ -207,7 +229,7 @@ Engineering and Facilities Data \newline
 \subsubsection{Crosstalk Corrected Science Image Data Acquisition}
 
 \label{DMS-REQ-0022}
-\textbf{ID:} DMS-REQ-0022
+\textbf{ID:} DMS-REQ-0022 (Priority: 2)
 
 \textbf{Specification:} The DMS shall acquire crosstalk corrected exposure data from the Camera science sensors, during normal survey operations and in any other required operating modes.
 
@@ -225,7 +247,7 @@ Level 1 Data Product Availability \newline
 \subsubsection{Wavefront Sensor Data Acquisition}
 
 \label{DMS-REQ-0020}
-\textbf{ID:} DMS-REQ-0020
+\textbf{ID:} DMS-REQ-0020 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall acquire raw exposure data from the Camera wavefront sensors, during normal survey operations and in any other required operating modes.
 
@@ -241,7 +263,7 @@ Wavefront Sensor Data \newline
 \subsubsection{Guider Calibration Data Acquisition}
 
 \label{DMS-REQ-0265}
-\textbf{ID:} DMS-REQ-0265
+\textbf{ID:} DMS-REQ-0265 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall acquire raw, full-frame exposures from the camera guider sensors during calibration. The DMS shall produce calibration data products for the guide sensors.
 
@@ -255,7 +277,7 @@ Calibration Exposures Per Day \newline
 \subsubsection{Nightly Data Accessible Within 24 hrs}
 
 \label{DMS-REQ-0004}
-\textbf{ID:} DMS-REQ-0004
+\textbf{ID:} DMS-REQ-0004 (Priority: 1b)
 
 \textbf{Specification:} With the exception of alerts and Solar System Objects, all Level 1 Data Products shall be made public within time \textbf{L1PublicT} (LSR-REQ-0104) of the acquisition of the raw image data. Alerts shall be made available within time \textbf{OTT1} (LSR-REQ-0101) from the conclusion of readout of the raw exposures used to generate each alert to the distribution of the alert to community distribution mechanisms.  Solar System Object orbits shall, on average, be calculated before the following night's observing finishes and the results shall be made available within time \textbf{L1PublicT} of those calculations being completed.
 
@@ -296,7 +318,7 @@ Level 1 Data Product Availability \newline
 \subsubsection{Processed Visit Images}
 
 \label{DMS-REQ-0069}
-\textbf{ID:} DMS-REQ-0069
+\textbf{ID:} DMS-REQ-0069 (Priority: 1a)
 
 \textbf{Specification: }The DMS shall produce Processed Visit Images, in which the corresponding raw sensor array data has been trimmed of overscan and corrected for instrumental signature. Images obtained in pairs during a standard visit are combined.
 
@@ -312,7 +334,7 @@ Exposures (Level 1) \newline
 \paragraph{Background Model Calculation}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0327}
-\textbf{ID:} DMS-REQ-0327
+\textbf{ID:} DMS-REQ-0327 (Priority: 1b)
 
 \textbf{Specification: }The DMS shall derive and persist a background model (both due to night sky and astrophysical) for each visit image, per CCD.
 
@@ -324,7 +346,7 @@ System Monitoring \& Diagnostics \newline
 \paragraph{Generate Photometric Zeropoint for Visit Image}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0029}
-\textbf{ID:} DMS-REQ-0029
+\textbf{ID:} DMS-REQ-0029 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall derive and persist a photometric zeropoint for each visit image, per CCD.
 
@@ -340,7 +362,7 @@ Level 1 Photometric Zero Point Error \newline
 \paragraph{Generate PSF for Visit Images}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0070}
-\textbf{ID:} DMS-REQ-0070
+\textbf{ID:} DMS-REQ-0070 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall determine a characterization of the PSF for any specified location in Processed Visit Images.
 
@@ -354,7 +376,7 @@ System Monitoring \& Diagnostics \newline
 \paragraph{Generate WCS for Visit Images}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0030}
-\textbf{ID:} DMS-REQ-0030
+\textbf{ID:} DMS-REQ-0030 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall generate and persist a WCS for each visit image.  The absolute accuracy of the WCS shall be at least \textbf{astrometricAccuracy} in all areas of the image, provided that there are at least \textbf{astrometricMinStandards} astrometric standards available in each CCD.
 
@@ -399,7 +421,7 @@ Level 1 Catalog Precision \newline
 \paragraph{Documenting Image Characterization}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0328}
-\textbf{ID:} DMS-REQ-0328
+\textbf{ID:} DMS-REQ-0328 (Priority: 1b)
 
 \textbf{Specification:} The persisted format for Processed Visit Images shall be fully documented, and shall include a description of all image characterization data products.
 
@@ -408,7 +430,7 @@ Level 1 Catalog Precision \newline
 \paragraph{Processed Visit Image Content}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0072}
-\textbf{ID:} DMS-REQ-0072
+\textbf{ID:} DMS-REQ-0072 (Priority: 1a)
 
 \textbf{Specification:} Processed visit images shall include the corrected science pixel array, an integer mask array where each bit-plane represents a logical statement about whether a particular detector pathology affects the pixel, a variance array which represents the expected variance in the corresponding science pixel, and a representation of the spatially varying PSF that applies over the extent of the science array. These images shall also contain metadata that map pixel to world (sky) coordinates (the WCS) as well as metadata from which photometric measurements can be derived.
 
@@ -422,7 +444,7 @@ Exposures (Level 1) \newline
 \subsubsection{Difference Exposures}
 
 \label{DMS-REQ-0010}
-\textbf{ID:} DMS-REQ-0010
+\textbf{ID:} DMS-REQ-0010 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall create a Difference Exposure from each Processed Visit Image by subtracting a re-projected, scaled, PSF-matched Template Image in the same passband.
 
@@ -440,7 +462,7 @@ Provide Source Detection Software \newline
 \paragraph{Difference Exposure Attributes}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0074}
-\textbf{ID:} DMS-REQ-0074
+\textbf{ID:} DMS-REQ-0074 (Priority: 1b)
 
 \textbf{Specification:} For each Difference Exposure, the DMS shall store: the identify of the input exposures and related provenance information, and a set of metadata attributes including at least a representation of the PSF matching kernel used in the differencing.
 
@@ -454,7 +476,7 @@ Provenance \newline
 \subsubsection{Exposure Catalog}
 
 \label{DMS-REQ-0266}
-\textbf{ID:} DMS-REQ-0266
+\textbf{ID:} DMS-REQ-0266 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall create an Exposure Catalog containing information for each exposure that includes the exposure date/time and duration, properties of the filter used, dome and telescope pointing and orientation, status of calibration apparatus, airmass and zenith distance, telescope and dome status, environmental information, and information regarding each sensor including an ID, its location in the focal plane, electronic configuration, and WCS.
 
@@ -466,7 +488,7 @@ Catalogs (Level 1) \newline
 \subsubsection{DIASource Catalog}
 
 \label{DMS-REQ-0269}
-\textbf{ID:} DMS-REQ-0269
+\textbf{ID:} DMS-REQ-0269 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall construct a catalog of all Sources detected on Difference Exposures with SNR > \textbf{transSNR}. For each Difference Source (DIASource), the DMS shall be able to provide the identity of the Difference Exposure from which it was derived; the identity of the associated SSObject, if any; the identity of the parent Source from which this DIASource has been deblended, if any. The DMS shall also measure and record a set of attributes for each DIASource including at least: epoch of the observation, focal plane position centroid and error (pixel), sky position and associated error (radec), SNR of the detection; calibrated PS flux and associated error; likelihood of the observed data given the PS model; calibrated aperture flux and associated error; calibrated flux and associated error for a trailed source model, and length and angle of the trail; flux and associated parameters for a dipole model; parameters of an adaptive shape measurement and associated error; a measure of source extendedness; the estimated background at the position of the object in the template image with associated uncertainty; a measure of spuriousness; and flags indicating problems encountered while computing the aforementioned attributes. The DMS shall also determine and record measurements on the Calibrated exposure the following: calibrated flux and associated error for the source as measured on the Visit image.
 
@@ -494,7 +516,7 @@ Faint DIASource Measurements \newline
 \subsubsection{Faint DIASource Measurements}
 
 \label{DMS-REQ-0270}
-\textbf{ID:} DMS-REQ-0270
+\textbf{ID:} DMS-REQ-0270 (Priority: 2)
 
 \textbf{Specification:} The DMS shall be able to measure and store DIASources fainter than \textbf{transSNR }that satisfy additional criteria. A limited number of such sources shall be made to enable monitoring of DIA quality.
 
@@ -522,7 +544,7 @@ Alert Completeness and Purity \newline
 \subsubsection{Characterizing Variability}
 
 \label{DMS-REQ-0319}
-\textbf{ID:} DMS-REQ-0319
+\textbf{ID:} DMS-REQ-0319 (Priority: 1b)
 
 \textbf{Specification:} For alert production, DIAObject variability characterization shall include data collected during the time period from the present to at least \textbf{diaCharacterizationCutoff} in the past.
 
@@ -545,7 +567,7 @@ diaCharacterizationCutoff
 \subsubsection{DIAObject Catalog}
 
 \label{DMS-REQ-0271}
-\textbf{ID:} DMS-REQ-0271
+\textbf{ID:} DMS-REQ-0271 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall construct a catalog of all astrophysical objects identified through difference image analysis (DIAObjects). The DIAObject entries shall include metadata attributes including at least: a unique identifier; the identifiers of the\textbf{ diaNearbyObjMaxStar} nearest stars and \textbf{diaNearbyObjMaxGalaxy} nearest galaxies in the Object catalog lying within \textbf{diaNearbyObjRadius}, the probability that the DIAObject is the same as the nearby Object; and a set of DIAObject properties.
 
@@ -593,7 +615,7 @@ Catalogs (Level 1) \newline
 \paragraph{DIAObject Attributes}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0272}
-\textbf{ID:} DMS-REQ-0272
+\textbf{ID:} DMS-REQ-0272 (Priority: 1b)
 
 \textbf{Specification:} For each DIAObject the DMS shall store summary attributes including at least: sky position at the time of the observation; astrometric attributes including proper motion, parallax and related errors; point-source magnitude in each passband and related error; weighted mean forced-photometry flux and related error; periodic and non-periodic variability measures; and flags that encode special conditions encountered in measuring the above quantities.
 
@@ -605,7 +627,7 @@ Catalogs (Level 1) \newline
 \subsubsection{SSObject Catalog}
 
 \label{DMS-REQ-0273}
-\textbf{ID:} DMS-REQ-0273
+\textbf{ID:} DMS-REQ-0273 (Priority: 2)
 
 \textbf{Specification:} The DMS shall produce a catalog of all Solar System Objects (SSObjects) that have been identified via Moving Object Processing. The SSObject catalog shall include for each entry attributes including at least the following: Osculating orbital elements and associated uncertainties, minimum orbit intersection distance (MOID), mean absolute magnitude and slope parameter per band and associated errors, and flags that describe conditions of the description.
 
@@ -619,14 +641,14 @@ Catalogs (Level 1) \newline
 \subsubsection{Calculating SSObject Parameters}
 
 \label{DMS-REQ-0323}
-\textbf{ID:} DMS-REQ-0323
+\textbf{ID:} DMS-REQ-0323 (Priority: 3)
 
 \textbf{Specification:} The LSST database shall provide functions to compute, for every SSObject, the phase angle for every observation, and the reduced and absolute asteroid magnitudes in all LSST bands.
 
 \subsubsection{DIAForcedSource Catalog}
 
 \label{DMS-REQ-0317}
-\textbf{ID:} DMS-REQ-0317
+\textbf{ID:} DMS-REQ-0317 (Priority: 2)
 
 \textbf{Specification:} The DMS shall create a DIAForcedSource Catalog, consisting of measured fluxes for entries in the DIAObject Catalog on Difference Exposures. Measurements for each forced-source shall include the DIAObject and visit IDs, the modeled flux and error (given fixed position, shape, and deblending parameters), and measurement quality flags.
 
@@ -640,7 +662,7 @@ Catalogs (Level 1) \newline
 \subsubsection{Matching DIASources to Objects}
 
 \label{DMS-REQ-0324}
-\textbf{ID:} DMS-REQ-0324
+\textbf{ID:} DMS-REQ-0324 (Priority: 1b)
 
 \textbf{Specification:} A L1 DIASource to L2 Object positional cross-match table or database view shall be made available.
 
@@ -649,7 +671,7 @@ Catalogs (Level 1) \newline
 \subsubsection{Alert Content}
 
 \label{DMS-REQ-0274}
-\textbf{ID:} DMS-REQ-0274
+\textbf{ID:} DMS-REQ-0274 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall create an Alert for each detected DIASource, to be broadcast using community protocols, with content that includes: a unique Alert ID, the Level-1 database ID, the DIASource record that triggered the alert, the DIAObject (or SSObject) record, all previous DIASource records corresponding to the object (if any), and cut-outs of images (from both the template image and the difference image) of sufficient areal coverage to identify the DIASource and its immediate surroundings. These cutouts should include WCS, PSF, variance and mask information.
 
@@ -663,7 +685,7 @@ Alerts \newline
 \subsubsection{Level 1 Data Quality Report Definition}
 
 \label{DMS-REQ-0097}
-\textbf{ID:} DMS-REQ-0097
+\textbf{ID:} DMS-REQ-0097 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall produce a Level 1 Data Quality Report that contains indicators of data quality that result from running the DMS pipelines, including at least: Photometric zero point vs. time for each utilized filter; Sky brightness vs. time for each utilized filter; seeing vs. time for each utilized filter; PSF parameters vs. time for each utilized filter; detection efficiency for point sources vs. mag for each utilized filter.
 
@@ -679,7 +701,7 @@ Generate Data Quality Report Within Specified Time \newline
 \subsubsection{Level 1 Performance Report Definition}
 
 \label{DMS-REQ-0099}
-\textbf{ID:} DMS-REQ-0099
+\textbf{ID:} DMS-REQ-0099 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall produce a Level 1 Performance Report that provides indicators of how the DMS has performed in processing the night's observations, including at least: number of observations successfully processed through each pipeline; number of observations for each pipeline that had recoverable failures (with a record of the failure type and recovery mechanism); number of observations for each pipeline that had unrecoverable failures; number of observations archived at each DMS Facility; number of observations satisfying the science criteria for each active science program.
 
@@ -693,7 +715,7 @@ Generate DMS Performance Report Within Specified Time \newline
 \subsubsection{Level 1 Calibration Report Definition}
 
 \label{DMS-REQ-0101}
-\textbf{ID:} DMS-REQ-0101
+\textbf{ID:} DMS-REQ-0101 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall produce a Level 1 Calibration Report that provides a summary of significant differences in Calibration Images that may indicate evolving problems with the telescope or camera, including a nightly broad-band flat in each filter.
 
@@ -707,7 +729,7 @@ Generate Calibration Report Within Specified Time \newline
 \subsubsection{Regenerating L1 Data Products During Data Release Processing}
 
 \label{DMS-REQ-0325}
-\textbf{ID:} DMS-REQ-0325
+\textbf{ID:} DMS-REQ-0325 (Priority: 2)
 
 \textbf{Specification:} During Data Release Processing, all the Level 1 data products shall be regenerated using the current best algorithms.
 
@@ -721,7 +743,7 @@ Uniformly calibrated and processed versions of Level 1 Data Products \newline
 \subsubsection{Publishing predicted visit schedule}
 
 \label{DMS-REQ-0353}
-\textbf{ID:} DMS-REQ-0353
+\textbf{ID:} DMS-REQ-0353 (Priority: 1b)
 
 \textbf{Specification:}
 A service shall be provided to publish to the community the next visit location and the predicted visit schedule provided by the OCS. This service shall consist of both a web page for human inspection and a web API to allow automated tools to respond promptly.
@@ -739,7 +761,7 @@ Advanced Publishing of Scheduler Sequence \newline
 \subsubsection{Persisting Data Products}
 
 \label{DMS-REQ-0334}
-\textbf{ID:} DMS-REQ-0334
+\textbf{ID:} DMS-REQ-0334 (Priority: 1b)
 
 \textbf{Specification:}
 All per-band deep coadds and best seeing coadds shall be kept indefinitely and made available to users.
@@ -754,7 +776,7 @@ Co-added Exposures \newline
 \subsubsection{Source Catalog}
 
 \label{DMS-REQ-0267}
-\textbf{ID:} DMS-REQ-0267
+\textbf{ID:} DMS-REQ-0267 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall create a Catalog containing all Sources detected in single (standard) visits and on Co-Adds, and will contain an identifier of the Exposure on which the Source was detected, as well as measurements of Source Attributes. The measured attributes (and associated errors) include location on the focal plane; a static point-source model fit to world coordinates and flux; a centroid and adaptive moments; and surface brightnesses through elliptical multiple apertures that are concentric, PSF-homogenized, and logarithmically spaced in intensity.
 
@@ -766,7 +788,7 @@ Catalogs (Level 2) \newline
 \subsubsection{Object Catalog}
 
 \label{DMS-REQ-0275}
-\textbf{ID:} DMS-REQ-0275
+\textbf{ID:} DMS-REQ-0275 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall create an Object Catalog, based on sources deblended based on knowledge of CoaddSource, DIASource, DIAObject, and SSObject Catalogs, after multi-epoch spatial association and characterization.
 
@@ -778,7 +800,7 @@ Catalogs (Level 2) \newline
 \paragraph{Provide Photometric Redshifts of Galaxies}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0046}
-\textbf{ID:} DMS-REQ-0046
+\textbf{ID:} DMS-REQ-0046 (Priority: 2)
 
 \textbf{Specification:} The DMS shall compute a photometric redshift for all detected Objects.
 
@@ -790,7 +812,7 @@ Enable BAO Analysis \newline
 \paragraph{Object Characterization}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0276}
-\textbf{ID:} DMS-REQ-0276
+\textbf{ID:} DMS-REQ-0276 (Priority: 1b)
 
 \textbf{Specification:} Each entry in the Object Catalog shall include the following characterization measures: a point-source model fit, a bulge-disk model fit, standard colors, a centroid, adaptive moments, Petrosian and Kron fluxes, surface brightness at multiple apertures, proper motion and parallax, and a variability characterization.
 
@@ -804,7 +826,7 @@ Catalogs (Level 2) \newline
 \subsubsection{Associate Sources to Objects}
 
 \label{DMS-REQ-0034}
-\textbf{ID:} DMS-REQ-0034
+\textbf{ID:} DMS-REQ-0034 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall associate Sources measured at different times and in different passbands with entries in the Object catalog.
 
@@ -820,7 +842,7 @@ Produce Object Catalog \newline
 \subsubsection{Deep Detection Coadds}
 
 \label{DMS-REQ-0279}
-\textbf{ID:} DMS-REQ-0279
+\textbf{ID:} DMS-REQ-0279 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall periodicaly create Co-added Images in each of the \textit{u,g,r,i,z,y} passbands by combining all archived exposures taken of the same region of sky and in the same passband that meet specified quality conditions.
 
@@ -834,7 +856,7 @@ Co-added Exposures \newline
 \subsubsection{Template Coadds}
 
 \label{DMS-REQ-0280}
-\textbf{ID:} DMS-REQ-0280
+\textbf{ID:} DMS-REQ-0280 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall periodically create Template Images in each of the \textit{u,g,r,i,z,y} passbands that are constructed identically to Deep Detection Coadds, but where the contributing Calibrated Exposures are limited to a range of observing epochs \textbf{templateMaxTimespan}, the images are partitioned by airmass into multiple bins, and where the quality criteria may be different.
 
@@ -862,7 +884,7 @@ Co-added Exposures \newline
 \subsubsection{Multi-band Coadds}
 
 \label{DMS-REQ-0281}
-\textbf{ID:} DMS-REQ-0281
+\textbf{ID:} DMS-REQ-0281 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall periodically create Multi-band Coadd images which are constructed similarly to Deep Detection Coadds, but where all passbands are combined.
 
@@ -876,7 +898,7 @@ Co-added Exposures \newline
 \subsubsection{Best Seeing Coadds}
 
 \label{DMS-REQ-0330}
-\textbf{ID:} DMS-REQ-0330
+\textbf{ID:} DMS-REQ-0330 (Priority: 2)
 
 \textbf{Specification:} Best seeing coadds shall be made for each band (including multi-color).
 
@@ -890,7 +912,7 @@ Co-added Exposures \newline
 \subsubsection{PSF-Matched Coadds}
 
 \label{DMS-REQ-0335}
-\textbf{ID:} DMS-REQ-0335
+\textbf{ID:} DMS-REQ-0335 (Priority: 1b)
 
 \textbf{Specification:} One (ugrizy plus multi-band) set of PSF-matched coadds shall be made but shall not be archived.
 
@@ -899,7 +921,7 @@ Co-added Exposures \newline
 \subsubsection{Detecting faint variable objects}
 
 \label{DMS-REQ-0337}
-\textbf{ID:} DMS-REQ-0337
+\textbf{ID:} DMS-REQ-0337 (Priority: 2)
 
 \textbf{Specification: }The DMS shall be able to detect faint objects showing long-term variability, or nearby object with high proper motions.
 
@@ -913,7 +935,7 @@ Co-added Exposures \newline
 \subsubsection{Targeted Coadds}
 
 \label{DMS-REQ-0338}
-\textbf{ID:} DMS-REQ-0338
+\textbf{ID:} DMS-REQ-0338 (Priority: 2)
 
 \textbf{Specification:} It shall be possible to retain small sections of all generated coadds.
 
@@ -929,7 +951,7 @@ Data Quality Monitoring \newline
 \subsubsection{Coadd Image Method Constraints}
 
 \label{DMS-REQ-0278}
-\textbf{ID:} DMS-REQ-0278
+\textbf{ID:} DMS-REQ-0278 (Priority: 1b)
 
 \textbf{Specification:} Coadd Images shall be created by combining spatially overlapping Processed Visit Images (on which bad pixels and transient sources have been masked), where the contributing Processed Visit Images have been re-projected to a common reference geometry, and matched to a common background level which best approximates the astrophysical background.
 
@@ -943,7 +965,7 @@ Co-added Exposures \newline
 \subsubsection{Provide PSF for Coadded Images}
 
 \label{DMS-REQ-0047}
-\textbf{ID:} DMS-REQ-0047
+\textbf{ID:} DMS-REQ-0047 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall determine a characterization of the PSF for any specified location in coadded images.
 
@@ -963,7 +985,7 @@ Co-added Exposures \newline
 \subsubsection{Coadded Image Provenance}
 
 \label{DMS-REQ-0106}
-\textbf{ID:} DMS-REQ-0106
+\textbf{ID:} DMS-REQ-0106 (Priority: 1b)
 
 \textbf{Specification:} For each Coadded Image, DMS shall store: the list of input images and the pipeline parameters, including software versions, used to derive it, and a sufficient set of metadata attributes for users to re-create them in whole or in part.
 
@@ -979,7 +1001,7 @@ Produce Co-Added Exposures \newline
 \subsubsection{Coadd Source Catalog}
 
 \label{DMS-REQ-0277}
-\textbf{ID:} DMS-REQ-0277
+\textbf{ID:} DMS-REQ-0277 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall, in the course of creating the master Source Catalog, create a catalog from the coadds of all sources detected in each passband with a SNR > \textbf{coaddDetectThresh}.
 
@@ -1009,7 +1031,7 @@ Catalogs (Level 2) \newline
 \paragraph{Detecting extended  low surface brightness objects}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0349}
-\textbf{ID:} DMS-REQ-0349
+\textbf{ID:} DMS-REQ-0349 (Priority: 2)
 
 \textbf{Specification: }It shall be possible to detect extended low surface brightness objects in coadds.
 
@@ -1018,7 +1040,7 @@ Catalogs (Level 2) \newline
 \subsubsection{Forced-Source Catalog}
 
 \label{DMS-REQ-0268}
-\textbf{ID:} DMS-REQ-0268
+\textbf{ID:} DMS-REQ-0268 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall create a Forced-Source Catalog, consisting of measured fluxes for all entries in the Object Catalog on all Processed Visit Images and Difference Images. Measurements for each forced-source shall include the object and visit IDs, the modelled flux and error (given fixed position, shape, and deblending parameters), and measurement quality flags.
 
@@ -1032,7 +1054,7 @@ Catalogs (Level 2) \newline
 \subsubsection{Tracking Characterization Changes Between Data Releases}
 
 \label{DMS-REQ-0339}
-\textbf{ID:} DMS-REQ-0339
+\textbf{ID:} DMS-REQ-0339 (Priority: 1a)
 
 \textbf{Specification:} Small, overlapping, samples of data from older releases shall be kept loaded in the database.
 
@@ -1046,7 +1068,7 @@ Data Quality Monitoring \newline
 \subsubsection{Produce Images for EPO}
 
 \label{DMS-REQ-0103}
-\textbf{ID:} DMS-REQ-0103
+\textbf{ID:} DMS-REQ-0103 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall produce images for EPO purposes, according to the requirements in the DM-EPO ICD.
 
@@ -1060,7 +1082,7 @@ Co-added Exposures \newline
 \subsubsection{All-Sky Visualization of Data Releases}
 
 \label{DMS-REQ-0329}
-\textbf{ID:} DMS-REQ-0329
+\textbf{ID:} DMS-REQ-0329 (Priority: 2)
 
 \textbf{Specification:} Data Release Processing shall generate co-adds suitable for use in all-sky visualization tools, allowing panning and zooming of the entire data release.
 
@@ -1076,7 +1098,7 @@ Co-added Exposures \newline
 \subsubsection{Calibration Data Products}
 
 \label{DMS-REQ-0130}
-\textbf{ID:} DMS-REQ-0130
+\textbf{ID:} DMS-REQ-0130 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall produce and archive Calibration Data Products that capture the signature of the telescope, camera and detector, including at least: Crosstalk correction matrix, Bias and Dark correction frames, a set of monochromatic dome flats spanning the wavelength range, a synthetic broad-band flat per filter, and an illumination correction frame per filter.
 
@@ -1094,7 +1116,7 @@ Supported Image Types \newline
 \subsubsection{Calibration Image Provenance}
 
 \label{DMS-REQ-0132}
-\textbf{ID:} DMS-REQ-0132
+\textbf{ID:} DMS-REQ-0132 (Priority: 1a)
 
 \textbf{Specification:} For each Calibration Production data product, DMS shall record: the list of input exposures and the range of dates over which they were obtained; the processing parameters; the calibration products used to derive it; and a set of metadata attributes including at least: the date of creation; the calibration image type (e.g. dome flat, superflat, bias, etc); the provenance of the processing software; and the instrument configuration including the filter in use, if applicable.
 
@@ -1110,7 +1132,7 @@ Reproducibility \newline
 \subsubsection{Bad Pixel Map}
 
 \label{DMS-REQ-0059}
-\textbf{ID:} DMS-REQ-0059
+\textbf{ID:} DMS-REQ-0059 (Priority: 1a)
 
 \textbf{Specification: }The DMS shall produce on an as-needed basis a map of detector pixels that are affected by one or more pathologies, such as non-responsive pixels, charge traps, and hot pixels. The particular pathologies shall be bit-encoded in, at least, 32-bit pixel values, so that additional pathologies may also be recorded in down-stream processing software.
 
@@ -1128,7 +1150,7 @@ Supported Image Types \newline
 \subsubsection{Bias Residual Image}
 
 \label{DMS-REQ-0060}
-\textbf{ID:} DMS-REQ-0060
+\textbf{ID:} DMS-REQ-0060 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall construct on an as-needed basis an image that corrects for any temporally stable bias structure that remains after overscan correction. The Bias Residual shall be constructed from multiple, zero-second exposures where the overscan correction has been applied.
 
@@ -1144,7 +1166,7 @@ Calibration \newline
 \subsubsection{Crosstalk Correction Matrix}
 
 \label{DMS-REQ-0061}
-\textbf{ID:} DMS-REQ-0061
+\textbf{ID:} DMS-REQ-0061 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall, on an as-needed basis, determine from appropriate calibration data what fraction of the signal detected in any given amplifier on each sensor in the focal plane appears in any other amplifier, and shall record that fraction in a correction matrix. The applicability of the correction matrix shall be verified in production processing on science data.
 
@@ -1160,7 +1182,7 @@ Data Release Production Crosstalk Correction \newline
 \subsubsection{Dark Current Correction Frame}
 
 \label{DMS-REQ-0282}
-\textbf{ID:} DMS-REQ-0282
+\textbf{ID:} DMS-REQ-0282 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall produce on an as-needed basis a dark current correction image, which is constructed from multiple, closed-shutter exposures of appropriate duration. The effectiveness of the Dark Correction shall be verified in production processing on science data.
 
@@ -1176,7 +1198,7 @@ Calibration \newline
 \subsubsection{Monochromatic Flatfield Data Cube}
 
 \label{DMS-REQ-0063}
-\textbf{ID:} DMS-REQ-0063
+\textbf{ID:} DMS-REQ-0063 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall produce on an as-needed basis an image that corrects for the color-dependent, pixel-to-pixel non-uniformity in the detector response. The images in the cube shall be constructed from exposures at multiple wavelengths of a uniformly illuminated source. The effectiveness of the flat-field shall be verified in production processing on science data.
 
@@ -1196,7 +1218,7 @@ Calibration \newline
 \subsubsection{Illumination Correction Frame}
 
 \label{DMS-REQ-0062}
-\textbf{ID:} DMS-REQ-0062
+\textbf{ID:} DMS-REQ-0062 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall produce on an as-needed basis an image that corrects for the non-uniform illumination of the flat-field calibration apparatus on the focal plane. The effectiveness of the Illumination Correction shall be verified in production processing on science data.
 
@@ -1214,7 +1236,7 @@ Calibration \newline
 \subsubsection{Fringe Correction Frame}
 
 \label{DMS-REQ-0283}
-\textbf{ID:} DMS-REQ-0283
+\textbf{ID:} DMS-REQ-0283 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall produce on an as-needed basis an image that corrects for detector fringing. The effectiveness of the Fringe Correction shall be verified in production processing on science data.
 
@@ -1232,7 +1254,7 @@ Calibration \newline
 \subsubsection{Processing of Data From Special Programs}
 
 \label{DMS-REQ-0320}
-\textbf{ID:} DMS-REQ-0320
+\textbf{ID:} DMS-REQ-0320 (Priority: 2)
 
 \textbf{Specification:} It shall be possible for special programs to trigger their own data processing recipes.
 
@@ -1246,14 +1268,14 @@ Survey Time Allocation \newline
 \subsubsection{Level 1 Processing of Special Programs Data}
 
 \label{DMS-REQ-0321}
-\textbf{ID:} DMS-REQ-0321
+\textbf{ID:} DMS-REQ-0321 (Priority: 2)
 
 \textbf{Specification:} All Level 1 processing from special programs shall be completed before data arrives from the following night's observations.
 
 \subsubsection{Constraints on Level 1 Special Program Products Generation}
 
 \label{DMS-REQ-0344}
-\textbf{ID:} DMS-REQ-0344
+\textbf{ID:} DMS-REQ-0344 (Priority: 2)
 
 \textbf{Specification: }The publishing of Level 1 data products from Special Programs shall be subject to the same performance requirements of the standard Level 1 system. In particular \textbf{L1PublicT} and \textbf{OTT1}.
 
@@ -1285,7 +1307,7 @@ OTT1
 \subsubsection{Special Programs Database}
 
 \label{DMS-REQ-0322}
-\textbf{ID:} DMS-REQ-0322
+\textbf{ID:} DMS-REQ-0322 (Priority: 1b)
 
 \textbf{Specification:} Data products for special programs shall be stored in databases that are distinct from those used to store standard Level 1 and Level 2 data products. It shall be possible for these databases to be federated with the Level 1 and Level 2 databases to allow cross-queries and joins.
 
@@ -1294,7 +1316,7 @@ OTT1
 \subsection{Query Repeatability}
 
 \label{DMS-REQ-0291}
-\textbf{ID:} DMS-REQ-0291
+\textbf{ID:} DMS-REQ-0291 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall ensure that any query executed at a particular point in time against any DMS delivered database shall be repeatable at a later date, and produce results that are either identical or include additional results (owing to updates from Level-1 processing).
 
@@ -1308,7 +1330,7 @@ Data Products Query and Download Infrastructure \newline
 \subsection{Uniqueness of IDs Across Data Releases}
 
 \label{DMS-REQ-0292}
-\textbf{ID:} DMS-REQ-0292
+\textbf{ID:} DMS-REQ-0292 (Priority: 1a)
 
 \textbf{Specification:} To reduce the likelihood for confusion, all IDs shall be unique across databases and database versions, other than those corresponding to uniquely identifiable entities (i.e., IDs of exposures).
 
@@ -1324,7 +1346,7 @@ Catalogs (Level 1) \newline
 \subsection{Selection of Datasets}
 
 \label{DMS-REQ-0293}
-\textbf{ID:} DMS-REQ-0293
+\textbf{ID:} DMS-REQ-0293 (Priority: 1a)
 
 \textbf{Specification:} A Dataset may consist of one or more pixel images, a set of records in a file or database, or any other grouping of data that are processed or produced as a logical unit. The DMS shall be able to identify and retrieve complete, consistent datasets for processing.
 
@@ -1340,7 +1362,7 @@ Data Access \newline
 \subsection{Processing of Datasets}
 
 \label{DMS-REQ-0294}
-\textbf{ID:} DMS-REQ-0294
+\textbf{ID:} DMS-REQ-0294 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall process all requested datasets until either a successful result is recorded or a permanent failure is recognized. If any dataset is processed, in part or in whole, more than once, only one of the wholly processed results will be recorded for further processing.
 
@@ -1360,7 +1382,7 @@ Consistency \newline
 \subsection{Transparent Data Access}
 
 \label{DMS-REQ-0295}
-\textbf{ID:} DMS-REQ-0295
+\textbf{ID:} DMS-REQ-0295 (Priority: 2)
 
 \textbf{Specification:} The DMS shall provide an interface that allows retrieval by productions or science users of datasets from any Facility where they may reside without requiring reconfiguration.
 
@@ -1374,7 +1396,7 @@ Data Access \newline
 \subsubsection{Level-1 Production Completeness}
 
 \label{DMS-REQ-0284}
-\textbf{ID:} DMS-REQ-0284
+\textbf{ID:} DMS-REQ-0284 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall ensure that all images taken by the camera and marked for Level-1 processing are eventually retrieved, archived, and processed even in the event of connectivity failure between downstream Facilities.
 
@@ -1386,7 +1408,7 @@ Summit Data Buffer \newline
 \subsubsection{Calibration Images Available Within Specified Time}
 
 \label{DMS-REQ-0131}
-\textbf{ID:} DMS-REQ-0131
+\textbf{ID:} DMS-REQ-0131 (Priority: 2)
 
 \textbf{Specification:} Calibration products from a group of up to \textbf{nCalExpProc} related exposures that should be processed together, shall be available from the DMS image archive within \textbf{calProcTime} of the end of the acquisition of images/data for that group.
 
@@ -1433,7 +1455,7 @@ Calibration Exposures Per Day \newline
 \subsubsection{Transient Alert Distribution}
 
 \label{DMS-REQ-0002}
-\textbf{ID:} DMS-REQ-0002
+\textbf{ID:} DMS-REQ-0002 (Priority: 1b)
 
 \textbf{Specification:} Identified transient events shall be made available to end-users in the form of alerts, which shall be published to community alert distribution networks using community-standard protocols, to be determined during the LSST construction phase as community standards evolve.
 
@@ -1447,7 +1469,7 @@ Transient Alert Publication \newline
 \subsubsection{Alert Filtering Service}
 
 \label{DMS-REQ-0342}
-\textbf{ID:} DMS-REQ-0342
+\textbf{ID:} DMS-REQ-0342 (Priority: 2)
 
 \textbf{Specification:} A basic, limited capacity, alert filtering service shall be provided that can be given user defined filters to reduce the alert stream to manageable levels.
 
@@ -1459,7 +1481,7 @@ Transient Filtering \newline
 \paragraph{Pre-defined alert filters}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0348}
-\textbf{ID:} DMS-REQ-0348
+\textbf{ID:} DMS-REQ-0348 (Priority: 2)
 
 \textbf{Specification: }Users of the LSST Alert Filtering Service shall be able to use a predefined set of simple filters.
 
@@ -1473,7 +1495,7 @@ Predefined Transient Filters \newline
 \paragraph{Performance Requirements for LSST Alert Filtering Service}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0343}
-\textbf{ID:} DMS-REQ-0343
+\textbf{ID:} DMS-REQ-0343 (Priority: 2)
 
 \textbf{Specification:} The LSST alert filtering service shall support \textbf{numBrokerUsers} simultaneous users with each user allocated a bandwidth capable of receiving the equivalent of \textbf{numBrokerAlerts} alerts per visit.
 
@@ -1512,7 +1534,7 @@ Transient Alert Publication \newline
 \subsubsection{Level 1 Source Association}
 
 \label{DMS-REQ-0285}
-\textbf{ID:} DMS-REQ-0285
+\textbf{ID:} DMS-REQ-0285 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall associate clusters of DIASources detected on multiple visits taken at different times with either a DIAObject or an SSObject.
 
@@ -1530,7 +1552,7 @@ Catalogs (Level 1) \newline
 \subsubsection{SSObject Precovery}
 
 \label{DMS-REQ-0286}
-\textbf{ID:} DMS-REQ-0286
+\textbf{ID:} DMS-REQ-0286 (Priority: 2)
 
 \textbf{Specification:} Upon identifying a new SSObject, the DMS shall associate additional DIAObjects that are consistent with the orbital parameters (precovery), and update DIAObject entries so associated.
 
@@ -1542,7 +1564,7 @@ Level 1 Moving Object Quality \newline
 \subsubsection{DIASource Precovery}
 
 \label{DMS-REQ-0287}
-\textbf{ID:} DMS-REQ-0287
+\textbf{ID:} DMS-REQ-0287 (Priority: 1b)
 
 \textbf{Specification:} For all DIASources not associated with either DIAObjects or SSObjects, the DMS shall perform forced photometry at the location of the new source (precovery) on all Difference Exposures obtained in the prior \textbf{precoveryWindow}, and make the results publicly available within \textbf{L1PublicT}.
 
@@ -1592,7 +1614,7 @@ Catalogs (Level 1) \newline
 \subsubsection{Use of External Orbit Catalogs}
 
 \label{DMS-REQ-0288}
-\textbf{ID:} DMS-REQ-0288
+\textbf{ID:} DMS-REQ-0288 (Priority: 2)
 
 \textbf{Specification:} It shall be possible for DMS to make use of approved external catalogs and observations to improve the identification of SSObjects, and therefore increase the purity of the transient Alert stream in nightly processing.
 
@@ -1604,7 +1626,7 @@ Level 1 Moving Object Quality \newline
 \subsubsection{Solar System Objects Available Within Specified Time}
 
 \label{DMS-REQ-0089}
-\textbf{ID:} DMS-REQ-0089
+\textbf{ID:} DMS-REQ-0089 (Priority: 1b)
 
 \textbf{Specification:} Detected moving objects and associated metadata shall be available for public access in the DMS science data archive within time \textbf{L1PublicT }of their generation by the DMS.
 
@@ -1620,7 +1642,7 @@ Level 1 Data Product Availability \newline
 \subsubsection{Generate Data Quality Report Within Specified Time}
 
 \label{DMS-REQ-0096}
-\textbf{ID:} DMS-REQ-0096
+\textbf{ID:} DMS-REQ-0096 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall generate a nightly Data Quality Report within time \textbf{dqReportComplTime }in both human-readable and machine-readable forms.
 
@@ -1648,7 +1670,7 @@ Nightly Summary Products \newline
 \subsubsection{Generate DMS Performance Report Within Specified Time}
 
 \label{DMS-REQ-0098}
-\textbf{ID:} DMS-REQ-0098
+\textbf{ID:} DMS-REQ-0098 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall generate a nightly DMS Performance Report within time \textbf{perfReportComplTime }in both human-readable and machine-readable forms.
 
@@ -1676,7 +1698,7 @@ Nightly Summary Products \newline
 \subsubsection{Generate Calibration Report Within Specified Time}
 
 \label{DMS-REQ-0100}
-\textbf{ID:} DMS-REQ-0100
+\textbf{ID:} DMS-REQ-0100 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall generate a nightly Calibration Report within time \textbf{calibReportComplTime }in both human-readable and machine-readable forms.
 
@@ -1706,7 +1728,7 @@ Nightly Summary Products \newline
 \subsubsection{Calibration Production Processing}
 
 \label{DMS-REQ-0289}
-\textbf{ID:} DMS-REQ-0289
+\textbf{ID:} DMS-REQ-0289 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall be capable of producing calibration data products on an as-needed basis, consistent with monitoring the health and performance of the instrument, the availability of raw calibration exposures, the temporal stability of the calibrations, and of the SRD requirements for calibration accuracy.
 
@@ -1722,7 +1744,7 @@ The Archive Facility \newline
 \subsubsection{Associating Objects across data releases}
 
 \label{DMS-REQ-0350}
-\textbf{ID:} DMS-REQ-0350
+\textbf{ID:} DMS-REQ-0350 (Priority: 2)
 
 \textbf{Specification:} It shall be possible to associate an Object in one data release to the most likely match in the Object table from another data release. This shall be possible without the previous data releases being online.
 
@@ -1733,7 +1755,7 @@ The Archive Facility \newline
 \subsubsection{Access Controls of Level 3 Data Products}
 
 \label{DMS-REQ-0340}
-\textbf{ID:} DMS-REQ-0340
+\textbf{ID:} DMS-REQ-0340 (Priority: 2)
 
 \textbf{Specification:} All Level 3 data products shall be configured to have the ability to have access restricted to the owner, a list of people, a named group, or be completely public.
 
@@ -1751,7 +1773,7 @@ Information Security \newline
 \subsubsection{Level 3 Data Import}
 
 \label{DMS-REQ-0290}
-\textbf{ID:} DMS-REQ-0290
+\textbf{ID:} DMS-REQ-0290 (Priority: 2)
 
 \textbf{Specification:} The DMS shall be able to ingest tables from common file formats (e.g. FITS tables, CSV files with supporting metadata) to facilitate the loading of external catalogs and the production of Level-3 data products.
 
@@ -1763,7 +1785,7 @@ Production \newline
 \subsubsection{DAC resource allocation for Level 3 processing}
 
 \label{DMS-REQ-0119}
-\textbf{ID:} DMS-REQ-0119
+\textbf{ID:} DMS-REQ-0119 (Priority: 2)
 
 \textbf{Specification:} The DMS shall provide a resource allocation mechanism for the DACs that allows the prioritization and allocation of resources to a variety of Level 3 processing activities.
 
@@ -1777,7 +1799,7 @@ Resource Allocation \newline
 \subsubsection{Level 3 Data Product Self Consistency}
 
 \label{DMS-REQ-0120}
-\textbf{ID:} DMS-REQ-0120
+\textbf{ID:} DMS-REQ-0120 (Priority: 2)
 
 \textbf{Specification:} The DMS shall provide a means for ensuring that users' Level 3 processing tasks can be carried out on self-consistent inputs - i.e., catalogs, images, metadata, calibrations, camera configuration data, etc., that match each other and all arise from consistent Level 1 and Level 2 processings.
 
@@ -1791,7 +1813,7 @@ Consistency and Completeness \newline
 \subsubsection{Provenance for Level 3 processing at DACs}
 
 \label{DMS-REQ-0121}
-\textbf{ID:} DMS-REQ-0121
+\textbf{ID:} DMS-REQ-0121 (Priority: 2)
 
 \textbf{Specification:} The DMS shall provide a means for recording provenance information for Level 3 processing that is performed at DACs, covering at least all the DMS-provided inputs to the processing (e.g., catalog data used as inputs, dataset metadata, calibrations and camera data from the EFD).
 
@@ -1807,7 +1829,7 @@ Provenance \newline
 \subsubsection{Software framework for Level 3 catalog processing}
 
 \label{DMS-REQ-0125}
-\textbf{ID:} DMS-REQ-0125
+\textbf{ID:} DMS-REQ-0125 (Priority: 2)
 
 \textbf{Specification:} The DMS shall provide a software framework that facilitates Level 3 processing of catalogs.  This framework shall provide a means for applying user-provided processing to catalog data, including measuring and ensuring the completeness of the application - i.e., that the specified processing was applied to all of, and only, the entire contents of the desired catalog(s).
 
@@ -1823,7 +1845,7 @@ Provenance \newline
 \subsubsection{Software framework for Level 3 image processing}
 
 \label{DMS-REQ-0128}
-\textbf{ID:} DMS-REQ-0128
+\textbf{ID:} DMS-REQ-0128 (Priority: 2)
 
 \textbf{Specification:} The DMS shall provide a software framework that facilitates Level 3 processing of image data.  This framework shall provide a means for applying user-provided processing to image data, including measuring and ensuring the completeness of the application - i.e., that the specified processing was applied to all of, and only, the entire contents of the desired dataset.
 
@@ -1841,7 +1863,7 @@ Provenance \newline
 \subsection{Software Architecture to Enable Community Re-Use}
 
 \label{DMS-REQ-0308}
-\textbf{ID:} DMS-REQ-0308
+\textbf{ID:} DMS-REQ-0308 (Priority: 1b)
 
 \textbf{Specification:} The DMS software architecture shall be designed to enable high throughput on high-performance compute platforms, while also enabling the use of science-specific algorithms by science users on commodity desktop compute platforms.
 
@@ -1857,7 +1879,7 @@ Open Source, Open Configuration \newline
 \subsubsection{Simulated Data}
 
 \label{DMS-REQ-0009}
-\textbf{ID:} DMS-REQ-0009
+\textbf{ID:} DMS-REQ-0009 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall provide the ability to inject artificial or simulated data into data products to assess the functional and temporal performance of the production processing software.
 
@@ -1875,7 +1897,7 @@ Difference Source Spuriousness Threshold - MOPS \newline
 \subsubsection{Pre-cursor, and Real Data}
 
 \label{DMS-REQ-0296}
-\textbf{ID:} DMS-REQ-0296
+\textbf{ID:} DMS-REQ-0296 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall provide for the ability to process data from other electronic, pixel-oriented astronomical imaging cameras.
 
@@ -1884,7 +1906,7 @@ Difference Source Spuriousness Threshold - MOPS \newline
 \subsubsection{Image Differencing}
 
 \label{DMS-REQ-0032}
-\textbf{ID:} DMS-REQ-0032
+\textbf{ID:} DMS-REQ-0032 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall provide software to perform image differencing, generating Difference Exposures from the comparison of single exposures and/or coadded images.
 
@@ -1898,7 +1920,7 @@ Exposures (Level 1) \newline
 \subsubsection{Provide Source Detection Software}
 
 \label{DMS-REQ-0033}
-\textbf{ID:} DMS-REQ-0033
+\textbf{ID:} DMS-REQ-0033 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall provide software for the detection of sources in a calibrated image, which may be a Difference Image or a Co-Add image.
 
@@ -1916,7 +1938,7 @@ Catalogs (Level 2) \newline
 \subsubsection{Provide Calibrated Photometry}
 
 \label{DMS-REQ-0043}
-\textbf{ID:} DMS-REQ-0043
+\textbf{ID:} DMS-REQ-0043 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall provide calibrated photometry in each observed passband for all measured entities (e.g., DIASources, Sources, Objects), measuring the AB magnitude of the equivalent flat-SED source, above the atmosphere. Fluxes, possibly in jansky, shall be calculated for all measured entities.
 
@@ -1934,7 +1956,7 @@ Calibration Processing Performance Allocations \newline
 \subsubsection{Provide Astrometric Model}
 
 \label{DMS-REQ-0042}
-\textbf{ID:} DMS-REQ-0042
+\textbf{ID:} DMS-REQ-0042 (Priority: 1b)
 
 \textbf{Specification:} An astrometric model shall be provided for every Object and DIAObject which specifies at least the proper motion and parallax, and the estimated uncertainties on these quantities.
 
@@ -1952,14 +1974,14 @@ Level 2 Catalog Accuracy \newline
 \subsubsection{Provide Beam Projector Coordinate Calculation Software}
 
 \label{DMS-REQ-0351}
-\textbf{ID:} DMS-REQ-0351
+\textbf{ID:} DMS-REQ-0351 (Priority: 1a)
 
 \textbf{Specification:}  The DMS shall provide software to represent the coordinate transformations relating the collimated beam projector position and telescope pupil position to the illumination position on the telescope optical elements and focal plane.
 
 \subsubsection{Enable a Range of Shape Measurement Approaches}
 
 \label{DMS-REQ-0052}
-\textbf{ID:} DMS-REQ-0052
+\textbf{ID:} DMS-REQ-0052 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall provide for the use of a variety of shape models on multiple kinds of input data to measure sources: measurement on coadds; measurement on coadds using information (e.g., PSFs) extracted from the individual exposures; measurement based on all the information from the individual Exposures simultaneously.
 
@@ -1973,7 +1995,7 @@ Catalogs (Level 2) \newline
 \subsubsection{Provide User Interface Services}
 
 \label{DMS-REQ-0160}
-\textbf{ID:} DMS-REQ-0160
+\textbf{ID:} DMS-REQ-0160 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall provide software for User Interface Services, including services to: browse LSST data products through astronomical views or visualizations; create and serve "best" images of selectable regions of the sky; resample and re-project images, and visualize catalog content.
 
@@ -1987,7 +2009,7 @@ Image Visualization \newline
 \subsubsection{DMS Initialization Component}
 
 \label{DMS-REQ-0297}
-\textbf{ID:} DMS-REQ-0297
+\textbf{ID:} DMS-REQ-0297 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall contain a component that, at each Center, can initialize the DM Subsystem into a well-defined safe state when powered up.
 
@@ -2007,7 +2029,7 @@ Provenance \newline
 \subsubsection{Provide Data Access Services}
 
 \label{DMS-REQ-0155}
-\textbf{ID:} DMS-REQ-0155
+\textbf{ID:} DMS-REQ-0155 (Priority: 1a)
 
 \textbf{Discussion:}
 (This is a composite requirement in the SysML model, which simply aggregates its children.)
@@ -2020,7 +2042,7 @@ Data Access \newline
 \paragraph{Data Product Ingest}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0299}
-\textbf{ID:} DMS-REQ-0299
+\textbf{ID:} DMS-REQ-0299 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall provide software to ingest data products into the Science Data Archive.
 
@@ -2034,7 +2056,7 @@ The Archive Facility \newline
 \paragraph{Data Product and Raw Data Access}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0298}
-\textbf{ID:} DMS-REQ-0298
+\textbf{ID:} DMS-REQ-0298 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall provide software for Data Access Services to list and retrieve image, file, and catalog data products (including raw telescope images and calibration data), their associated metadata, their provenance, or any combination thereof, independent of their actual storage location.
 
@@ -2046,7 +2068,7 @@ Data Access \newline
 \paragraph{Bulk Download Service}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0300}
-\textbf{ID:} DMS-REQ-0300
+\textbf{ID:} DMS-REQ-0300 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall provide software to enable bulk download of data products and raw data, subject to network bandwidth.
 
@@ -2060,7 +2082,7 @@ Data Distribution \newline
 \subsubsection{Provide Image Access Services}
 
 \label{DMS-REQ-0065}
-\textbf{ID:} DMS-REQ-0065
+\textbf{ID:} DMS-REQ-0065 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall provide a service for Image Access through community data access protocols, to support programmatic search and retrieval of images or image cut-outs. The service shall support one or more community standard formats, including the LSST pipeline input format.
 
@@ -2080,7 +2102,7 @@ Data Access \newline
 \subsubsection{Control of Level-1 Production}
 
 \label{DMS-REQ-0301}
-\textbf{ID:} DMS-REQ-0301
+\textbf{ID:} DMS-REQ-0301 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall contain a component to control all Level-1 Data Product production.
 
@@ -2094,7 +2116,7 @@ Standard Operating States \newline
 \subsubsection{Provide Pipeline Execution Services}
 
 \label{DMS-REQ-0156}
-\textbf{ID:} DMS-REQ-0156
+\textbf{ID:} DMS-REQ-0156 (Priority: 1a)
 
 \textbf{Discussion:}
 (This is a composite requirement in the SysML model, which simply aggregates its children.)
@@ -2109,7 +2131,7 @@ Automated Production \newline
 \paragraph{Production Orchestration}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0302}
-\textbf{ID:} DMS-REQ-0302
+\textbf{ID:} DMS-REQ-0302 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall provide software to orchestrate execution of productions, including deploying pipelines on a computing platform.
 
@@ -2125,7 +2147,7 @@ Automated Production \newline
 \paragraph{Production Monitoring}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0303}
-\textbf{ID:} DMS-REQ-0303
+\textbf{ID:} DMS-REQ-0303 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall provide software to monitor execution of pipelines in real time.
 
@@ -2141,7 +2163,7 @@ System Control \newline
 \paragraph{Production Fault Tolerance}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0304}
-\textbf{ID:} DMS-REQ-0304
+\textbf{ID:} DMS-REQ-0304 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall provide software to detect faults in pipeline execution and recover when possible.
 
@@ -2153,7 +2175,7 @@ Automated Production \newline
 \subsubsection{Provide Pipeline Construction Services}
 
 \label{DMS-REQ-0158}
-\textbf{ID:} DMS-REQ-0158
+\textbf{ID:} DMS-REQ-0158 (Priority: 1a)
 
 \textbf{Discussion:}
 (This is a composite requirement in the SysML model, which simply aggregates its children.)
@@ -2161,7 +2183,7 @@ Automated Production \newline
 \paragraph{Task Configuration}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0306}
-\textbf{ID:} DMS-REQ-0306
+\textbf{ID:} DMS-REQ-0306 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall provide software to define, override components of, and verify the suitability of the configuration for a task.
 
@@ -2175,7 +2197,7 @@ Provenance \newline
 \paragraph{Task Specification}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0305}
-\textbf{ID:} DMS-REQ-0305
+\textbf{ID:} DMS-REQ-0305 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall provide software to define (and redefine without recompilation) a pipeline task containing a science algorithm, which may in turn consist of the execution of other subtasks.
 
@@ -2189,7 +2211,7 @@ Provenance \newline
 \subsubsection{Unique Processing Coverage}
 
 \label{DMS-REQ-0307}
-\textbf{ID:} DMS-REQ-0307
+\textbf{ID:} DMS-REQ-0307 (Priority: 2)
 
 \textbf{Specification:} The DMS shall enable applications to process every record in a table meeting user-specified criteria exactly once.
 
@@ -2209,7 +2231,7 @@ Consistency and Completeness \newline
 \subsubsection{Raw Data Archiving Reliability}
 
 \label{DMS-REQ-0309}
-\textbf{ID:} DMS-REQ-0309
+\textbf{ID:} DMS-REQ-0309 (Priority: 1a)
 
 \textbf{Specification:} The DMS system shall archive all data, including science, wavefront, and guider images and associated metadata, that are presented for archiving by up-stream systems, with a rate of permanent data loss or corruption not to exceed \textbf{dataLossMax}.
 
@@ -2237,7 +2259,7 @@ Science Image Archiving Reliability \newline
 \subsubsection{Keep Historical Alert Archive}
 
 \label{DMS-REQ-0094}
-\textbf{ID:} DMS-REQ-0094
+\textbf{ID:} DMS-REQ-0094 (Priority: 1b)
 
 \textbf{Specification: }The DMS shall preserve and keep in an accessible state an alert archive with all issued alerts for a historical record and for false alert analysis.
 
@@ -2251,7 +2273,7 @@ Alerts \newline
 \subsubsection{Un-Archived Data Product Cache}
 
 \label{DMS-REQ-0310}
-\textbf{ID:} DMS-REQ-0310
+\textbf{ID:} DMS-REQ-0310 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall provide low-latency storage for un-archived data products of at least \textbf{l1CacheLifetime }to enable efficient precovery and other Level-1 production measurements.
 
@@ -2277,7 +2299,7 @@ Catalogs (Level 1) \newline
 \subsubsection{Regenerate Un-archived Data Products}
 
 \label{DMS-REQ-0311}
-\textbf{ID:} DMS-REQ-0311
+\textbf{ID:} DMS-REQ-0311 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall be able to regenerate unarchived data products to within scientifically reasonable tolerances.
 
@@ -2291,7 +2313,7 @@ Exposures (Level 1) \newline
 \subsubsection{Level 1 Data Product Access}
 
 \label{DMS-REQ-0312}
-\textbf{ID:} DMS-REQ-0312
+\textbf{ID:} DMS-REQ-0312 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall maintain a "live" Level 1 Database for query by science users, updated as a result of Alert Production processing.
 
@@ -2305,7 +2327,7 @@ Transient Alert Query \newline
 \subsubsection{Level 1 \& 2 Catalog Access}
 
 \label{DMS-REQ-0313}
-\textbf{ID:} DMS-REQ-0313
+\textbf{ID:} DMS-REQ-0313 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall maintain both the Level-2 catalog and the reprocessed Level-1 catalog from the most recent two Data Releases for query by science users.
 
@@ -2319,7 +2341,7 @@ Access to Previous Data Releases \newline
 \subsubsection{Provide Engineering \& Facility Database Archive}
 
 \label{DMS-REQ-0102}
-\textbf{ID:} DMS-REQ-0102
+\textbf{ID:} DMS-REQ-0102 (Priority: 1a)
 
 \textbf{Specification:} Engineering and Facility data from the Observatory Control System and associated metadata shall be permanently archived by the DMS and available for public access within \textbf{L1PublicT} hours of their generation by the OCS.
 
@@ -2345,7 +2367,7 @@ Engineering and Facility Database Archive \newline
 \subsubsection{Catalog Queries}
 
 \label{DMS-REQ-0075}
-\textbf{ID:} DMS-REQ-0075
+\textbf{ID:} DMS-REQ-0075 (Priority: 1a)
 
 \textbf{Specification:} The catalogs shall be queryable with a structured language, such as SQL.
 
@@ -2361,7 +2383,7 @@ Data Access \newline
 \subsubsection{Logging of catalog queries}
 
 \label{DMS-REQ-0345}
-\textbf{ID:} DMS-REQ-0345
+\textbf{ID:} DMS-REQ-0345 (Priority: 2)
 
     \textbf{Specification: }Every query of LSST databases shall be logged. The logging shall contain at least the query itself, the user who submitted the query, the date and time the query was submitted, the execution time of the query, and the number of rows returned. The query history shall be available to the user that made the query but shall otherwise be private and only accessible by administrators.
 
@@ -2375,7 +2397,7 @@ Level 2 Data Product Availability \newline
 \subsubsection{Providing a Precovery Service}
 
 \label{DMS-REQ-0341}
-\textbf{ID:} DMS-REQ-0341
+\textbf{ID:} DMS-REQ-0341 (Priority: 1b)
 
 \textbf{Specification:} A "precovery service" shall be available to end-users to request precovery for a provided sky location across all previous visits, making the results available within \textbf{precoveryServiceElapsed} hours of the request and supporting at least\textbf{ precoveryServicePeakUsers} submissions per hour.
 
@@ -2409,7 +2431,7 @@ precoveryServicePeakUsers
 \subsubsection{Catalog Export Formats}
 
 \label{DMS-REQ-0078}
-\textbf{ID:} DMS-REQ-0078
+\textbf{ID:} DMS-REQ-0078 (Priority: 1a)
 
 \textbf{Specification:} The DMS catalog archive shall provide catalog data and associated metadata on request in community standard formats:
 \begin{itemize}
@@ -2429,7 +2451,7 @@ Data Access \newline
 \subsubsection{Maintain Archive Publicly Accessible}
 
 \label{DMS-REQ-0077}
-\textbf{ID:} DMS-REQ-0077
+\textbf{ID:} DMS-REQ-0077 (Priority: 1b)
 
 \textbf{Specification: }All releases of the DMS catalog archive shall be maintained and preserved in a publicly accessible state for the entire operational life of the LSST observatory.
 
@@ -2447,7 +2469,7 @@ Access to Previous Data Releases \newline
 \subsubsection{Data Management Unscheduled Downtime}
 
 \label{DMS-REQ-0318}
-\textbf{ID:} DMS-REQ-0318
+\textbf{ID:} DMS-REQ-0318 (Priority: 1b)
 
 \textbf{Specification:} The Data Management subsystem shall be designed to facilitate unplanned repair activities expected not to exceed \textbf{DMDowntime} days per year.
 
@@ -2477,14 +2499,14 @@ Unscheduled Downtime Subsystem Allocations \newline
 \subsubsection{Optimization of Cost, Reliability and Availability in Order}
 
 \label{DMS-REQ-0161}
-\textbf{ID:} DMS-REQ-0161
+\textbf{ID:} DMS-REQ-0161 (Priority: 1b)
 
 \textbf{Specification:} Within a fixed cost envelope for the Data Management subsystem, the allocation of processing and storage facilities will optimize reliability over availability to end users.
 
 \subsubsection{Compute Platform Heterogeneity}
 
 \label{DMS-REQ-0314}
-\textbf{ID:} DMS-REQ-0314
+\textbf{ID:} DMS-REQ-0314 (Priority: 1b)
 
 \textbf{Specification:} At any given LSST computational facility the DMS shall be capable of operations on a heterogeneous cluster of machines. The hardware, operating system, and other machine parameters shall be limited to a project-approved set.
 
@@ -2500,7 +2522,7 @@ Software Development Standards \newline
 \subsubsection{Pipeline Throughput}
 
 \label{DMS-REQ-0162}
-\textbf{ID:} DMS-REQ-0162
+\textbf{ID:} DMS-REQ-0162 (Priority: 1b)
 
 \textbf{Specification:} The infrastructure will be sized such that the net throughput of the data processing pipelines will permit a complete processing of a night’s observing data prior to the start of the next observing night, assuming no system outages
 
@@ -2514,7 +2536,7 @@ Usable Observing Time \newline
 \subsubsection{Pipeline Availability}
 
 \label{DMS-REQ-0008}
-\textbf{ID:} DMS-REQ-0008
+\textbf{ID:} DMS-REQ-0008 (Priority: 1b)
 
 \textbf{Specification:} Except in cases of major disaster, the DMS shall have no unscheduled outages of the DMS pipelines extending over a period greater than \textbf{productionMaxDowntime}.  A major disaster is defined as a natural disaster or act of war (e.g. flood, fire, hostile acts) that compromises or threatens to compromise the health and integrity of the DMS physical facility, computing equipment, or operational personnel.
 
@@ -2537,7 +2559,7 @@ productionMaxDowntime
 \subsubsection{Re-processing Capacity}
 
 \label{DMS-REQ-0163}
-\textbf{ID:} DMS-REQ-0163
+\textbf{ID:} DMS-REQ-0163 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall provide Processing, Storage, and Network resources capable of executing the DMS Data Release Production over all pre-existing survey data in a time no greater than \textbf{drProcessingPeriod}, without impacting observatory operations.
 
@@ -2563,7 +2585,7 @@ Level 2 Data Product Availability \newline
 \subsubsection{Temporary Storage for Communications Links}
 
 \label{DMS-REQ-0164}
-\textbf{ID:} DMS-REQ-0164
+\textbf{ID:} DMS-REQ-0164 (Priority: 1b)
 
     \textbf{Specification: }The infrastructure will provide for temporary storage for a minimum of \textbf{tempStorageRelMTTR} of the mean time to repair of any communications network link at the source end of that link.
 
@@ -2589,7 +2611,7 @@ Pipeline Throughput \newline
 \subsubsection{Infrastructure Sizing for "catching up"}
 
 \label{DMS-REQ-0165}
-\textbf{ID:} DMS-REQ-0165
+\textbf{ID:} DMS-REQ-0165 (Priority: 1b)
 
 \textbf{Specification: }The infrastructure will be sized such that after outages, "catch up" processing of the temporarily stored raw image data may occur at the rate of one night’s observing data processed per day, without interrupting the current day's observatory operations.
 
@@ -2607,7 +2629,7 @@ Summit Data Buffer \newline
 \subsubsection{Incorporate Fault-Tolerance}
 
 \label{DMS-REQ-0166}
-\textbf{ID:} DMS-REQ-0166
+\textbf{ID:} DMS-REQ-0166 (Priority: 1b)
 
 \textbf{Specification: }The infrastructure will incorporate as fault-tolerance features to prevent loss of data in the event of hardware or software failure.
 
@@ -2619,7 +2641,7 @@ Optimization of Cost, Reliability and Availability in Order \newline
 \subsubsection{Incorporate Autonomics}
 
 \label{DMS-REQ-0167}
-\textbf{ID:} DMS-REQ-0167
+\textbf{ID:} DMS-REQ-0167 (Priority: 2)
 
 \textbf{Specification:} The infrastructure will incorporate sufficient capability for self-diagnostics and recovery to provide for continuation of processing in the event of partial hardware or software failures.
 
@@ -2635,7 +2657,7 @@ Incorporate Fault-Tolerance \newline
 \subsubsection{Summit Facility Data Communications}
 
 \label{DMS-REQ-0168}
-\textbf{ID:} DMS-REQ-0168
+\textbf{ID:} DMS-REQ-0168 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall provide data communications infrastructure to accept science data and associated metadata read-outs, and the collection of ancillary and engineering data, for transfer to the base facility.
 
@@ -2647,7 +2669,7 @@ The Summit Facility \newline
 \subsubsection{Prefer Computing and Storage Down}
 
 \label{DMS-REQ-0170}
-\textbf{ID:} DMS-REQ-0170
+\textbf{ID:} DMS-REQ-0170 (Priority: 1b)
 
 \textbf{Specification: }The DMS computing and storage equipment will be preferentially located at a lower altitude Facility (Base or Archive Center) versus the Summit Facility due to lower support costs and fewer reliability issues. Therefore any processing that can be done in either location will be allocated to a lower altitude Facility.
 
@@ -2659,7 +2681,7 @@ Optimization of Cost, Reliability and Availability in Order \newline
 \subsubsection{DMS Communication with OCS}
 
 \label{DMS-REQ-0315}
-\textbf{ID:} DMS-REQ-0315
+\textbf{ID:} DMS-REQ-0315 (Priority: 1a)
 
 \textbf{Specification:} The DMS at the Base Site shall contain a component to accept control commands from and communicate with the OCS.
 
@@ -2673,7 +2695,7 @@ The Base Facility \newline
 \subsubsection{Summit to Base Network}
 
 \label{DMS-REQ-0171}
-\textbf{ID:} DMS-REQ-0171
+\textbf{ID:} DMS-REQ-0171 (Priority: 1a)
 
 \textbf{Specification:} The DMS shall provide communications infrastructure between the Summit Facility and the Base Facility sufficient to carry scientific data and associated metadata for each image in no more than time \textbf{summToBaseMaxTransferTime}.
 
@@ -2701,7 +2723,7 @@ Level 1 Data Product Availability \newline
 \subsubsection{Summit to Base Network Availability}
 
 \label{DMS-REQ-0172}
-\textbf{ID:} DMS-REQ-0172
+\textbf{ID:} DMS-REQ-0172 (Priority: 1b)
 
 \textbf{Specification:} The Summit to Base communications shall be highly available, with Mean Time Between Failures (MTBF) > \textbf{summToBaseNetMTBF}.
 
@@ -2729,7 +2751,7 @@ Unscheduled Downtime Subsystem Allocations \newline
 \subsubsection{Summit to Base Network Reliability}
 
 \label{DMS-REQ-0173}
-\textbf{ID:} DMS-REQ-0173
+\textbf{ID:} DMS-REQ-0173 (Priority: 1b)
 
 \textbf{Specification:} The Summit to Base communications shall be highly reliable, with Mean Time to Repair (MTTR) < \textbf{summToBaseNetMTTR}.
 
@@ -2757,7 +2779,7 @@ Unscheduled Downtime Subsystem Allocations \newline
 \subsubsection{Summit to Base Network Secondary Link}
 
 \label{DMS-REQ-0174}
-\textbf{ID:} DMS-REQ-0174
+\textbf{ID:} DMS-REQ-0174 (Priority: 1b)
 
 \textbf{Specification:} The Summit to Base communications shall provide at least one secondary link or transport mechanism for minimal operations support in the event of extended outage.  This link may include redundant fiber optics, microwaves, or transportable media.  It shall be capable of transferring one night's worth of raw data in \textbf{summToBaseNet2TransMax }or less.
 
@@ -2787,7 +2809,7 @@ Degraded Operational States \newline
 \subsubsection{Summit to Base Network Ownership and Operation}
 
 \label{DMS-REQ-0175}
-\textbf{ID:} DMS-REQ-0175
+\textbf{ID:} DMS-REQ-0175 (Priority: 1b)
 
 \textbf{Specification:} The Summit to Base communications link shall be owned and operated by LSST and/or the operations entity to ensure responsiveness of support.
 
@@ -2805,7 +2827,7 @@ Local Autonomous Administration of System Sites \newline
 \subsubsection{Base Facility Infrastructure}
 
 \label{DMS-REQ-0176}
-\textbf{ID:} DMS-REQ-0176
+\textbf{ID:} DMS-REQ-0176 (Priority: 1a)
 
 \textbf{Specification:} The Base Facility shall provide sufficient computing, storage, and network infrastructure to support buffering and forwarding of all raw and crosstalk-corrected image data to the Archive Facility, a complete copy of the Archive Facility data holdings, and compute facilities to support Commissioning activities.
 
@@ -2819,7 +2841,7 @@ The Base Facility \newline
 \subsubsection{Base Facility Temporary Storage}
 
 \label{DMS-REQ-0177}
-\textbf{ID:} DMS-REQ-0177
+\textbf{ID:} DMS-REQ-0177 (Priority: 1b)
 
 \textbf{Specification:} The Base Facility shall provide at least a time \textbf{minBaseDataStorage }(or half of that amount, redundantly) of raw data storage in the event of Base to Archive Center network outage.
 
@@ -2849,7 +2871,7 @@ Base Data Buffer \newline
 \subsubsection{Base Facility Co-Location with Existing Facility}
 
 \label{DMS-REQ-0178}
-\textbf{ID:} DMS-REQ-0178
+\textbf{ID:} DMS-REQ-0178 (Priority: 1b)
 
 \textbf{Specification:} The Base Facility shall be co-located at an existing facility to leverage existing support and facility resources
 
@@ -2863,7 +2885,7 @@ Sites \newline
 \subsubsection{Commissioning Cluster}
 
 \label{DMS-REQ-0316}
-\textbf{ID:} DMS-REQ-0316
+\textbf{ID:} DMS-REQ-0316 (Priority: 1a)
 
 \textbf{Specification:} The Base Facility shall include a compute cluster to be made available to the Systems Engineering group for use in commissioning.  Data Management will not administer or otherwise maintain this cluster following hardware installation. The budget for this cluster shall be at least \textbf{budgetRelAlertProd} of the budget for Alert Production hardware.
 
@@ -2884,7 +2906,7 @@ budgetRelAlertProd
 \subsubsection{Base Wireless LAN (WiFi)}
 
 \label{DMS-REQ-0352}
-\textbf{ID:} DMS-REQ-0352
+\textbf{ID:} DMS-REQ-0352 (Priority: 2)
 
 \textbf{Specification:}
 The Base LAN shall provide \textbf{minBaseWiFi} Wireless LAN (WiFi) and Wireless Access Points in the Base Facility to support connectivity of individual user's computers to the network backbones.
@@ -2913,7 +2935,7 @@ The Base Facility \newline
 \subsubsection{Base to Archive Network}
 
 \label{DMS-REQ-0180}
-\textbf{ID:} DMS-REQ-0180
+\textbf{ID:} DMS-REQ-0180 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall provide communications infrastructure between the Base Facility and the Archive Center sufficient to carry scientific data and associated metadata for each image in no more than time \textbf{baseToArchiveMaxTransferTime}.
 
@@ -2943,7 +2965,7 @@ Base Updating from Archive \newline
 \subsubsection{Base to Archive Network Availability}
 
 \label{DMS-REQ-0181}
-\textbf{ID:} DMS-REQ-0181
+\textbf{ID:} DMS-REQ-0181 (Priority: 1b)
 
 \textbf{Specification: }The Base to Archive communications shall be highly available, with MTBF >  \textbf{baseToArchNetMTBF}.
 
@@ -2973,7 +2995,7 @@ Base-Archive Connectivity Loss \newline
 \subsubsection{Base to Archive Network Reliability}
 
 \label{DMS-REQ-0182}
-\textbf{ID:} DMS-REQ-0182
+\textbf{ID:} DMS-REQ-0182 (Priority: 1b)
 
 \textbf{Specification:} The Base to Archive communications shall be highly reliable, with MTTR <  \textbf{baseToArchNetMTTR}.
 
@@ -3001,7 +3023,7 @@ Base-Archive Connectivity Loss \newline
 \subsubsection{Base to Archive Network Secondary Link}
 
 \label{DMS-REQ-0183}
-\textbf{ID:} DMS-REQ-0183
+\textbf{ID:} DMS-REQ-0183 (Priority: 1b)
 
 \textbf{Specification: }The Base to Archive communications shall provide secondary link or transport mechanism (e.g. protected circuit) for operations support and "catch up"  in the event of extended outage.  This secondary link shall be capable of "bursting" to at least twice the capacity of the primary link.
 
@@ -3019,7 +3041,7 @@ Degraded Operational States \newline
 \subsubsection{Archive Center}
 
 \label{DMS-REQ-0185}
-\textbf{ID:} DMS-REQ-0185
+\textbf{ID:} DMS-REQ-0185 (Priority: 1a)
 
 \textbf{Specification:} The Archive Center shall provide computing, storage, and network infrastructure to support, simultaneously: nightly processing including image processing, detection, association, and moving object pipelines, and the generation of all time-critical data products, i.e. alerts; the data release production, including Level-2 data product creation, permanent storage for all data products (with provenance), including federated Level-3 products; and serve data for replication to data centers and end user sites.
 
@@ -3033,7 +3055,7 @@ The Archive Facility \newline
 \subsubsection{Archive Center Disaster Recovery}
 
 \label{DMS-REQ-0186}
-\textbf{ID:} DMS-REQ-0186
+\textbf{ID:} DMS-REQ-0186 (Priority: 1a)
 
 \textbf{Specification:} The Archive Center shall provide disaster recovery support preventing loss of LSST data in the case of infrastructure or facility-threatening events.  This support shall enable recovery of all LSST archived data from backed up sources, including Data Access Centers.
 
@@ -3047,7 +3069,7 @@ Data Access \newline
 \subsubsection{Archive Center Co-Location with Existing Facility}
 
 \label{DMS-REQ-0187}
-\textbf{ID:} DMS-REQ-0187
+\textbf{ID:} DMS-REQ-0187 (Priority: 1b)
 
 \textbf{Specification:} The Archive Center shall be hosted at an existing NSF/DOE-funded supercomputing center.
 
@@ -3063,7 +3085,7 @@ Archive Site \newline
 \subsubsection{Archive to Data Access Center Network}
 
 \label{DMS-REQ-0188}
-\textbf{ID:} DMS-REQ-0188
+\textbf{ID:} DMS-REQ-0188 (Priority: 1b)
 
 \textbf{Specification:} The DMS shall provide communications infrastructure between the Archive Center and Data Access Centers sufficient to carry scientific data and associated metadata in support of community and EPO access. Aggregate bandwidth for data transfers from the Archive Center to Data Centers shall be at least \textbf{archToDacBandwidth}.
 
@@ -3084,7 +3106,7 @@ archToDacBandwidth
 \subsubsection{Archive to Data Access Center Network Availability}
 
 \label{DMS-REQ-0189}
-\textbf{ID:} DMS-REQ-0189
+\textbf{ID:} DMS-REQ-0189 (Priority: 1b)
 
 \textbf{Specification:} The Archive to Data Access Center communications shall be highly available, with MTBF > \textbf{archToDacNetMTBF}.
 
@@ -3110,7 +3132,7 @@ Optimization of Cost, Reliability and Availability in Order \newline
 \subsubsection{Archive to Data Access Center Network Reliability}
 
 \label{DMS-REQ-0190}
-\textbf{ID:} DMS-REQ-0190
+\textbf{ID:} DMS-REQ-0190 (Priority: 1b)
 
 \textbf{Specification:} The Archive to Data Access Center communications shall be highly reliable, with MTTR < \textbf{archToDacNetMTTR}.
 
@@ -3136,7 +3158,7 @@ Optimization of Cost, Reliability and Availability in Order \newline
 \subsubsection{Archive to Data Access Center Network Secondary Link}
 
 \label{DMS-REQ-0191}
-\textbf{ID:} DMS-REQ-0191
+\textbf{ID:} DMS-REQ-0191 (Priority: 1b)
 
 \textbf{Specification: }The Archive to Data Access Center communications shall provide secondary link or transport mechanism (e.g. protected circuit) for operations support and "catch up" in the event of extended outage.
 
@@ -3152,7 +3174,7 @@ Archive to Data Access Center Network Reliability \newline
 \subsubsection{Data Access Centers}
 
 \label{DMS-REQ-0193}
-\textbf{ID:} DMS-REQ-0193
+\textbf{ID:} DMS-REQ-0193 (Priority: 1b)
 
 \textbf{Specification:} The Data Access Centers shall provide computing, storage, and network infrastructure to support open access to LSST data products (with provenance) by end users.
 
@@ -3164,7 +3186,7 @@ The Archive Facility \newline
 \subsubsection{Data Access Center Simultaneous Connections}
 
 \label{DMS-REQ-0194}
-\textbf{ID:} DMS-REQ-0194
+\textbf{ID:} DMS-REQ-0194 (Priority: 1b)
 
 \textbf{Specification:} At least \textbf{dacMinConnections }simultaneous connections shall be supported at each Data Access Center.
 
@@ -3185,7 +3207,7 @@ dacMinConnections
 \subsubsection{Access to catalogs for external Level 3 processing}
 
 \label{DMS-REQ-0122}
-\textbf{ID:} DMS-REQ-0122
+\textbf{ID:} DMS-REQ-0122 (Priority: 2)
 
 \textbf{Specification: }The DMS shall facilitate Level 3 catalog processing that may take place at external facilities outside the DACs.  This will principally be by facilitating the export of catalogs and the provision of tools for maintaining and validating exported data.
 
@@ -3199,7 +3221,7 @@ Data Products Query and Download Availability \newline
 \subsubsection{Access to images for external Level 3 processing}
 
 \label{DMS-REQ-0126}
-\textbf{ID:} DMS-REQ-0126
+\textbf{ID:} DMS-REQ-0126 (Priority: 2)
 
 \textbf{Specification: }The DMS shall facilitate Level 3 image processing that may take place at external facilities outside the DACs.  This will principally be by facilitating the export of image datasets and the provision of tools for maintaining and validating exported data.
 
@@ -3213,7 +3235,7 @@ Data Products Query and Download Availability \newline
 \subsubsection{Access to input catalogs for DAC-based Level 3 processing}
 
 \label{DMS-REQ-0123}
-\textbf{ID:} DMS-REQ-0123
+\textbf{ID:} DMS-REQ-0123 (Priority: 2)
 
 \textbf{Specification: }The DMS shall provide access to all Level 1 and Level 2 catalog products through the LSST project's Data Access Centers, and any others that have been established and funded, for Level 3 processing that takes place at the DACs.
 
@@ -3225,7 +3247,7 @@ Production \newline
 \subsubsection{Access to input images for DAC-based Level 3 processing}
 
 \label{DMS-REQ-0127}
-\textbf{ID:} DMS-REQ-0127
+\textbf{ID:} DMS-REQ-0127 (Priority: 2)
 
 \textbf{Specification:} The DMS shall provide access to all Level 1 and Level 2 image products through the LSST project's Data Access Centers, and any others that have been established and funded, for Level 3 processing that takes place at the DACs.
 
@@ -3237,7 +3259,7 @@ Production \newline
 \subsubsection{Federation with external catalogs}
 
 \label{DMS-REQ-0124}
-\textbf{ID:} DMS-REQ-0124
+\textbf{ID:} DMS-REQ-0124 (Priority: 2)
 
 \textbf{Specification: }The DMS shall provide a means for federating Level 1, 2, and 3 catalogs with externally provided catalogs, for joint analysis.  The DMS shall provide specifications for how external data must be provided in order for this to be achieved. The DMS shall strive to support community standards in this regard, including, but not limited to, virtual observatory facilities that may be available during the project lifetime.
 
@@ -3251,7 +3273,7 @@ Production \newline
 \subsubsection{Data Access Center Geographical Distribution}
 
 \label{DMS-REQ-0196}
-\textbf{ID:} DMS-REQ-0196
+\textbf{ID:} DMS-REQ-0196 (Priority: 1b)
 
 \textbf{Specification:} The Data Access Centers will be hosted at facilities selected in at least the U.S. and the observatory host country to permit widest possible access to LSST data with the fewest possible network hops.
 
@@ -3267,7 +3289,7 @@ Archive Site \newline
 \subsubsection{No Limit on Data Access Centers}
 
 \label{DMS-REQ-0197}
-\textbf{ID:} DMS-REQ-0197
+\textbf{ID:} DMS-REQ-0197 (Priority: 2)
 
 \textbf{Specification: }The number of Data Access Centers shall be limited only by available internal or external funding.  No architectural constraints will be placed on the DMS that prohibit the addition of Data Access Centers at any time, subject to funding.
 
@@ -3279,6 +3301,27 @@ OSS-REQ-0021:
 Base Site \newline
 OSS-REQ-0022:
 Archive Site \newline
+
+\section{Deleted Requirements}
+
+This sections lists all the requirements that have been deleted from the official baseline.
+
+\subsection{Timely Publication of Level 2 Data Releases}
+
+\label{DMS-REQ-0006}
+\textbf{ID:} DMS-REQ-0006 (Priority: 1b)
+
+\textbf{Specification:} The DMS shall make available to end-users all Level-2 data products as soon as possible following the execution of the Data Release Production and the verification of science data quality.
+
+\textbf{Discussion:}
+Removed as part of LCR-962.
+
+\emph{Derived from Requirements:}
+
+\hyperref[DMS-REQ-0005]{DMS-REQ-0005}:
+Produce Data Releases \newline
+OSS-REQ-0134:
+Level 2 Data Product Availability \newline
 
 \bibliography{lsst}
 
