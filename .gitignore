@@ -1,6 +1,9 @@
 LSE-61.pdf
 .DS_Store
 
+support/*.pdf
+support/*.tex
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
