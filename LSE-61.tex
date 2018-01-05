@@ -1,4 +1,4 @@
-\documentclass[SE,toc]{lsstdoc}
+\documentclass[SE,toc,lsstdraft]{lsstdoc}
 
 % We use commands to make it easy to find where parameter names and units
 % are defined in the tables, and to allow hyphenation.
@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{342 (2017-08-21)}
+\setDocUpstreamVersion{533}
 
-\date{2017-09-12}
+\date{2018-01-05}
 
 %% Define the document title, authors, handle, and change record
 \input metadata.tex
@@ -311,7 +311,7 @@ OTT1
 \emph{Derived from Requirements:}
 
 \hyperref[DMS-REQ-0003]{DMS-REQ-0003}:
-Create and Maintain Science Data Archive  \newline
+Create and Maintain Science Data Archive \newline
 OSS-REQ-0127:
 Level 1 Data Product Availability \newline
 
@@ -1313,7 +1313,9 @@ OTT1
 
 \section{Productions}
 
-\subsection{Query Repeatability}
+\subsection{General Considerations}
+
+\subsubsection{Query Repeatability}
 
 \label{DMS-REQ-0291}
 \textbf{ID:} DMS-REQ-0291 (Priority: 1b)
@@ -1327,7 +1329,7 @@ OTT1
 OSS-REQ-0181:
 Data Products Query and Download Infrastructure \newline
 
-\subsection{Uniqueness of IDs Across Data Releases}
+\subsubsection{Uniqueness of IDs Across Data Releases}
 
 \label{DMS-REQ-0292}
 \textbf{ID:} DMS-REQ-0292 (Priority: 1a)
@@ -1343,7 +1345,7 @@ Catalogs (Level 2) \newline
 OSS-REQ-0130:
 Catalogs (Level 1) \newline
 
-\subsection{Selection of Datasets}
+\subsubsection{Selection of Datasets}
 
 \label{DMS-REQ-0293}
 \textbf{ID:} DMS-REQ-0293 (Priority: 1a)
@@ -1359,7 +1361,7 @@ Consistency and Completeness \newline
 OSS-REQ-0176:
 Data Access \newline
 
-\subsection{Processing of Datasets}
+\subsubsection{Processing of Datasets}
 
 \label{DMS-REQ-0294}
 \textbf{ID:} DMS-REQ-0294 (Priority: 1b)
@@ -1379,7 +1381,7 @@ Completeness \newline
 OSS-REQ-0120:
 Consistency \newline
 
-\subsection{Transparent Data Access}
+\subsubsection{Transparent Data Access}
 
 \label{DMS-REQ-0295}
 \textbf{ID:} DMS-REQ-0295 (Priority: 2)
@@ -1530,6 +1532,8 @@ numBrokerUsers
 
 OSS-REQ-0184:
 Transient Alert Publication \newline
+OSS-REQ-0193:
+Alerts per Visit \newline
 
 \subsubsection{Level 1 Source Association}
 
@@ -1860,7 +1864,9 @@ Provenance \newline
 
 \section{Software}
 
-\subsection{Software Architecture to Enable Community Re-Use}
+\subsection{General Considerations}
+
+\subsubsection{Software Architecture to Enable Community Re-Use}
 
 \label{DMS-REQ-0308}
 \textbf{ID:} DMS-REQ-0308 (Priority: 1b)
@@ -3323,6 +3329,6 @@ Produce Data Releases \newline
 OSS-REQ-0134:
 Level 2 Data Product Availability \newline
 
-\bibliography{lsst}
+\bibliography{lsst,refs_ads}
 
 \end{document}
