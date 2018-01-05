@@ -6,6 +6,9 @@ import re
 """Read in the output from LSE-61-matrix.templ.txt template file and generate
 a latex long table
 
+  # python3 mkmatrix.py > matrix-test.tex
+  # pdflatex matrix-test
+
 When the command runs, a full document is sent to standard output that can
 be compiled to verify the table cration, and two mapping files are written:
 DMS2OSS.tex and OSS2DMS.tex. These output files are the rows for a latex
@@ -40,6 +43,10 @@ with open(sys.argv[1], "r") as fh:
                     continue
                 title_key = dms
                 dmsr2oss[dms] = []
+            # Titles can have a number at the start which exists to force
+            # sort order in the model. This has to be stripped to get the real title
+            if re.match("\d+ ", title):
+                title = re.sub("^\d+ ", "", title)
             titles[title_key] = title
 
 
