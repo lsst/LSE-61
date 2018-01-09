@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{533}
+\setDocUpstreamVersion{539}
 
-\date{2018-01-05}
+\date{2018-01-08}
 
 %% Define the document title, authors, handle, and change record
 \input metadata.tex
@@ -138,6 +138,11 @@ Telemetry Database Retention \newline
 
 \textbf{Discussion: }Difference measurements can go negative and in multi-epoch surveys averaging of fluxes rather than magnitudes is required. This requirement does not preclude making magnitudes available where appropriate.
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0391:
+Data Product Conventions \newline
+
 \subsubsection{Computing Derived Quantities}
 
 \label{DMS-REQ-0331}
@@ -147,12 +152,22 @@ Telemetry Database Retention \newline
 
 \textbf{Discussion:} Example quantities include those used to assess model fit quality or those required for calculating color-magnitude diagrams. Care should be taken to name the derived columns in a clear unambiguous way.
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0391:
+Data Product Conventions \newline
+
 \subsubsection{Denormalizing Database Tables}
 
 \label{DMS-REQ-0332}
 \textbf{ID:} DMS-REQ-0332 (Priority: 2)
 
 \textbf{Specification:} The database tables shall contain views presented to the users that will be appropriately denormalized for ease of use.
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0133:
+Level 2 Data Products \newline
 
 \subsubsection{Maximum Likelihood Values and Covariances}
 
@@ -163,6 +178,11 @@ Telemetry Database Retention \newline
 
 \textbf{Discussion:} Algorithms for which such values are impossible, will be documented explicitly to declare that the values are unavailable.
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0391:
+Data Product Conventions \newline
+
 \subsubsection{Storing Approximations of Per-pixel Metadata}
 
 \label{DMS-REQ-0326}
@@ -171,6 +191,11 @@ Telemetry Database Retention \newline
 \textbf{Specification:} Image depth and mask information shall be available in a parametrized approximate form in addition to a full per-pixel form.
 
 \textbf{Discussion:} This parametrization could be in formats such as MOC, Mangle polygons or STC regions.
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0391:
+Data Product Conventions \newline
 
 \subsection{Data Acquisition}
 
@@ -427,6 +452,11 @@ Level 1 Catalog Precision \newline
 
 \textbf{Discussion:} This will allow the community to use them to increase understanding of LSST images and derived LSST catalogs.
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0391:
+Data Product Conventions \newline
+
 \paragraph{Processed Visit Image Content}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0072}
@@ -564,6 +594,11 @@ diaCharacterizationCutoff
 } \\\hline
 \end{parameters}
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0126:
+Level 1 Data Products \newline
+
 \subsubsection{DIAObject Catalog}
 
 \label{DMS-REQ-0271}
@@ -645,6 +680,11 @@ Catalogs (Level 1) \newline
 
 \textbf{Specification:} The LSST database shall provide functions to compute, for every SSObject, the phase angle for every observation, and the reduced and absolute asteroid magnitudes in all LSST bands.
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0126:
+Level 1 Data Products \newline
+
 \subsubsection{DIAForcedSource Catalog}
 
 \label{DMS-REQ-0317}
@@ -667,6 +707,11 @@ Catalogs (Level 1) \newline
 \textbf{Specification:} A L1 DIASource to L2 Object positional cross-match table or database view shall be made available.
 
 \textbf{Discussion:} Care should be taken to note that this is purely a cross-match based on separation on the sky and does not imply the DIASource and Object are physically the same.
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0126:
+Level 1 Data Products \newline
 
 \subsubsection{Alert Content}
 
@@ -918,6 +963,11 @@ Co-added Exposures \newline
 
 \textbf{Discussion:} These are used to measure colors and shapes of objects at "standard" seeing. Sufficient provenance information will be made available to allow these coadds to be recreated by Level 3 users.
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0133:
+Level 2 Data Products \newline
+
 \subsubsection{Detecting faint variable objects}
 
 \label{DMS-REQ-0337}
@@ -1036,6 +1086,11 @@ Catalogs (Level 2) \newline
 \textbf{Specification: }It shall be possible to detect extended low surface brightness objects in coadds.
 
 \textbf{Discussion: }For example, this could be done by using the binned detection algorithm from SDSS.
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0133:
+Level 2 Data Products \newline
 
 \subsubsection{Forced-Source Catalog}
 
@@ -1264,6 +1319,8 @@ Calibration \newline
 
 LSR-REQ-0075:
 Survey Time Allocation \newline
+OSS-REQ-0392:
+Data Products Handling for Special Programs \newline
 
 \subsubsection{Level 1 Processing of Special Programs Data}
 
@@ -1271,6 +1328,11 @@ Survey Time Allocation \newline
 \textbf{ID:} DMS-REQ-0321 (Priority: 2)
 
 \textbf{Specification:} All Level 1 processing from special programs shall be completed before data arrives from the following night's observations.
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0392:
+Data Products Handling for Special Programs \newline
 
 \subsubsection{Constraints on Level 1 Special Program Products Generation}
 
@@ -1304,12 +1366,22 @@ OTT1
 } \\\hline
 \end{parameters}
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0392:
+Data Products Handling for Special Programs \newline
+
 \subsubsection{Special Programs Database}
 
 \label{DMS-REQ-0322}
 \textbf{ID:} DMS-REQ-0322 (Priority: 1b)
 
 \textbf{Specification:} Data products for special programs shall be stored in databases that are distinct from those used to store standard Level 1 and Level 2 data products. It shall be possible for these databases to be federated with the Level 1 and Level 2 databases to allow cross-queries and joins.
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0392:
+Data Products Handling for Special Programs \newline
 
 \section{Productions}
 
@@ -1984,6 +2056,11 @@ Level 2 Catalog Accuracy \newline
 
 \textbf{Specification:}  The DMS shall provide software to represent the coordinate transformations relating the collimated beam projector position and telescope pupil position to the illumination position on the telescope optical elements and focal plane.
 
+\emph{Derived from Requirements:}
+
+OSS-REQ-0383:
+Beam Projector Coordinate Relationship \newline
+
 \subsubsection{Enable a Range of Shape Measurement Approaches}
 
 \label{DMS-REQ-0052}
@@ -2433,6 +2510,11 @@ integer
 precoveryServicePeakUsers
 } \\\hline
 \end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0126:
+Level 1 Data Products \newline
 
 \subsubsection{Catalog Export Formats}
 
