@@ -2393,6 +2393,20 @@ Catalogs (Level 1) \newline
 OSS-REQ-0129:
 Exposures (Level 1) \newline
 
+\subsubsection{Regenerating Data Products from Previous Data Releases}
+
+\label{DMS-REQ-0336}
+\textbf{ID:} DMS-REQ-0336 (Priority: 1b)
+
+\textbf{Specification:} The DMS shall be able to regenerate data products from previous data releases to within scientifically reasonable tolerances.
+
+\textbf{Discussion:} This is similar to \hyperref[DMS-REQ-0311]{DMS-REQ-0311}, but covering prior data releases. The intent is for the software to be runnable in the same environment as was used for the original data release without the software having to be ported to a modern operating system.
+
+\emph{Derived from Requirements:}
+
+LSR-REQ-0049:
+Data Product Archiving \newline
+
 \subsubsection{Level 1 Data Product Access}
 
 \label{DMS-REQ-0312}
@@ -2551,6 +2565,228 @@ Data Access \newline
 Keep Science Data Archive \newline
 OSS-REQ-0186:
 Access to Previous Data Releases \newline
+
+\subsubsection{Access to Previous Data Releases}
+
+\label{DMS-REQ-0363}
+\textbf{ID:} DMS-REQ-0363
+
+\textbf{Specification:}
+The LSST Project shall provide data access services for the current Level 1 data, the most recent \textbf{nDRMin} Data Releases, and multiple older Data Releases.
+
+\begin{parameters}
+Minimum number of recent data releases
+&
+2
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+nDRMin
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0186:
+Access to Previous Data Releases \newline
+
+\subsubsection{Data Access Services}
+
+\label{DMS-REQ-0364}
+\textbf{ID:} DMS-REQ-0364
+
+\textbf{Specification:}
+The data access services shall be designed to permit, and their software implementation shall support, the service of at least \textbf{nDRTot} Data Releases accumulated over the (find the actual survey-length parameter) \textbf{surveyYears}-year planned survey.
+
+\textbf{Discussion:}
+It is an operations-era decision to choose the actual number of releases to be served, and to allocate hardware resources accordingly.  The requirement is that the system delivered at the close of the MREFC construction period be capable of handling ten years of releases if the operations project chooses to allocate adequate hardware resources.
+
+\begin{parameters}
+Total number of data releases over the survey
+&
+11
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+nDRTot
+} \\\hline
+Length of the survey in years
+&
+10
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+surveyYears
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0396:
+Data Access Services \newline
+
+\subsubsection{Operations Subsets}
+
+\label{DMS-REQ-0365}
+\textbf{ID:} DMS-REQ-0365
+
+\textbf{Specification:}
+The data access services shall be designed to permit the service of operations-designated subsets of the full content of the “older Data Releases” referred to in \hyperref[DMS-REQ-0363]{DMS-REQ-0363}.
+
+\textbf{Discussion:}
+This requirement, and the following one, are intended to give the operations project flexibility in, for example, serving only catalogs, and not images, from older releases.
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0398:
+Operations Subsets \newline
+
+\subsubsection{Subsets Support}
+
+\label{DMS-REQ-0366}
+\textbf{ID:} DMS-REQ-0366
+
+\textbf{Specification:}
+The data access services shall be designed to support the service of operations-designated subsets of the content of the “older Data Releases” referred to in requirement \hyperref[DMS-REQ-0363]{DMS-REQ-0363} from high-latency media.
+
+\textbf{Discussion:}
+This means that the “toolkit” of data access services should include elements that, for instance, allow users to understand that certain queries (e.g., for data on tape) may take much longer than for current data releases, and to monitor the status of such queries.
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0400:
+Subsets Support \newline
+
+\subsubsection{Access Services Performance}
+
+\label{DMS-REQ-0367}
+\textbf{ID:} DMS-REQ-0367
+
+\textbf{Specification:}
+The data access services for the most recent \textbf{nDRMin} Data Releases shall meet the performance requirements set forth in OSS-REQ-0180 and OSS-REQ-0181.
+
+\begin{parameters}
+Minimum number of recent data releases
+&
+2
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+nDRMin
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0394:
+Access Services Performance \newline
+
+\subsubsection{Implementation Provisions}
+
+\label{DMS-REQ-0368}
+\textbf{ID:} DMS-REQ-0368
+
+\textbf{Specification:}
+Nothing in the design and software implementation of the data access services shall prevent the performance requirements set forth in OSS-REQ-0180 and OSS-REQ-0181 from being met for the “older Data Releases” referred to in \hyperref[DMS-REQ-0363]{DMS-REQ-0363}, subject to the provision of sufficient computing and storage resources in the operations era.
+
+\textbf{Discussion:}
+It is left to the operations project to set standards for the performance on older releases, but they should not be limited by design choices made in the construction era.  That is, the system must be scalable to handle full-performance service of all Data Releases, should the operations project so choose.  This situation does not arise until, at the release of Data Release (\textbf{nDRMin}+1), the operations project must decide on the level of service to be provided for Data Release 1.
+
+This requirement may be verified by analysis, e.g., by expert review of the design of the data access services, as it is recognized that it may be very difficult to perform live performance measurements relevant to the scalability of the data access services across a decade.
+
+While the system is required to be scalable to full performance, it is likely that, for the optimal allocation of limited operations-era resources, performance parameters such as the number of concurrently running queries or image requests may be reduced for products from older data releases.
+
+\begin{parameters}
+Minimum number of recent data releases
+&
+2
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+nDRMin
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0399:
+Implementation Provisions \newline
+
+\subsubsection{Evolution}
+
+\label{DMS-REQ-0369}
+\textbf{ID:} DMS-REQ-0369
+
+\textbf{Specification:}
+The data access services shall be designed to accommodate evolution of the LSST data model from Data Release to Data Release.
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0395:
+Evolution \newline
+
+\subsubsection{Older Release Behavior}
+
+\label{DMS-REQ-0370}
+\textbf{ID:} DMS-REQ-0370
+
+\textbf{Specification:}
+Apart from the flexibility provided by requirements \hyperref[DMS-REQ-0365]{DMS-REQ-0365}, \hyperref[DMS-REQ-0366]{DMS-REQ-0366}, \hyperref[DMS-REQ-0368]{DMS-REQ-0368}, and \hyperref[DMS-REQ-0369]{DMS-REQ-0369}, the qualitative behavior of the data access services on the “older Data Releases” defined in \hyperref[DMS-REQ-0363]{DMS-REQ-0363} shall match that for the most recent \textbf{nDRMin} Data Releases.
+
+\textbf{Discussion:}
+Essentially, the data access services should present the same APIs and user interfaces for all Data Releases except where a difference is required by a change in the data model or, e.g., by changes in UI that may be required to provide an acceptable interface for high-latency data service.
+
+\begin{parameters}
+Minimum number of recent data releases
+&
+2
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+nDRMin
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0397:
+Older Release Behavior \newline
+
+\subsubsection{Query Availability}
+
+\label{DMS-REQ-0371}
+\textbf{ID:} DMS-REQ-0371
+
+\textbf{Specification:}
+(\textbf{Goal}) A query (e.g., in ADQL) written against a particular Data Release SHOULD continue to be executable against the original Data Release for as long as it is available in the system, with few, if any, modifications.
+
+\textbf{Discussion:}
+This is not a full “shall” requirement because there may be constraints imposed by, e.g., the evolution of security models, that do not permit all existing services to be retained unchanged indefinitely. The construction project should attempt to design interfaces that are resilient to reasonably anticipatable changes, and the operations project should attempt to preserve backwards compatibility where feasible.
+
+Note that, in comparison, it clearly cannot be guaranteed that queries developed for earlier Data Releases will be usable unchanged against newer Data Releases (see also requirement OSS-REQ-0395). Users must anticipate that the evolution of the LSST pipelines will lead to changes in the Data Release schemas, though the Project will endeavor to avoid unnecessary changes.
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0401:
+Query Availability \newline
 
 \subsection{Computational Infrastructure}
 
