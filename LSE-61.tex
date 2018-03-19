@@ -9,9 +9,14 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{539}
+\setDocUpstreamVersion{681}
 
-\date{2018-01-08}
+\date{2018-03-19}
+
+%% Allow arbitrary latex to be inserted at the end of the document.
+%% Define a new version of this command in metadata.tex. It will
+%% be run before the references are displayed.
+\newcommand{\addendum}{}
 
 %% Define the document title, authors, handle, and change record
 \input metadata.tex
@@ -2797,7 +2802,7 @@ Query Availability \newline
 
 \textbf{Specification:} The Data Management subsystem shall be designed to facilitate unplanned repair activities expected not to exceed \textbf{DMDowntime} days per year.
 
-\textbf{Discussion:} This requirement does not apply to DM's alert publication and other data processing and user-interaction functionality, but only to failures in DM that directly prevent the collection of survey data. The reference case would be a failure of communication or archiving that lasted longer than the capacity of the Summit buffer -- i.e., a 3-day outage would exceed the nominal buffer capacity by one day and therefore use up the proposed allocation.
+\textbf{Discussion:} This requirement does not apply to DM's alert publication and other data processing and user-interaction functionality, but only to failures in DM that directly prevent the collection of survey data. The reference case would be a failure of communication or archiving that lasted longer than the capacity of the Summit buffer -- i.e., an 11-day outage would exceed the nominal buffer capacity by one day and therefore use up the proposed allocation.
 
 This requirement does not invoke the need to verify by reliability analysis. Verification is by analysis that identifies likely hardware failures and identifies mitigations to minimize downtime caused by those failures.
 
@@ -2911,7 +2916,7 @@ Level 2 Data Product Availability \newline
 \label{DMS-REQ-0164}
 \textbf{ID:} DMS-REQ-0164 (Priority: 1b)
 
-    \textbf{Specification: }The infrastructure will provide for temporary storage for a minimum of \textbf{tempStorageRelMTTR} of the mean time to repair of any communications network link at the source end of that link.
+    \textbf{Specification: }The infrastructure will provide for temporary storage for a minimum of \textbf{tempStorageRelMTTR} of the mean time to repair of any communications network link at or before the source end of that link.
 
 \begin{parameters}
 Temporary storage required relative to network Mean Time to Repair.
@@ -2937,7 +2942,7 @@ Pipeline Throughput \newline
 \label{DMS-REQ-0165}
 \textbf{ID:} DMS-REQ-0165 (Priority: 1b)
 
-\textbf{Specification: }The infrastructure will be sized such that after outages, "catch up" processing of the temporarily stored raw image data may occur at the rate of one night’s observing data processed per day, without interrupting the current day's observatory operations.
+    \textbf{Specification: }The infrastructure will be sized such that after outages, "catch up" processing of the temporarily stored raw image data may occur at the rate of one night’s observing data processed per day, without interrupting the current day's observatory operations.
 
 \emph{Derived from Requirements:}
 
@@ -3161,36 +3166,6 @@ Local Autonomous Administration of System Sites \newline
 
 OSS-REQ-0003:
 The Base Facility \newline
-
-\subsubsection{Base Facility Temporary Storage}
-
-\label{DMS-REQ-0177}
-\textbf{ID:} DMS-REQ-0177 (Priority: 1b)
-
-\textbf{Specification:} The Base Facility shall provide at least a time \textbf{minBaseDataStorage }(or half of that amount, redundantly) of raw data storage in the event of Base to Archive Center network outage.
-
-\begin{parameters}
-Low-latency storage buffer capacity, expressed in units of data volume equivalent for a typical day's data collection.
-&
-14
-&
-\unitname{%
-day
-}
-&
-\paramname{%
-minBaseDataStorage
-} \\\hline
-\end{parameters}
-
-\emph{Derived from Requirements:}
-
-\hyperref[DMS-REQ-0164]{DMS-REQ-0164}:
-Temporary Storage for Communications Links \newline
-OSS-REQ-0053:
-Base-Archive Connectivity Loss \newline
-OSS-REQ-0054:
-Base Data Buffer \newline
 
 \subsubsection{Base Facility Co-Location with Existing Facility}
 
@@ -3629,6 +3604,39 @@ Archive Site \newline
 \section{Deleted Requirements}
 
 This sections lists all the requirements that have been deleted from the official baseline.
+
+\subsection{Base Facility Temporary Storage}
+
+\label{DMS-REQ-0177}
+\textbf{ID:} DMS-REQ-0177 (Priority: 1b)
+
+\textbf{Specification:} The Base Facility shall provide at least a time \textbf{minBaseDataStorage }(or half of that amount, redundantly) of raw data storage in the event of Base to Archive Center network outage.
+
+\textbf{Discussion:}
+ Removed as part of LCR-1238.
+
+\begin{parameters}
+Low-latency storage buffer capacity, expressed in units of data volume equivalent for a typical day's data collection.
+&
+14
+&
+\unitname{%
+day
+}
+&
+\paramname{%
+minBaseDataStorage
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+\hyperref[DMS-REQ-0164]{DMS-REQ-0164}:
+Temporary Storage for Communications Links \newline
+OSS-REQ-0053:
+Base-Archive Connectivity Loss \newline
+OSS-REQ-0054:
+Base Data Buffer \newline
 
 \subsection{Timely Publication of Level 2 Data Releases}
 
