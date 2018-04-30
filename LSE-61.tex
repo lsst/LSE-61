@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{681}
+\setDocUpstreamVersion{780}
 
-\date{2018-03-19}
+\date{2018-04-30}
 
 %% Allow arbitrary latex to be inserted at the end of the document.
 %% Define a new version of this command in metadata.tex. It will
@@ -239,13 +239,32 @@ Acquisition of Science Sensor data \newline
 \label{DMS-REQ-0068}
 \textbf{ID:} DMS-REQ-0068 (Priority: 1a)
 
-\textbf{Specification:} For each raw science image, the DMS shall store image metadata including at least:
-\begin{itemize}
-\item Time of exposure start and end, referenced to TAI, and DUT1
-\item Site metadata (site seeing, transparency, weather, observatory location)
-\item Telescope metadata (telescope pointing, active optics state, environmental state)
-\item Camera metadata (shutter trajectory, wavefront sensors, environmental state)
-\end{itemize}
+\textbf{Specification:}
+For each raw science image, the DMS shall store image metadata including at least:
+
+    \begin{itemize}
+\item
+Time of exposure start and end, referenced to TAI, and DUT1
+
+\item
+Site metadata (site seeing, transparency, weather, observatory location)
+
+\item
+Telescope metadata (telescope pointing, active optics state, environmental state)
+
+\item
+Camera metadata (shutter trajectory, wavefront sensors, environmental state)
+
+\item
+Program metadata (identifier for main survey, deep drilling, etc.)
+
+\item
+Scheduler metadata (visitID, intended number of exposures in the visit)
+
+    \end{itemize}
+
+\textbf{Discussion:}
+The program metadata should be sufficient to associate an image with a specific Special Program so that \hyperref[DMS-REQ-0320]{DMS-REQ-0320} can be satisfied. The scheduler metadata should sufficiently inform the processing pipelines regarding e.g., deviations from 2-snap 30 second visits, so that computational resources can be appropriately allocated, and so that \hyperref[DMS-REQ-0320]{DMS-REQ-0320} can be satisfied.
 
 \emph{Derived from Requirements:}
 
@@ -255,6 +274,8 @@ Provenance \newline
 Keep Exposure Archive \newline
 OSS-REQ-0171:
 Engineering and Facilities Data \newline
+\hyperref[DMS-REQ-0320]{DMS-REQ-0320}:
+Processing of Data From Special Programs \newline
 
 \subsubsection{Crosstalk Corrected Science Image Data Acquisition}
 
@@ -723,9 +744,9 @@ Level 1 Data Products \newline
 \label{DMS-REQ-0274}
 \textbf{ID:} DMS-REQ-0274 (Priority: 1b)
 
-\textbf{Specification:} The DMS shall create an Alert for each detected DIASource, to be broadcast using community protocols, with content that includes: a unique Alert ID, the Level-1 database ID, the DIASource record that triggered the alert, the DIAObject (or SSObject) record, all previous DIASource records corresponding to the object (if any), and cut-outs of images (from both the template image and the difference image) of sufficient areal coverage to identify the DIASource and its immediate surroundings. These cutouts should include WCS, PSF, variance and mask information.
+\textbf{Specification:} The DMS shall create an Alert for each detected DIASource, to be broadcast using community protocols, with content that includes: a unique Alert ID, the Level-1 database ID, the DIASource record that triggered the alert, the DIAObject (or SSObject) record, all previous DIASource records corresponding to the object (if any), and cut-outs of images (from both the template image and the difference image) of sufficient areal coverage to identify the DIASource and its immediate surroundings. These cutouts should include WCS, PSF, variance and mask information. The Alert should also include program and/or scheduler metadata.
 
-\textbf{Discussion: }The aim for the Alert content is to include sufficient information to be relatively self-contained, and to minimize the demand for follow-up queries of the Level-1 database. This approach will likely increase the speed and efficiency of down-stream object classifiers.
+    \textbf{Discussion: }The aim for the Alert content is to include sufficient information to be relatively self-contained, and to minimize the demand for follow-up queries of the Level-1 database. This approach will likely increase the speed and efficiency of down-stream object classifiers. The included program and/or scheduler metadata should be sufficient to identify whether the image is associated with a Special Program (such as an in-progress Deep Drilling Field).
 
 \emph{Derived from Requirements:}
 
@@ -1316,9 +1337,11 @@ Calibration \newline
 \label{DMS-REQ-0320}
 \textbf{ID:} DMS-REQ-0320 (Priority: 2)
 
-\textbf{Specification:} It shall be possible for special programs to trigger their own data processing recipes.
+\textbf{Specification:}
+It shall be possible for special programs to trigger their own data processing recipes. It shall also be possible for special programs data to be processed with the prompt- and/or annual-release pipelines alongside data from the main survey.
 
-\textbf{Discussion:} This affects both L1 and L2 data products. For some special programs there may be minimalist L1 processing, for other special programs the L1 processing may be the standard alert generation processing. The scope of special programs processing is currently undefined.
+\textbf{Discussion:}
+LSST will provide these recipes for processing Special Programs data when possible, which includes cases where DM can run original or reconfigured versions of existing pipelines, and excludes cases where the development new algorithms, or the allocation significant additional computational resources, are required. The data from Special Programs should only be included in the prompt- and/or annual-release processing along with data from the wide-fast-deep main survey when it is (a) possible for DM to do so without additional effort and (b) beneficial to the LSST's main science objectives.
 
 \emph{Derived from Requirements:}
 
@@ -1326,6 +1349,10 @@ LSR-REQ-0075:
 Survey Time Allocation \newline
 OSS-REQ-0392:
 Data Products Handling for Special Programs \newline
+LSR-REQ-0122:
+Processing Data from Special Programs \newline
+LSR-REQ-0121:
+Data Products for Special Programs \newline
 
 \subsubsection{Level 1 Processing of Special Programs Data}
 
@@ -1333,6 +1360,9 @@ Data Products Handling for Special Programs \newline
 \textbf{ID:} DMS-REQ-0321 (Priority: 2)
 
 \textbf{Specification:} All Level 1 processing from special programs shall be completed before data arrives from the following night's observations.
+
+\textbf{Discussion:}
+Only Special Programs data that can be incorporated into the prompt pipeline (i.e., standard visit images, or non-standard visit images that can be shown to result in quality DIA products), will be processed with the prompt pipeline and contribute to the Alert Stream.
 
 \emph{Derived from Requirements:}
 
@@ -1344,7 +1374,8 @@ Data Products Handling for Special Programs \newline
 \label{DMS-REQ-0344}
 \textbf{ID:} DMS-REQ-0344 (Priority: 2)
 
-\textbf{Specification: }The publishing of Level 1 data products from Special Programs shall be subject to the same performance requirements of the standard Level 1 system. In particular \textbf{L1PublicT} and \textbf{OTT1}.
+\textbf{Specification:}
+    The publishing of Level 1 data products from Special Programs shall be subject to the same performance requirements of the standard Level 1 system. In particular \textbf{L1PublicT} and \textbf{OTT1}.
 
 \begin{parameters}
 Maximum time from the acquisition of science data to the public release of associated Level 1 Data Products (except alerts)
@@ -2431,7 +2462,7 @@ Transient Alert Query \newline
 \label{DMS-REQ-0313}
 \textbf{ID:} DMS-REQ-0313 (Priority: 1b)
 
-\textbf{Specification:} The DMS shall maintain both the Level-2 catalog and the reprocessed Level-1 catalog from the most recent two Data Releases for query by science users.
+\textbf{Specification:} The DMS shall maintain both the Level-2 catalog and the reprocessed Level-1 catalog from the most recent two Data Releases for query by science users, as well as versions of the most recent catalogs generated from Special Programs data.
 
 \textbf{Discussion: }There is no requirement for older data releases to be queryable.
 
@@ -3654,6 +3685,8 @@ Removed as part of LCR-962.
 Produce Data Releases \newline
 OSS-REQ-0134:
 Level 2 Data Product Availability \newline
+
+\addendum
 
 \bibliography{lsst,refs_ads}
 
