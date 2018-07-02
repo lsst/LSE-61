@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{836}
+\setDocUpstreamVersion{843}
 
-\date{2018-06-27}
+\date{2018-07-02}
 
 %% Allow arbitrary latex to be inserted at the end of the document.
 %% Define a new version of this command in metadata.tex. It will
@@ -3641,6 +3641,571 @@ OSS-REQ-0021:
 Base Site \newline
 OSS-REQ-0022:
 Archive Site \newline
+
+\section{Performance Metrics}
+
+This section contains requirements that are not yet part of the approved baseline, but which are being considered for inclusion.
+
+\subsection{Science Metrics}
+
+\subsubsection{Calculation of Photometric Performance Metrics}
+
+\label{DMS-REQ-0359}
+\textbf{ID:} DMS-REQ-0359 (Priority: 1a)
+
+\textbf{Specification:}
+The DMS shall include software to enable the calculation of the photometric performance metrics defined in OSS-REQ-0387.
+
+\textbf{Discussion:}
+The relevant metrics are listed in the table photometricPerformance below:
+
+\begin{parameters}
+The RMS photometric repeatability of bright non-saturated unresolved point sources in the \textbf{u}, \textbf{z}, and \textbf{y} filters.
+
+&
+7.5
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA1uzy
+} \\\hline
+The maximum allowable fraction of sensors with \textbf{PixFrac} scientifically unusable pixels.
+
+&
+15
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+SensorFraction
+} \\\hline
+The maximum fraction of isolated non-saturated point source measurements exceeding the outlier limit.
+&
+10
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+PF1
+} \\\hline
+Accuracy of absolute band-to-band color zero-point for colors constructed using the u-band.
+
+&
+10
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA5u
+} \\\hline
+Repeatability outlier limit for isolated bright non-saturated point sources in the \textbf{g}, \textbf{r}, and \textbf{i} filters.
+
+&
+15
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA2gri
+} \\\hline
+Accuracy of the transformation of the internal LSST photometry to a physical scale (e.g. AB magnitudes).
+
+&
+10
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA6
+} \\\hline
+RMS width of internal photometric zero-point (precision of system uniformity across the sky) in the u-band.
+&
+20
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA3u
+} \\\hline
+The maximum local significance integrated over the PSF of imperfect crosstalk corrections.
+
+&
+3
+&
+\unitname{%
+sigma
+}
+&
+\paramname{%
+Xtalk
+} \\\hline
+Repeatability outlier limit for isolated bright non-saturated point sources in the \textbf{u}, \textbf{z}, and \textbf{y} filters.
+
+&
+22.5
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA2uzy
+} \\\hline
+The RMS photometric repeatability of bright non-saturated unresolved point sources in the \textbf{g}, \textbf{r,} and \textbf{i} filters.
+
+&
+5
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA1gri
+} \\\hline
+Fraction of zeropoint errors that can exceed the zero point error outlier limit.
+
+&
+10
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+PF2
+} \\\hline
+The maximum fraction of pixels scientifically unusable per sensor out of the total allowable fraction of sensors meeting this performance.
+&
+1
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+PixFrac
+} \\\hline
+The maximum error in the precision of the sky brightness determination.
+
+&
+1
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+SBPrec
+} \\\hline
+RMS width of internal photometric zero-point (precision of system uniformity across the sky) for all bands except u-band.
+
+&
+10
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA3
+} \\\hline
+Percentage of image area that can have ghosts with surface brightness gradient amplitude of more than 1/3 of the sky noise over 1 arcsec.
+
+&
+1
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+GhostAF
+} \\\hline
+Accuracy of absolute band-to-band color zero-point for all colors constructed from any filter pair, excluding the u-band.
+&
+5
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA5
+} \\\hline
+Maximum RMS of the ratio of the error in integrated flux measurement between bright, isolated, resolved sources less than 10 arcsec in diameter and bright, isolated unresolved point sources.
+&
+2
+&
+\unitname{%
+unitless
+}
+&
+\paramname{%
+ResSource
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0387:
+Photometric Performance \newline
+
+\subsubsection{Calculation of Astrometric Performance Metrics}
+
+\label{DMS-REQ-0360}
+\textbf{ID:} DMS-REQ-0360 (Priority: 1a)
+
+\textbf{Specification:}
+The DMS shall include software to enable the calculation of the astrometric performance metrics defined in OSS-REQ-0388.
+
+\textbf{Discussion:}
+The relevant metrics are listed in the table below:
+
+\begin{parameters}
+Median relative astrometric measurement error on 20 arcminute scales.
+
+&
+10
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AM2
+} \\\hline
+The maximum fraction of relative astrometric measurements on 5 arcminute scales to exceed 5 arcminute outlier limit.
+&
+10
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+AF1
+} \\\hline
+Median relative astrometric measurement error on 5 arcminute scales shall be less than \textbf{AM1}.
+
+&
+10
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AM1
+} \\\hline
+    Median error in absolute position for each axis, RA and DEC, shall be less than \textbf{AA1}.
+&
+50
+&
+\unitname{%
+arcsecond
+}
+&
+\paramname{%
+AA1
+} \\\hline
+20 arcminute outlier limit.
+
+&
+20
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AD2
+} \\\hline
+The color difference outlier limit for separations measured relative the r-band filter in any other filter.
+&
+20
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AB2
+} \\\hline
+5 arcminute outlier limit.
+&
+20
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AD1
+} \\\hline
+Median relative astrometric measurement error on 200 arcminute scales.
+
+&
+15
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AM3
+} \\\hline
+200 arcminute outlier limit.
+
+&
+30
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AD3
+} \\\hline
+The maximum fraction of relative astrometric measurements on 20 arcminute scales to exceed 20 arcminute outlier limit.
+&
+10
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+AF2
+} \\\hline
+Fraction of separations measured relative to the r-band that can exceed the color difference outlier limit.
+
+&
+10
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+ABF1
+} \\\hline
+RMS difference between separations measured in the r-band and those measured in any other filter.
+
+&
+10
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AB1
+} \\\hline
+Fraction of relative astrometric measurements on 200 arcminute scales to exceed 200 arcminute outlier limit.
+&
+10
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+AF3
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0388:
+Astrometric Performance \newline
+
+\subsubsection{Calculation of Ellipticity Correlations}
+
+\label{DMS-REQ-0362}
+\textbf{ID:} DMS-REQ-0362 (Priority: 1b)
+
+\textbf{Specification:}
+The DMS shall include software to enable the calculation of the elipticity correlations metrics defined in OSS-REQ-0390.
+
+\textbf{Discussion:}
+The relevant metrics are listed in the table below:
+
+\begin{parameters}
+Median residual PSF ellipticity correlations averaged over an arbitrary field of view for separations less than 5 arcmin shall be no greater than\textbf{ TE2.}
+&
+1.0e-7
+&
+\unitname{%
+arcminuteSeparationCorrelation
+}
+&
+\paramname{%
+TE2
+} \\\hline
+The fraction of PSF ellipticity correlation residuals that can exceed the outlier limits on 1 and 5 arcminutes scales, over an arbitrary field, of view shall be no more than
+&
+15
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+TEF
+} \\\hline
+The outlier limit on the PSF ellipticity correlation residuals on 5 arcminute scales shall be no more than \textbf{TE4.}
+&
+2.0e-7
+&
+\unitname{%
+arcminuteOutlierLimit
+}
+&
+\paramname{%
+TE4
+} \\\hline
+Median residual PSF ellipticity correlations averaged over an arbitrary field of view for separations less than 1 arcmin shall be no greater than \textbf{TE1.}
+&
+2.0e-5
+&
+\unitname{%
+arcminuteSeparationCorrelation
+}
+&
+\paramname{%
+TE1
+} \\\hline
+The outlier limit on the PSF ellipticity correlation residuals on 1 arcminute scales shall be no more than \textbf{TE3.}
+&
+4.0e-5
+&
+\unitname{%
+arcminuteOutlierLimit
+}
+&
+\paramname{%
+TE3
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0390:
+Ellipticity Correlations \newline
+
+\subsection{Database Performance}
+
+These requirements were originally approved in narrative text in \citeds{LDM-135}, but are now being promoted to \citeds{LSE-61}.
+
+\subsubsection{Fast turnaround for high-volume full-sky queries on the Object table}
+
+\label{DMS-REQ-0357}
+\textbf{ID:} DMS-REQ-0357 (Priority: 1b)
+
+\textbf{Specification:}
+High-volume queries on the Object table -- queries that involve full-sky scans -- shall be answered in 1 hour.
+
+\subsubsection{Fast turnaround for high-volume complex queries}
+
+\label{DMS-REQ-0354}
+\textbf{ID:} DMS-REQ-0354 (Priority: 1b)
+
+\textbf{Specification:}
+Complex high-volume queries -– queries that involve full-sky spatial and temporal correlations -- shall be answered in less than 12 hours.
+
+\textbf{Discussion:}
+This can include the ForcedSource and Object\_Extra tables.
+
+\subsubsection{Simultaneous users for high-volume queries}
+
+\label{DMS-REQ-0361}
+\textbf{ID:} DMS-REQ-0361 (Priority: 1b)
+
+\textbf{Specification:}
+The system shall support 50 simultaneous high-volume queries running at any given time.
+
+\subsubsection{Real time query performance}
+
+\label{DMS-REQ-0356}
+\textbf{ID:} DMS-REQ-0356 (Priority: 1b)
+
+\textbf{Specification:}
+Low volume queries shall respond within 10 seconds under a load of 100 simultaneous queries.
+
+\textbf{Discussion:}
+A large fraction of ad-hoc user access will involve so called “low-volume” queries – queries that touch small area of sky, or request small number of objects.
+
+\subsubsection{Level 1 Database Query Performance}
+
+\label{DMS-REQ-0355}
+\textbf{ID:} DMS-REQ-0355 (Priority: 1b)
+
+\textbf{Specification:}
+The live Level 1 database shall support at least 20 simultaneous queries, assuming each query lasts no more than 10 seconds.
+
+\subsubsection{DM EFD Query Performance}
+
+\label{DMS-REQ-0358}
+\textbf{ID:} DMS-REQ-0358 (Priority: 1a)
+
+\textbf{Specification:}
+The DM copy of the EFD shall support at least 5 simultaneous queries,
+assuming each query lasts no more than 10 seconds.
+
+\textbf{Discussion:}
+\subsection{Image Access Performance Metrics}
+
+\subsubsection{Retrieval of postage stamp light curve images}
+
+\label{DMS-REQ-0375}
+\textbf{ID:} DMS-REQ-0375 (Priority: 1b)
+
+\textbf{Specification:}
+Postage stamp cutouts, sized to match those in alert packets, of all observations of a single Object shall be retrievable within 10 seconds, with 10 simultaneous requests.
+
+\textbf{Discussion:}
+These postage stamps can be obtained from lossy compressed PVIs.
+
+\subsubsection{Retrieval of CCD-sized images}
+
+\label{DMS-REQ-0374}
+\textbf{ID:} DMS-REQ-0374 (Priority: 1a)
+
+\textbf{Specification:}
+A Processed Visit Image of a single CCD shall be retrievable using the VO SIAv2 protocol within 10 seconds with 66 simultaneous requests.
+
+\textbf{Discussion:}
+\subsubsection{Retrieval of focal-plane visit images}
+
+\label{DMS-REQ-0376}
+\textbf{ID:} DMS-REQ-0376 (Priority: 1a)
+
+\textbf{Specification:}
+All Processed Visit Images for a single visit, including mask and variance planes, shall be retrievable using the VO SIAv2 protocol within 60 seconds with 20 simultaneous requests.
+
+\subsubsection{Retrieval of focal-plane-sized images}
+
+\label{DMS-REQ-0373}
+\textbf{ID:} DMS-REQ-0373 (Priority: 1a)
+
+\textbf{Specification:}
+A 10 square degree coadd, including mask and variance planes, shall be retrievable using the VO SIAv2 protocol within 60 seconds with 20 simultaneous requests.
 
 \section{Deleted Requirements}
 
