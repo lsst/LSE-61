@@ -9,7 +9,7 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{844}
+\setDocUpstreamVersion{845}
 
 \date{2018-07-03}
 
@@ -4119,7 +4119,21 @@ These requirements were originally approved in narrative text in \citeds{LDM-135
 \textbf{ID:} DMS-REQ-0357 (Priority: 1b)
 
 \textbf{Specification:}
-High-volume queries on the Object table -- queries that involve full-sky scans -- shall be answered in 1 hour.
+High-volume queries on the Object table -- queries that involve full-sky scans -- shall be answered in \textbf{hvObjectQueryTime}.
+
+\begin{parameters}
+Maximum time allowed for retrieving results of a high-volume query of the Object table.
+&
+1
+&
+\unitname{%
+hour
+}
+&
+\paramname{%
+hvObjectQueryTime
+} \\\hline
+\end{parameters}
 
 \subsubsection{Result latency for high-volume complex queries}
 
@@ -4127,10 +4141,24 @@ High-volume queries on the Object table -- queries that involve full-sky scans -
 \textbf{ID:} DMS-REQ-0354 (Priority: 1b)
 
 \textbf{Specification:}
-Complex high-volume queries -– queries that involve full-sky spatial and temporal correlations -- shall be answered in less than 12 hours.
+Complex high-volume queries -– queries that involve full-sky spatial and temporal correlations -- shall be answered in less than \textbf{hvComplexQueryTime}.
 
 \textbf{Discussion:}
 This can include the ForcedSource and Object\_Extra tables.
+
+\begin{parameters}
+Maximum time allowed for retrieving results of a high-volume complex query.
+&
+12
+&
+\unitname{%
+hour
+}
+&
+\paramname{%
+hvComplexQueryTime
+} \\\hline
+\end{parameters}
 
 \subsubsection{Simultaneous users for high-volume queries}
 
@@ -4138,7 +4166,21 @@ This can include the ForcedSource and Object\_Extra tables.
 \textbf{ID:} DMS-REQ-0361 (Priority: 1b)
 
 \textbf{Specification:}
-The system shall support 50 simultaneous high-volume queries running at any given time.
+The system shall support \textbf{hvQueryUsers }simultaneous high-volume queries running at any given time.
+
+\begin{parameters}
+Minimum number of simultaneous users performing high volume queries.
+&
+50
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+hvQueryUsers
+} \\\hline
+\end{parameters}
 
 \subsubsection{Real time query performance}
 
@@ -4146,10 +4188,35 @@ The system shall support 50 simultaneous high-volume queries running at any give
 \textbf{ID:} DMS-REQ-0356 (Priority: 1b)
 
 \textbf{Specification:}
-Low volume queries shall respond within 10 seconds under a load of 100 simultaneous queries.
+Low volume queries shall respond within \textbf{lvQueryTime} under a load of \textbf{lvQueryUsers} simultaneous queries.
 
 \textbf{Discussion:}
 A large fraction of ad-hoc user access will involve so called “low-volume” queries – queries that touch small area of sky, or request small number of objects.
+
+\begin{parameters}
+Maximum time allowed for retrieving results of a low-volume query.
+&
+10
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+lvQueryTime
+} \\\hline
+Minimum number of simultaneous users performing low volume queries.
+&
+100
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+lvQueryUsers
+} \\\hline
+\end{parameters}
 
 \subsubsection{Level 1 Database Query Performance}
 
@@ -4157,7 +4224,32 @@ A large fraction of ad-hoc user access will involve so called “low-volume” q
 \textbf{ID:} DMS-REQ-0355 (Priority: 1b)
 
 \textbf{Specification:}
-The live Level 1 database shall support at least 20 simultaneous queries, assuming each query lasts no more than 10 seconds.
+The live Prompt Products Database shall support at least \textbf{l1QueryUsers} simultaneous queries, assuming each query lasts no more than \textbf{l1QueryTime}.
+
+\begin{parameters}
+Minimum number of simultaneous users querying the Prompt Products Database.
+&
+20
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+l1QueryUsers
+} \\\hline
+Maximum time allowed for retrieving results of a query of the Prompt Products Database.
+&
+10
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+l1QueryTime
+} \\\hline
+\end{parameters}
 
 \subsubsection{DM EFD Query Performance}
 
@@ -4165,45 +4257,170 @@ The live Level 1 database shall support at least 20 simultaneous queries, assumi
 \textbf{ID:} DMS-REQ-0358 (Priority: 1a)
 
 \textbf{Specification:}
-The DM copy of the EFD shall support at least 5 simultaneous queries, assuming each query lasts no more than 10 seconds.
+The DM copy of the EFD shall support at least \textbf{dmEfdQueryUsers} simultaneous queries, assuming each query lasts no more than \textbf{dmEfdQueryTime}.
+
+\begin{parameters}
+Maximum time allowed for retrieving results of a DM EFD query.
+&
+10
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+dmEfdQueryTime
+} \\\hline
+Minimum number of simultaneous users querying the DM EFD.
+&
+5
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+dmEfdQueryUsers
+} \\\hline
+\end{parameters}
 
 \subsection{Image Access Performance Metrics}
 
 \subsubsection{Retrieval of postage stamp light curve images}
 
 \label{DMS-REQ-0375}
-\textbf{ID:} DMS-REQ-0375 (Priority: 1b)
+\textbf{ID:} DMS-REQ-0375 (Priority: 2)
 
 \textbf{Specification:}
-Postage stamp cutouts, sized to match those in alert packets, of all observations of a single Object shall be retrievable within 10 seconds, with 10 simultaneous requests.
+Postage stamp cutouts, sized to match those in alert packets, of all observations of a single Object shall be retrievable within \textbf{postageStampRetrievalTime}, with \textbf{postageStampRetrievalUsers} simultaneous requests.
 
 \textbf{Discussion:}
 These postage stamps can be obtained from lossy compressed PVIs.
 
+\begin{parameters}
+Maximum time allowed for retrieving a set of postage stamp images of a single Object.
+&
+10
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+postageStampRetrievalTime
+} \\\hline
+Minimum number of simultaneous users retrieving a set of postage stamp images.
+&
+10
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+postageStampRetrievalUsers
+} \\\hline
+\end{parameters}
+
 \subsubsection{Retrieval of CCD-sized images}
 
 \label{DMS-REQ-0374}
-\textbf{ID:} DMS-REQ-0374 (Priority: 1a)
+\textbf{ID:} DMS-REQ-0374 (Priority: 1b)
 
 \textbf{Specification:}
-A Processed Visit Image of a single CCD shall be retrievable using the VO SIAv2 protocol within 10 seconds with 66 simultaneous requests.
+A Processed Visit Image of a single CCD shall be retrievable using the VO SIAv2 protocol within \textbf{pviRetrievalTime} with \textbf{pviRetrievalUsers} simultaneous requests.
 
 \textbf{Discussion:}
+\begin{parameters}
+Minimum number of simultaneous users retrieving a single PVI image.
+&
+20
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+pviRetrievalUsers
+} \\\hline
+Maximum time allowed for retrieving a PVI image of a single CCD from a single visit
+&
+10
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+pviRetrievalTime
+} \\\hline
+\end{parameters}
+
 \subsubsection{Retrieval of focal-plane visit images}
 
 \label{DMS-REQ-0376}
-\textbf{ID:} DMS-REQ-0376 (Priority: 1a)
+\textbf{ID:} DMS-REQ-0376 (Priority: 1b)
 
 \textbf{Specification:}
-All Processed Visit Images for a single visit, including mask and variance planes, shall be retrievable using the VO SIAv2 protocol within 60 seconds with 20 simultaneous requests.
+All Processed Visit Images for a single visit, including mask and variance planes, shall be retrievable using the VO SIAv2 protocol within \textbf{allPviRetrievalTime} with \textbf{allPviRetrievalUsers} simultaneous requests.
+
+\begin{parameters}
+Maximum time allowed for retrieving all PVI images of a single visit.
+&
+60
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+allPviRetrievalTime
+} \\\hline
+Minimum number of simultaneous users retrieving all PVI images for a visit.
+&
+20
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+allPviRetrievalUsers
+} \\\hline
+\end{parameters}
 
 \subsubsection{Retrieval of focal-plane-sized images}
 
 \label{DMS-REQ-0373}
-\textbf{ID:} DMS-REQ-0373 (Priority: 1a)
+\textbf{ID:} DMS-REQ-0373 (Priority: 2)
 
 \textbf{Specification:}
-A 10 square degree coadd, including mask and variance planes, shall be retrievable using the VO SIAv2 protocol within 60 seconds with 20 simultaneous requests.
+A 10 square degree coadd, including mask and variance planes, shall be retrievable using the VO SIAv2 protocol within \textbf{fplaneRetrievalTime} with \textbf{fplaneRetrievalUsers} simultaneous requests.
+
+\begin{parameters}
+Maximum time allowed for retrieving a focal-plane sized coadd.
+&
+60
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+fplaneRetrievalTime
+} \\\hline
+Number of simultaneous users retrieving a single large area coadd.
+&
+20
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+fplaneRetrievalUsers
+} \\\hline
+\end{parameters}
 
 \section{Deleted Requirements}
 
