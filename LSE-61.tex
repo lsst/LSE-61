@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{843}
+\setDocUpstreamVersion{844}
 
-\date{2018-07-02}
+\date{2018-07-03}
 
 %% Allow arbitrary latex to be inserted at the end of the document.
 %% Define a new version of this command in metadata.tex. It will
@@ -3644,7 +3644,7 @@ Archive Site \newline
 
 \section{Performance Metrics}
 
-This section contains requirements that are not yet part of the approved baseline, but which are being considered for inclusion.
+In this section we list the performance metrics for the Data Management System.
 
 \subsection{Science Metrics}
 
@@ -3657,7 +3657,7 @@ This section contains requirements that are not yet part of the approved baselin
 The DMS shall include software to enable the calculation of the photometric performance metrics defined in OSS-REQ-0387.
 
 \textbf{Discussion:}
-The relevant metrics are listed in the table photometricPerformance below:
+The relevant metrics are listed in the table photometricPerformance below. The values in the tables are the target values for LSST but are not verified as part of this requirement.
 
 \begin{parameters}
 The RMS photometric repeatability of bright non-saturated unresolved point sources in the \textbf{u}, \textbf{z}, and \textbf{y} filters.
@@ -3875,7 +3875,7 @@ Photometric Performance \newline
 The DMS shall include software to enable the calculation of the astrometric performance metrics defined in OSS-REQ-0388.
 
 \textbf{Discussion:}
-The relevant metrics are listed in the table below:
+The relevant metrics are listed in the table below. The values in the tables are the target values for LSST but are not verified as part of this requirement.
 
 \begin{parameters}
 Median relative astrometric measurement error on 20 arcminute scales.
@@ -4044,7 +4044,7 @@ Astrometric Performance \newline
 The DMS shall include software to enable the calculation of the elipticity correlations metrics defined in OSS-REQ-0390.
 
 \textbf{Discussion:}
-The relevant metrics are listed in the table below:
+The relevant metrics are listed in the table below. The values in the tables are the target values for LSST but are not verified as part of this requirement.
 
 \begin{parameters}
 Median residual PSF ellipticity correlations averaged over an arbitrary field of view for separations less than 5 arcmin shall be no greater than\textbf{ TE2.}
@@ -4111,9 +4111,9 @@ Ellipticity Correlations \newline
 
 \subsection{Database Performance}
 
-These requirements were originally approved in narrative text in \citeds{LDM-135}, but are now being promoted to \citeds{LSE-61}.
+These requirements were originally approved in narrative text in \citeds{LDM-135}.
 
-\subsubsection{Fast turnaround for high-volume full-sky queries on the Object table}
+\subsubsection{Result latency for high-volume full-sky queries on the Object table}
 
 \label{DMS-REQ-0357}
 \textbf{ID:} DMS-REQ-0357 (Priority: 1b)
@@ -4121,7 +4121,7 @@ These requirements were originally approved in narrative text in \citeds{LDM-135
 \textbf{Specification:}
 High-volume queries on the Object table -- queries that involve full-sky scans -- shall be answered in 1 hour.
 
-\subsubsection{Fast turnaround for high-volume complex queries}
+\subsubsection{Result latency for high-volume complex queries}
 
 \label{DMS-REQ-0354}
 \textbf{ID:} DMS-REQ-0354 (Priority: 1b)
@@ -4165,10 +4165,8 @@ The live Level 1 database shall support at least 20 simultaneous queries, assumi
 \textbf{ID:} DMS-REQ-0358 (Priority: 1a)
 
 \textbf{Specification:}
-The DM copy of the EFD shall support at least 5 simultaneous queries,
-assuming each query lasts no more than 10 seconds.
+The DM copy of the EFD shall support at least 5 simultaneous queries, assuming each query lasts no more than 10 seconds.
 
-\textbf{Discussion:}
 \subsection{Image Access Performance Metrics}
 
 \subsubsection{Retrieval of postage stamp light curve images}
@@ -4216,7 +4214,8 @@ This sections lists all the requirements that have been deleted from the officia
 \label{DMS-REQ-0177}
 \textbf{ID:} DMS-REQ-0177 (Priority: 1b)
 
-\textbf{Specification:} The Base Facility shall provide at least a time \textbf{minBaseDataStorage }(or half of that amount, redundantly) of raw data storage in the event of Base to Archive Center network outage.
+\textbf{Specification:}
+    The Base Facility shall provide at least a time \textbf{minBaseDataStorage }(or half of that amount, redundantly) of raw data storage in the event of Base to Archive Center network outage.
 
 \textbf{Discussion:}
  Removed as part of LCR-1238.
@@ -4249,7 +4248,8 @@ Base Data Buffer \newline
 \label{DMS-REQ-0006}
 \textbf{ID:} DMS-REQ-0006 (Priority: 1b)
 
-\textbf{Specification:} The DMS shall make available to end-users all Level-2 data products as soon as possible following the execution of the Data Release Production and the verification of science data quality.
+\textbf{Specification:}
+The DMS shall make available to end-users all Level-2 data products as soon as possible following the execution of the Data Release Production and the verification of science data quality.
 
 \textbf{Discussion:}
 Removed as part of LCR-962.
