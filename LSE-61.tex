@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{845}
+\setDocUpstreamVersion{872}
 
-\date{2018-07-03}
+\date{2018-07-17}
 
 %% Allow arbitrary latex to be inserted at the end of the document.
 %% Define a new version of this command in metadata.tex. It will
@@ -4188,10 +4188,10 @@ hvQueryUsers
 \textbf{ID:} DMS-REQ-0356 (Priority: 1b)
 
 \textbf{Specification:}
-Low volume queries shall respond within \textbf{lvQueryTime} under a load of \textbf{lvQueryUsers} simultaneous queries.
+Low volume queries, queries that are spatially restricted to less than a fraction \textbf{lowVolumeSpatialFraction} of the sky, shall respond within \textbf{lvQueryTime} under a load of \textbf{lvQueryUsers} simultaneous queries.
 
 \textbf{Discussion:}
-A large fraction of ad-hoc user access will involve so called “low-volume” queries – queries that touch small area of sky, or request small number of objects.
+We are evaluating whether the latency requirements of low-volume queries can also be met for certain categories of temporal queries or queries on indexed attributes which limit the scope of per-row operations in the query (such as non-indexed WHERE evaluations) to a comparable fraction of the total dataset. The low-volume query requirements also apply to queries selecting data by the primary key of any data product table, or by the associated Object-like primary key for the ForcedSource and DIASource tables, up to a maximum of \textbf{lvMaxReturnedResults} rows.
 
 \begin{parameters}
 Maximum time allowed for retrieving results of a low-volume query.
@@ -4292,10 +4292,10 @@ dmEfdQueryUsers
 \textbf{ID:} DMS-REQ-0375 (Priority: 2)
 
 \textbf{Specification:}
-Postage stamp cutouts, sized to match those in alert packets, of all observations of a single Object shall be retrievable within \textbf{postageStampRetrievalTime}, with \textbf{postageStampRetrievalUsers} simultaneous requests.
+Postage stamp cutouts, of size \textbf{postageStampSize} square, of all observations of a single Object shall be retrievable within \textbf{postageStampRetrievalTime}, with \textbf{postageStampRetrievalUsers} simultaneous requests of distinct Objects.
 
 \textbf{Discussion:}
-These postage stamps can be obtained from lossy compressed PVIs.
+The performance targets for this requirement assume the PVIs are available as files on a file system. For example, this could be those files present in the \textbf{l1CacheLifetime} cache.
 
 \begin{parameters}
 Maximum time allowed for retrieving a set of postage stamp images of a single Object.
@@ -4320,17 +4320,41 @@ integer
 \paramname{%
 postageStampRetrievalUsers
 } \\\hline
+Lifetime in the cache of un-archived Level-1 data products.
+&
+30
+&
+\unitname{%
+day
+}
+&
+\paramname{%
+l1CacheLifetime
+} \\\hline
+Minimum square size of a postage stamp cutout from an image.
+&
+51
+&
+\unitname{%
+pixel
+}
+&
+\paramname{%
+postageStampSize
+} \\\hline
 \end{parameters}
 
-\subsubsection{Retrieval of CCD-sized images}
+\subsubsection{Retrieval of a PVI from a single CCD}
 
 \label{DMS-REQ-0374}
 \textbf{ID:} DMS-REQ-0374 (Priority: 1b)
 
 \textbf{Specification:}
-A Processed Visit Image of a single CCD shall be retrievable using the VO SIAv2 protocol within \textbf{pviRetrievalTime} with \textbf{pviRetrievalUsers} simultaneous requests.
+A Processed Visit Image of a single CCD shall be retrievable using the VO SIAv2 protocol within \textbf{pviRetrievalTime} with \textbf{pviRetrievalUsers} simultaneous requests for distinct single-CCD PVIs..
 
 \textbf{Discussion:}
+The performance targets for this requirement assume the PVIs are available as files on a file system.For example, this could be those files present in the \textbf{l1CacheLifetime} cache.
+
 \begin{parameters}
 Minimum number of simultaneous users retrieving a single PVI image.
 &
@@ -4354,6 +4378,17 @@ second
 \paramname{%
 pviRetrievalTime
 } \\\hline
+Lifetime in the cache of un-archived Level-1 data products.
+&
+30
+&
+\unitname{%
+day
+}
+&
+\paramname{%
+l1CacheLifetime
+} \\\hline
 \end{parameters}
 
 \subsubsection{Retrieval of focal-plane visit images}
@@ -4362,7 +4397,10 @@ pviRetrievalTime
 \textbf{ID:} DMS-REQ-0376 (Priority: 1b)
 
 \textbf{Specification:}
-All Processed Visit Images for a single visit, including mask and variance planes, shall be retrievable using the VO SIAv2 protocol within \textbf{allPviRetrievalTime} with \textbf{allPviRetrievalUsers} simultaneous requests.
+All Processed Visit Images for a single visit that are available in cache, including mask and variance planes, shall be identifiable with a single IVOA SIAv2 service query and retrievable, using the link(s) provided in the response, within \textbf{allPviRetrievalTime.} This requirement shall be met for up to \textbf{allPviRetrievalUsers} simultaneous requests for distinct focal-plane PVI sets.
+
+\textbf{Discussion:}
+The performance targets for this requirement assume the PVIs are available as files on a file system. For example, this could be those files present in the \textbf{l1CacheLifetime} cache.
 
 \begin{parameters}
 Maximum time allowed for retrieving all PVI images of a single visit.
@@ -4387,6 +4425,51 @@ integer
 \paramname{%
 allPviRetrievalUsers
 } \\\hline
+Lifetime in the cache of un-archived Level-1 data products.
+&
+30
+&
+\unitname{%
+day
+}
+&
+\paramname{%
+l1CacheLifetime
+} \\\hline
+\end{parameters}
+
+\subsubsection{Retrieval of a CCD-sized image from a coadd}
+
+\label{DMS-REQ-0377}
+\textbf{ID:} DMS-REQ-0377 (Priority: 1b)
+
+\textbf{Specification:}
+A CCD-sized cutout of a coadd, including mask and variance planes, shall be retrievable using the relevant VO protocol within \textbf{ccdRetrievalTime} with \textbf{ccdRetrievalUsers} simultaneous requests of distinct areas of skys.
+
+\textbf{Discussion:}
+\begin{parameters}
+Maximum time allowed for retrieving a CCD-sized image
+&
+15
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+ccdRetrievalTime
+} \\\hline
+Minimum number of simultaneous users retrieving a single CCD-sized image.
+&
+20
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+ccdRetrievalUsers
+} \\\hline
 \end{parameters}
 
 \subsubsection{Retrieval of focal-plane-sized images}
@@ -4395,7 +4478,7 @@ allPviRetrievalUsers
 \textbf{ID:} DMS-REQ-0373 (Priority: 2)
 
 \textbf{Specification:}
-A 10 square degree coadd, including mask and variance planes, shall be retrievable using the VO SIAv2 protocol within \textbf{fplaneRetrievalTime} with \textbf{fplaneRetrievalUsers} simultaneous requests.
+A 10 square degree coadd, including mask and variance planes, shall be retrievable using the relevant VO within \textbf{fplaneRetrievalTime} with \textbf{fplaneRetrievalUsers} simultaneous requests of distinct areas of sky.
 
 \begin{parameters}
 Maximum time allowed for retrieving a focal-plane sized coadd.
