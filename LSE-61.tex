@@ -9,7 +9,7 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{878}
+\setDocUpstreamVersion{879}
 
 \date{2018-07-19}
 
@@ -4188,7 +4188,7 @@ hvQueryUsers
 \textbf{ID:} DMS-REQ-0356 (Priority: 1b)
 
 \textbf{Specification:}
-Low volume queries, queries that are spatially restricted to a circle of radius \textbf{lvSkyRadius}, shall respond within \textbf{lvQueryTime} under a load of \textbf{lvQueryUsers} simultaneous queries and return at most \textbf{lvMaxReturnedResults} of data.
+Low volume queries, queries that are spatially restricted to a circle of radius \textbf{lvSkyRadius} and return at most \textbf{lvMaxReturnedResults} of data, shall respond within \textbf{lvQueryTime} under a load of \textbf{lvQueryUsers} simultaneous queries.
 
 \textbf{Discussion:}
 We are evaluating whether the latency requirements of low-volume queries can also be met for certain categories of temporal queries or queries on indexed attributes which limit the scope of per-row operations in the query (such as non-indexed WHERE evaluations) to a comparable fraction of the total dataset. The low-volume query requirements also apply to queries selecting data by the primary key of any data product table, or by the associated Object-like primary key for the ForcedSource and DIASource tables.
