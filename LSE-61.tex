@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{872}
+\setDocUpstreamVersion{878}
 
-\date{2018-07-17}
+\date{2018-07-19}
 
 %% Allow arbitrary latex to be inserted at the end of the document.
 %% Define a new version of this command in metadata.tex. It will
@@ -4188,10 +4188,10 @@ hvQueryUsers
 \textbf{ID:} DMS-REQ-0356 (Priority: 1b)
 
 \textbf{Specification:}
-Low volume queries, queries that are spatially restricted to less than a fraction \textbf{lowVolumeSpatialFraction} of the sky, shall respond within \textbf{lvQueryTime} under a load of \textbf{lvQueryUsers} simultaneous queries.
+Low volume queries, queries that are spatially restricted to a circle of radius \textbf{lvSkyRadius}, shall respond within \textbf{lvQueryTime} under a load of \textbf{lvQueryUsers} simultaneous queries and return at most \textbf{lvMaxReturnedResults} of data.
 
 \textbf{Discussion:}
-We are evaluating whether the latency requirements of low-volume queries can also be met for certain categories of temporal queries or queries on indexed attributes which limit the scope of per-row operations in the query (such as non-indexed WHERE evaluations) to a comparable fraction of the total dataset. The low-volume query requirements also apply to queries selecting data by the primary key of any data product table, or by the associated Object-like primary key for the ForcedSource and DIASource tables, up to a maximum of \textbf{lvMaxReturnedResults} rows.
+We are evaluating whether the latency requirements of low-volume queries can also be met for certain categories of temporal queries or queries on indexed attributes which limit the scope of per-row operations in the query (such as non-indexed WHERE evaluations) to a comparable fraction of the total dataset. The low-volume query requirements also apply to queries selecting data by the primary key of any data product table, or by the associated Object-like primary key for the ForcedSource and DIASource tables.
 
 \begin{parameters}
 Maximum time allowed for retrieving results of a low-volume query.
@@ -4215,6 +4215,28 @@ integer
 &
 \paramname{%
 lvQueryUsers
+} \\\hline
+Maximum size of a results set for a query to be defined to be "low-volume".
+&
+0.5
+&
+\unitname{%
+gigabyte
+}
+&
+\paramname{%
+lvMaxReturnedResults
+} \\\hline
+Radius to be used for a low-volume query on the sky.
+&
+60
+&
+\unitname{%
+arcsecond
+}
+&
+\paramname{%
+lvSkyRadius
 } \\\hline
 \end{parameters}
 
