@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{880}
+\setDocUpstreamVersion{989}
 
-\date{2018-07-19}
+\date{2018-08-07}
 
 %% Allow arbitrary latex to be inserted at the end of the document.
 %% Define a new version of this command in metadata.tex. It will
@@ -4338,7 +4338,23 @@ Data Products Query and Download Infrastructure \newline
 
 \subsection{Image Access Performance Metrics}
 
-\subsubsection{Retrieval of postage stamp light curve images}
+\subsubsection{Simultaneous Image Access Performance}
+
+\label{DMS-REQ-0378}
+\textbf{ID:} DMS-REQ-0378 (Priority: 2)
+
+\textbf{Specification:}
+All the enclosed performance metrics shall be met simultaneously.
+
+\textbf{Discussion:}
+While these image access requirements specify maximum timings and minimum capacities for retrieval by a particular mechanism (VO services), it should be noted that simultaneous usage of other access mechanisms will in practice increase timings and/or reduce available capacity.
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0181:
+Data Products Query and Download Infrastructure \newline
+
+\paragraph{Retrieval of postage stamp light curve images}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0375}
 \textbf{ID:} DMS-REQ-0375 (Priority: 2)
@@ -4401,7 +4417,7 @@ postageStampSize
 OSS-REQ-0181:
 Data Products Query and Download Infrastructure \newline
 
-\subsubsection{Retrieval of a PVI from a single CCD}
+\paragraph{Retrieval of a PVI from a single CCD}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0374}
 \textbf{ID:} DMS-REQ-0374 (Priority: 1b)
@@ -4453,7 +4469,7 @@ l1CacheLifetime
 OSS-REQ-0181:
 Data Products Query and Download Infrastructure \newline
 
-\subsubsection{Retrieval of focal-plane visit images}
+\paragraph{Retrieval of focal-plane visit images}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0376}
 \textbf{ID:} DMS-REQ-0376 (Priority: 1b)
@@ -4478,7 +4494,7 @@ allPviRetrievalTime
 } \\\hline
 Minimum number of simultaneous users retrieving all PVI images for a visit.
 &
-20
+10
 &
 \unitname{%
 integer
@@ -4505,17 +4521,17 @@ l1CacheLifetime
 OSS-REQ-0181:
 Data Products Query and Download Infrastructure \newline
 
-\subsubsection{Retrieval of a CCD-sized image from a coadd}
+\paragraph{Retrieval of a CCD-sized image from a coadd}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0377}
 \textbf{ID:} DMS-REQ-0377 (Priority: 1b)
 
 \textbf{Specification:}
-A CCD-sized cutout of a coadd, including mask and variance planes, shall be retrievable using the relevant VO protocol within \textbf{ccdRetrievalTime} with \textbf{ccdRetrievalUsers} simultaneous requests of distinct areas of skys.
+A CCD-sized cutout of a coadd, including mask and variance planes, shall be retrievable using the IVOA SODA protocol within \textbf{ccdRetrievalTime} with \textbf{ccdRetrievalUsers} simultaneous requests for distinct areas of the sky.
 
 \textbf{Discussion:}
 \begin{parameters}
-Maximum time allowed for retrieving a CCD-sized image
+Maximum time allowed for retrieving a CCD-sized coadd cutout.
 &
 15
 &
@@ -4526,7 +4542,7 @@ second
 \paramname{%
 ccdRetrievalTime
 } \\\hline
-Minimum number of simultaneous users retrieving a single CCD-sized image.
+Minimum number of simultaneous users retrieving a single CCD-sized coadd cutout.
 &
 20
 &
@@ -4544,13 +4560,13 @@ ccdRetrievalUsers
 OSS-REQ-0181:
 Data Products Query and Download Infrastructure \newline
 
-\subsubsection{Retrieval of focal-plane-sized images}
+\paragraph{Retrieval of focal-plane-sized images}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0373}
 \textbf{ID:} DMS-REQ-0373 (Priority: 2)
 
 \textbf{Specification:}
-A 10 square degree coadd, including mask and variance planes, shall be retrievable using the relevant VO within \textbf{fplaneRetrievalTime} with \textbf{fplaneRetrievalUsers} simultaneous requests of distinct areas of sky.
+A 10 square degree coadd, including mask and variance planes, shall be retrievable using the IVOA SODA protocol within \textbf{fplaneRetrievalTime} with \textbf{fplaneRetrievalUsers} simultaneous requests for distinct areas of the sky.
 
 \begin{parameters}
 Maximum time allowed for retrieving a focal-plane sized coadd.
@@ -4566,7 +4582,7 @@ fplaneRetrievalTime
 } \\\hline
 Number of simultaneous users retrieving a single large area coadd.
 &
-20
+10
 &
 \unitname{%
 integer
