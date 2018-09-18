@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{989}
+\setDocUpstreamVersion{1205}
 
-\date{2018-08-07}
+\date{2018-09-18}
 
 %% Allow arbitrary latex to be inserted at the end of the document.
 %% Define a new version of this command in metadata.tex. It will
@@ -2151,7 +2151,7 @@ Provenance \newline
 \textbf{ID:} DMS-REQ-0155 (Priority: 1a)
 
 \textbf{Discussion:}
-(This is a composite requirement in the SysML model, which simply aggregates its children.)
+    (This is a composite requirement in the SysML model, which simply aggregates its children.)
 
 \emph{Derived from Requirements:}
 
@@ -2238,7 +2238,7 @@ Standard Operating States \newline
 \textbf{ID:} DMS-REQ-0156 (Priority: 1a)
 
 \textbf{Discussion:}
-(This is a composite requirement in the SysML model, which simply aggregates its children.)
+    (This is a composite requirement in the SysML model, which simply aggregates its children.)
 
 \emph{Derived from Requirements:}
 
@@ -2297,7 +2297,7 @@ Automated Production \newline
 \textbf{ID:} DMS-REQ-0158 (Priority: 1a)
 
 \textbf{Discussion:}
-(This is a composite requirement in the SysML model, which simply aggregates its children.)
+    (This is a composite requirement in the SysML model, which simply aggregates its children.)
 
 \paragraph{Task Configuration}\hfill  % Force subsequent text onto new line
 
@@ -4209,27 +4209,16 @@ Low volume queries, queries that are spatially restricted to a circle of radiusÂ
 We are evaluating whether the latency requirements of low-volume queries can also be met for certain categories of temporal queries or queries on indexed attributes which limit the scope of per-row operations in the query (such as non-indexed WHERE evaluations) to a comparable fraction of the total dataset. The low-volume query requirements also apply to queries selecting data by the primary key of any data product table, or by the associated Object-like primary key for the ForcedSource and DIASource tables.
 
 \begin{parameters}
-Maximum time allowed for retrieving results of a low-volume query.
+Radius to be used for a low-volume query on the sky.
 &
-10
+60
 &
 \unitname{%
-second
+arcsecond
 }
 &
 \paramname{%
-lvQueryTime
-} \\\hline
-Minimum number of simultaneous users performing low volume queries.
-&
-100
-&
-\unitname{%
-integer
-}
-&
-\paramname{%
-lvQueryUsers
+lvSkyRadius
 } \\\hline
 Maximum size of a results set for a query to be defined to be "low-volume".
 &
@@ -4242,16 +4231,27 @@ gigabyte
 \paramname{%
 lvMaxReturnedResults
 } \\\hline
-Radius to be used for a low-volume query on the sky.
+Minimum number of simultaneous users performing low volume queries.
 &
-60
+100
 &
 \unitname{%
-arcsecond
+integer
 }
 &
 \paramname{%
-lvSkyRadius
+lvQueryUsers
+} \\\hline
+Maximum time allowed for retrieving results of a low-volume query.
+&
+10
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+lvQueryTime
 } \\\hline
 \end{parameters}
 
@@ -4269,17 +4269,6 @@ Data Products Query and Download Infrastructure \newline
 The live Prompt Products Database shall support at least \textbf{l1QueryUsers} simultaneous queries, assuming each query lasts no more than \textbf{l1QueryTime}.
 
 \begin{parameters}
-Minimum number of simultaneous users querying the Prompt Products Database.
-&
-20
-&
-\unitname{%
-integer
-}
-&
-\paramname{%
-l1QueryUsers
-} \\\hline
 Maximum time allowed for retrieving results of a query of the Prompt Products Database.
 &
 10
@@ -4290,6 +4279,17 @@ second
 &
 \paramname{%
 l1QueryTime
+} \\\hline
+Minimum number of simultaneous users querying the Prompt Products Database.
+&
+20
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+l1QueryUsers
 } \\\hline
 \end{parameters}
 
@@ -4307,17 +4307,6 @@ Data Products Query and Download Infrastructure \newline
 The DM copy of the EFD shall support at least \textbf{dmEfdQueryUsers} simultaneous queries, assuming each query lasts no more than \textbf{dmEfdQueryTime}.
 
 \begin{parameters}
-Maximum time allowed for retrieving results of a DM EFD query.
-&
-10
-&
-\unitname{%
-second
-}
-&
-\paramname{%
-dmEfdQueryTime
-} \\\hline
 Minimum number of simultaneous users querying the DM EFD.
 &
 5
@@ -4328,6 +4317,17 @@ integer
 &
 \paramname{%
 dmEfdQueryUsers
+} \\\hline
+Maximum time allowed for retrieving results of a DM EFD query.
+&
+10
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+dmEfdQueryTime
 } \\\hline
 \end{parameters}
 
@@ -4377,16 +4377,16 @@ second
 \paramname{%
 postageStampRetrievalTime
 } \\\hline
-Minimum number of simultaneous users retrieving a set of postage stamp images.
+Minimum square size of a postage stamp cutout from an image.
 &
-10
+51
 &
 \unitname{%
-integer
+pixel
 }
 &
 \paramname{%
-postageStampRetrievalUsers
+postageStampSize
 } \\\hline
 Lifetime in the cache of un-archived Level-1 data products.
 &
@@ -4399,16 +4399,16 @@ day
 \paramname{%
 l1CacheLifetime
 } \\\hline
-Minimum square size of a postage stamp cutout from an image.
+Minimum number of simultaneous users retrieving a set of postage stamp images.
 &
-51
+10
 &
 \unitname{%
-pixel
+integer
 }
 &
 \paramname{%
-postageStampSize
+postageStampRetrievalUsers
 } \\\hline
 \end{parameters}
 
@@ -4429,17 +4429,6 @@ A Processed Visit Image of a single CCD shall be retrievable using the VO SIAv2 
 The performance targets for this requirement assume the PVIs are available as files on a file system.For example, this could be those files present in the \textbf{l1CacheLifetime} cache.
 
 \begin{parameters}
-Minimum number of simultaneous users retrieving a single PVI image.
-&
-20
-&
-\unitname{%
-integer
-}
-&
-\paramname{%
-pviRetrievalUsers
-} \\\hline
 Maximum time allowed for retrieving a PVI image of a single CCD from a single visit
 &
 10
@@ -4450,6 +4439,17 @@ second
 &
 \paramname{%
 pviRetrievalTime
+} \\\hline
+Minimum number of simultaneous users retrieving a single PVI image.
+&
+20
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+pviRetrievalUsers
 } \\\hline
 Lifetime in the cache of un-archived Level-1 data products.
 &
@@ -4481,17 +4481,6 @@ All Processed Visit Images for a single visit that are available in cache, inclu
 The performance targets for this requirement assume the PVIs are available as files on a file system. For example, this could be those files present in the \textbf{l1CacheLifetime} cache.
 
 \begin{parameters}
-Maximum time allowed for retrieving all PVI images of a single visit.
-&
-60
-&
-\unitname{%
-second
-}
-&
-\paramname{%
-allPviRetrievalTime
-} \\\hline
 Minimum number of simultaneous users retrieving all PVI images for a visit.
 &
 10
@@ -4502,6 +4491,17 @@ integer
 &
 \paramname{%
 allPviRetrievalUsers
+} \\\hline
+Maximum time allowed for retrieving all PVI images of a single visit.
+&
+60
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+allPviRetrievalTime
 } \\\hline
 Lifetime in the cache of un-archived Level-1 data products.
 &
@@ -4529,19 +4529,7 @@ Data Products Query and Download Infrastructure \newline
 \textbf{Specification:}
 A CCD-sized cutout of a coadd, including mask and variance planes, shall be retrievable using the IVOA SODA protocol within \textbf{ccdRetrievalTime} with \textbf{ccdRetrievalUsers} simultaneous requests for distinct areas of the sky.
 
-\textbf{Discussion:}
 \begin{parameters}
-Maximum time allowed for retrieving a CCD-sized coadd cutout.
-&
-15
-&
-\unitname{%
-second
-}
-&
-\paramname{%
-ccdRetrievalTime
-} \\\hline
 Minimum number of simultaneous users retrieving a single CCD-sized coadd cutout.
 &
 20
@@ -4552,6 +4540,17 @@ integer
 &
 \paramname{%
 ccdRetrievalUsers
+} \\\hline
+Maximum time allowed for retrieving a CCD-sized coadd cutout.
+&
+15
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+ccdRetrievalTime
 } \\\hline
 \end{parameters}
 
@@ -4569,17 +4568,6 @@ Data Products Query and Download Infrastructure \newline
 A 10 square degree coadd, including mask and variance planes, shall be retrievable using the IVOA SODA protocol within \textbf{fplaneRetrievalTime} with \textbf{fplaneRetrievalUsers} simultaneous requests for distinct areas of the sky.
 
 \begin{parameters}
-Maximum time allowed for retrieving a focal-plane sized coadd.
-&
-60
-&
-\unitname{%
-second
-}
-&
-\paramname{%
-fplaneRetrievalTime
-} \\\hline
 Number of simultaneous users retrieving a single large area coadd.
 &
 10
@@ -4590,6 +4578,17 @@ integer
 &
 \paramname{%
 fplaneRetrievalUsers
+} \\\hline
+Maximum time allowed for retrieving a focal-plane sized coadd.
+&
+60
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+fplaneRetrievalTime
 } \\\hline
 \end{parameters}
 
