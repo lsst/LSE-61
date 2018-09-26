@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{836}
+\setDocUpstreamVersion{1205}
 
-\date{2018-06-27}
+\date{2018-09-18}
 
 %% Allow arbitrary latex to be inserted at the end of the document.
 %% Define a new version of this command in metadata.tex. It will
@@ -2151,7 +2151,7 @@ Provenance \newline
 \textbf{ID:} DMS-REQ-0155 (Priority: 1a)
 
 \textbf{Discussion:}
-(This is a composite requirement in the SysML model, which simply aggregates its children.)
+    (This is a composite requirement in the SysML model, which simply aggregates its children.)
 
 \emph{Derived from Requirements:}
 
@@ -2238,7 +2238,7 @@ Standard Operating States \newline
 \textbf{ID:} DMS-REQ-0156 (Priority: 1a)
 
 \textbf{Discussion:}
-(This is a composite requirement in the SysML model, which simply aggregates its children.)
+    (This is a composite requirement in the SysML model, which simply aggregates its children.)
 
 \emph{Derived from Requirements:}
 
@@ -2297,7 +2297,7 @@ Automated Production \newline
 \textbf{ID:} DMS-REQ-0158 (Priority: 1a)
 
 \textbf{Discussion:}
-(This is a composite requirement in the SysML model, which simply aggregates its children.)
+    (This is a composite requirement in the SysML model, which simply aggregates its children.)
 
 \paragraph{Task Configuration}\hfill  % Force subsequent text onto new line
 
@@ -3642,6 +3642,961 @@ Base Site \newline
 OSS-REQ-0022:
 Archive Site \newline
 
+\section{Performance Metrics}
+
+In this section we list the performance metrics for the Data Management System.
+
+\subsection{Science Metrics}
+
+\subsubsection{Calculation of Photometric Performance Metrics}
+
+\label{DMS-REQ-0359}
+\textbf{ID:} DMS-REQ-0359 (Priority: 1a)
+
+\textbf{Specification:}
+The DMS shall include software to enable the calculation of the photometric performance metrics defined in OSS-REQ-0387.
+
+\textbf{Discussion:}
+The relevant metrics are listed in the table photometricPerformance below. The values in the tables are the target values for LSST but are not verified as part of this requirement.
+
+\begin{parameters}
+The RMS photometric repeatability of bright non-saturated unresolved point sources in the \textbf{u}, \textbf{z}, and \textbf{y} filters.
+
+&
+7.5
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA1uzy
+} \\\hline
+The maximum allowable fraction of sensors with \textbf{PixFrac} scientifically unusable pixels.
+
+&
+15
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+SensorFraction
+} \\\hline
+The maximum fraction of isolated non-saturated point source measurements exceeding the outlier limit.
+&
+10
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+PF1
+} \\\hline
+Accuracy of absolute band-to-band color zero-point for colors constructed using the u-band.
+
+&
+10
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA5u
+} \\\hline
+Repeatability outlier limit for isolated bright non-saturated point sources in the \textbf{g}, \textbf{r}, and \textbf{i} filters.
+
+&
+15
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA2gri
+} \\\hline
+Accuracy of the transformation of the internal LSST photometry to a physical scale (e.g. AB magnitudes).
+
+&
+10
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA6
+} \\\hline
+RMS width of internal photometric zero-point (precision of system uniformity across the sky) in the u-band.
+&
+20
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA3u
+} \\\hline
+The maximum local significance integrated over the PSF of imperfect crosstalk corrections.
+
+&
+3
+&
+\unitname{%
+sigma
+}
+&
+\paramname{%
+Xtalk
+} \\\hline
+Repeatability outlier limit for isolated bright non-saturated point sources in the \textbf{u}, \textbf{z}, and \textbf{y} filters.
+
+&
+22.5
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA2uzy
+} \\\hline
+The RMS photometric repeatability of bright non-saturated unresolved point sources in the \textbf{g}, \textbf{r,} and \textbf{i} filters.
+
+&
+5
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA1gri
+} \\\hline
+Fraction of zeropoint errors that can exceed the zero point error outlier limit.
+
+&
+10
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+PF2
+} \\\hline
+The maximum fraction of pixels scientifically unusable per sensor out of the total allowable fraction of sensors meeting this performance.
+&
+1
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+PixFrac
+} \\\hline
+The maximum error in the precision of the sky brightness determination.
+
+&
+1
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+SBPrec
+} \\\hline
+RMS width of internal photometric zero-point (precision of system uniformity across the sky) for all bands except u-band.
+
+&
+10
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA3
+} \\\hline
+Percentage of image area that can have ghosts with surface brightness gradient amplitude of more than 1/3 of the sky noise over 1 arcsec.
+
+&
+1
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+GhostAF
+} \\\hline
+Accuracy of absolute band-to-band color zero-point for all colors constructed from any filter pair, excluding the u-band.
+&
+5
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PA5
+} \\\hline
+Maximum RMS of the ratio of the error in integrated flux measurement between bright, isolated, resolved sources less than 10 arcsec in diameter and bright, isolated unresolved point sources.
+&
+2
+&
+\unitname{%
+unitless
+}
+&
+\paramname{%
+ResSource
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0387:
+Photometric Performance \newline
+
+\subsubsection{Calculation of Astrometric Performance Metrics}
+
+\label{DMS-REQ-0360}
+\textbf{ID:} DMS-REQ-0360 (Priority: 1a)
+
+\textbf{Specification:}
+The DMS shall include software to enable the calculation of the astrometric performance metrics defined in OSS-REQ-0388.
+
+\textbf{Discussion:}
+The relevant metrics are listed in the table below. The values in the tables are the target values for LSST but are not verified as part of this requirement.
+
+\begin{parameters}
+Median relative astrometric measurement error on 20 arcminute scales.
+
+&
+10
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AM2
+} \\\hline
+The maximum fraction of relative astrometric measurements on 5 arcminute scales to exceed 5 arcminute outlier limit.
+&
+10
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+AF1
+} \\\hline
+Median relative astrometric measurement error on 5 arcminute scales shall be less than \textbf{AM1}.
+
+&
+10
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AM1
+} \\\hline
+    Median error in absolute position for each axis, RA and DEC, shall be less than \textbf{AA1}.
+&
+50
+&
+\unitname{%
+arcsecond
+}
+&
+\paramname{%
+AA1
+} \\\hline
+20 arcminute outlier limit.
+
+&
+20
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AD2
+} \\\hline
+The color difference outlier limit for separations measured relative the r-band filter in any other filter.
+&
+20
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AB2
+} \\\hline
+5 arcminute outlier limit.
+&
+20
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AD1
+} \\\hline
+Median relative astrometric measurement error on 200 arcminute scales.
+
+&
+15
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AM3
+} \\\hline
+200 arcminute outlier limit.
+
+&
+30
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AD3
+} \\\hline
+The maximum fraction of relative astrometric measurements on 20 arcminute scales to exceed 20 arcminute outlier limit.
+&
+10
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+AF2
+} \\\hline
+Fraction of separations measured relative to the r-band that can exceed the color difference outlier limit.
+
+&
+10
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+ABF1
+} \\\hline
+RMS difference between separations measured in the r-band and those measured in any other filter.
+
+&
+10
+&
+\unitname{%
+milliarcsecond
+}
+&
+\paramname{%
+AB1
+} \\\hline
+Fraction of relative astrometric measurements on 200 arcminute scales to exceed 200 arcminute outlier limit.
+&
+10
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+AF3
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0388:
+Astrometric Performance \newline
+
+\subsubsection{Calculation of Ellipticity Correlations}
+
+\label{DMS-REQ-0362}
+\textbf{ID:} DMS-REQ-0362 (Priority: 1b)
+
+\textbf{Specification:}
+The DMS shall include software to enable the calculation of the elipticity correlations metrics defined in OSS-REQ-0390.
+
+\textbf{Discussion:}
+The relevant metrics are listed in the table below. The values in the tables are the target values for LSST but are not verified as part of this requirement.
+
+\begin{parameters}
+Median residual PSF ellipticity correlations averaged over an arbitrary field of view for separations less than 5 arcmin shall be no greater than\textbf{ TE2.}
+&
+1.0e-7
+&
+\unitname{%
+arcminuteSeparationCorrelation
+}
+&
+\paramname{%
+TE2
+} \\\hline
+The fraction of PSF ellipticity correlation residuals that can exceed the outlier limits on 1 and 5 arcminutes scales, over an arbitrary field, of view shall be no more than
+&
+15
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+TEF
+} \\\hline
+The outlier limit on the PSF ellipticity correlation residuals on 5 arcminute scales shall be no more than \textbf{TE4.}
+&
+2.0e-7
+&
+\unitname{%
+arcminuteOutlierLimit
+}
+&
+\paramname{%
+TE4
+} \\\hline
+Median residual PSF ellipticity correlations averaged over an arbitrary field of view for separations less than 1 arcmin shall be no greater than \textbf{TE1.}
+&
+2.0e-5
+&
+\unitname{%
+arcminuteSeparationCorrelation
+}
+&
+\paramname{%
+TE1
+} \\\hline
+The outlier limit on the PSF ellipticity correlation residuals on 1 arcminute scales shall be no more than \textbf{TE3.}
+&
+4.0e-5
+&
+\unitname{%
+arcminuteOutlierLimit
+}
+&
+\paramname{%
+TE3
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0390:
+Ellipticity Correlations \newline
+
+\subsection{Database Performance}
+
+These requirements were originally approved in narrative text in \citeds{LDM-135}.
+
+\subsubsection{Result latency for high-volume full-sky queries on the Object table}
+
+\label{DMS-REQ-0357}
+\textbf{ID:} DMS-REQ-0357 (Priority: 1b)
+
+\textbf{Specification:}
+High-volume queries on the Object table -- queries that involve full-sky scans -- shall be answered in \textbf{hvObjectQueryTime}.
+
+\begin{parameters}
+Maximum time allowed for retrieving results of a high-volume query of the Object table.
+&
+1
+&
+\unitname{%
+hour
+}
+&
+\paramname{%
+hvObjectQueryTime
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0181:
+Data Products Query and Download Infrastructure \newline
+
+\subsubsection{Result latency for high-volume complex queries}
+
+\label{DMS-REQ-0354}
+\textbf{ID:} DMS-REQ-0354 (Priority: 1b)
+
+\textbf{Specification:}
+Complex high-volume queries -– queries that involve full-sky spatial and temporal correlations -- shall be answered in less than \textbf{hvComplexQueryTime}.
+
+\textbf{Discussion:}
+This can include the ForcedSource and Object\_Extra tables.
+
+\begin{parameters}
+Maximum time allowed for retrieving results of a high-volume complex query.
+&
+12
+&
+\unitname{%
+hour
+}
+&
+\paramname{%
+hvComplexQueryTime
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0181:
+Data Products Query and Download Infrastructure \newline
+
+\subsubsection{Simultaneous users for high-volume queries}
+
+\label{DMS-REQ-0361}
+\textbf{ID:} DMS-REQ-0361 (Priority: 1b)
+
+\textbf{Specification:}
+The system shall support \textbf{hvQueryUsers }simultaneous high-volume queries running at any given time.
+
+\begin{parameters}
+Minimum number of simultaneous users performing high volume queries.
+&
+50
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+hvQueryUsers
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0181:
+Data Products Query and Download Infrastructure \newline
+
+\subsubsection{Real time query performance}
+
+\label{DMS-REQ-0356}
+\textbf{ID:} DMS-REQ-0356 (Priority: 1b)
+
+\textbf{Specification:}
+Low volume queries, queries that are spatially restricted to a circle of radius \textbf{lvSkyRadius} and return at most \textbf{lvMaxReturnedResults} of data, shall respond within \textbf{lvQueryTime} under a load of \textbf{lvQueryUsers} simultaneous queries.
+
+\textbf{Discussion:}
+We are evaluating whether the latency requirements of low-volume queries can also be met for certain categories of temporal queries or queries on indexed attributes which limit the scope of per-row operations in the query (such as non-indexed WHERE evaluations) to a comparable fraction of the total dataset. The low-volume query requirements also apply to queries selecting data by the primary key of any data product table, or by the associated Object-like primary key for the ForcedSource and DIASource tables.
+
+\begin{parameters}
+Radius to be used for a low-volume query on the sky.
+&
+60
+&
+\unitname{%
+arcsecond
+}
+&
+\paramname{%
+lvSkyRadius
+} \\\hline
+Maximum size of a results set for a query to be defined to be "low-volume".
+&
+0.5
+&
+\unitname{%
+gigabyte
+}
+&
+\paramname{%
+lvMaxReturnedResults
+} \\\hline
+Minimum number of simultaneous users performing low volume queries.
+&
+100
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+lvQueryUsers
+} \\\hline
+Maximum time allowed for retrieving results of a low-volume query.
+&
+10
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+lvQueryTime
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0181:
+Data Products Query and Download Infrastructure \newline
+
+\subsubsection{Level 1 Database Query Performance}
+
+\label{DMS-REQ-0355}
+\textbf{ID:} DMS-REQ-0355 (Priority: 1b)
+
+\textbf{Specification:}
+The live Prompt Products Database shall support at least \textbf{l1QueryUsers} simultaneous queries, assuming each query lasts no more than \textbf{l1QueryTime}.
+
+\begin{parameters}
+Maximum time allowed for retrieving results of a query of the Prompt Products Database.
+&
+10
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+l1QueryTime
+} \\\hline
+Minimum number of simultaneous users querying the Prompt Products Database.
+&
+20
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+l1QueryUsers
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0181:
+Data Products Query and Download Infrastructure \newline
+
+\subsubsection{DM EFD Query Performance}
+
+\label{DMS-REQ-0358}
+\textbf{ID:} DMS-REQ-0358 (Priority: 1a)
+
+\textbf{Specification:}
+The DM copy of the EFD shall support at least \textbf{dmEfdQueryUsers} simultaneous queries, assuming each query lasts no more than \textbf{dmEfdQueryTime}.
+
+\begin{parameters}
+Minimum number of simultaneous users querying the DM EFD.
+&
+5
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+dmEfdQueryUsers
+} \\\hline
+Maximum time allowed for retrieving results of a DM EFD query.
+&
+10
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+dmEfdQueryTime
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0181:
+Data Products Query and Download Infrastructure \newline
+
+\subsection{Image Access Performance Metrics}
+
+\subsubsection{Simultaneous Image Access Performance}
+
+\label{DMS-REQ-0378}
+\textbf{ID:} DMS-REQ-0378 (Priority: 2)
+
+\textbf{Specification:}
+All the enclosed performance metrics shall be met simultaneously.
+
+\textbf{Discussion:}
+While these image access requirements specify maximum timings and minimum capacities for retrieval by a particular mechanism (VO services), it should be noted that simultaneous usage of other access mechanisms will in practice increase timings and/or reduce available capacity.
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0181:
+Data Products Query and Download Infrastructure \newline
+
+\paragraph{Retrieval of postage stamp light curve images}\hfill  % Force subsequent text onto new line
+
+\label{DMS-REQ-0375}
+\textbf{ID:} DMS-REQ-0375 (Priority: 2)
+
+\textbf{Specification:}
+Postage stamp cutouts, of size \textbf{postageStampSize} square, of all observations of a single Object shall be retrievable within \textbf{postageStampRetrievalTime}, with \textbf{postageStampRetrievalUsers} simultaneous requests of distinct Objects.
+
+\textbf{Discussion:}
+The performance targets for this requirement assume the PVIs are available as files on a file system. For example, this could be those files present in the \textbf{l1CacheLifetime} cache.
+
+\begin{parameters}
+Maximum time allowed for retrieving a set of postage stamp images of a single Object.
+&
+10
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+postageStampRetrievalTime
+} \\\hline
+Minimum square size of a postage stamp cutout from an image.
+&
+51
+&
+\unitname{%
+pixel
+}
+&
+\paramname{%
+postageStampSize
+} \\\hline
+Lifetime in the cache of un-archived Level-1 data products.
+&
+30
+&
+\unitname{%
+day
+}
+&
+\paramname{%
+l1CacheLifetime
+} \\\hline
+Minimum number of simultaneous users retrieving a set of postage stamp images.
+&
+10
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+postageStampRetrievalUsers
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0181:
+Data Products Query and Download Infrastructure \newline
+
+\paragraph{Retrieval of a PVI from a single CCD}\hfill  % Force subsequent text onto new line
+
+\label{DMS-REQ-0374}
+\textbf{ID:} DMS-REQ-0374 (Priority: 1b)
+
+\textbf{Specification:}
+A Processed Visit Image of a single CCD shall be retrievable using the VO SIAv2 protocol within \textbf{pviRetrievalTime} with \textbf{pviRetrievalUsers} simultaneous requests for distinct single-CCD PVIs..
+
+\textbf{Discussion:}
+The performance targets for this requirement assume the PVIs are available as files on a file system.For example, this could be those files present in the \textbf{l1CacheLifetime} cache.
+
+\begin{parameters}
+Maximum time allowed for retrieving a PVI image of a single CCD from a single visit
+&
+10
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+pviRetrievalTime
+} \\\hline
+Minimum number of simultaneous users retrieving a single PVI image.
+&
+20
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+pviRetrievalUsers
+} \\\hline
+Lifetime in the cache of un-archived Level-1 data products.
+&
+30
+&
+\unitname{%
+day
+}
+&
+\paramname{%
+l1CacheLifetime
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0181:
+Data Products Query and Download Infrastructure \newline
+
+\paragraph{Retrieval of focal-plane visit images}\hfill  % Force subsequent text onto new line
+
+\label{DMS-REQ-0376}
+\textbf{ID:} DMS-REQ-0376 (Priority: 1b)
+
+\textbf{Specification:}
+All Processed Visit Images for a single visit that are available in cache, including mask and variance planes, shall be identifiable with a single IVOA SIAv2 service query and retrievable, using the link(s) provided in the response, within \textbf{allPviRetrievalTime.} This requirement shall be met for up to \textbf{allPviRetrievalUsers} simultaneous requests for distinct focal-plane PVI sets.
+
+\textbf{Discussion:}
+The performance targets for this requirement assume the PVIs are available as files on a file system. For example, this could be those files present in the \textbf{l1CacheLifetime} cache.
+
+\begin{parameters}
+Minimum number of simultaneous users retrieving all PVI images for a visit.
+&
+10
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+allPviRetrievalUsers
+} \\\hline
+Maximum time allowed for retrieving all PVI images of a single visit.
+&
+60
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+allPviRetrievalTime
+} \\\hline
+Lifetime in the cache of un-archived Level-1 data products.
+&
+30
+&
+\unitname{%
+day
+}
+&
+\paramname{%
+l1CacheLifetime
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0181:
+Data Products Query and Download Infrastructure \newline
+
+\paragraph{Retrieval of a CCD-sized image from a coadd}\hfill  % Force subsequent text onto new line
+
+\label{DMS-REQ-0377}
+\textbf{ID:} DMS-REQ-0377 (Priority: 1b)
+
+\textbf{Specification:}
+A CCD-sized cutout of a coadd, including mask and variance planes, shall be retrievable using the IVOA SODA protocol within \textbf{ccdRetrievalTime} with \textbf{ccdRetrievalUsers} simultaneous requests for distinct areas of the sky.
+
+\begin{parameters}
+Minimum number of simultaneous users retrieving a single CCD-sized coadd cutout.
+&
+20
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+ccdRetrievalUsers
+} \\\hline
+Maximum time allowed for retrieving a CCD-sized coadd cutout.
+&
+15
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+ccdRetrievalTime
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0181:
+Data Products Query and Download Infrastructure \newline
+
+\paragraph{Retrieval of focal-plane-sized images}\hfill  % Force subsequent text onto new line
+
+\label{DMS-REQ-0373}
+\textbf{ID:} DMS-REQ-0373 (Priority: 2)
+
+\textbf{Specification:}
+A 10 square degree coadd, including mask and variance planes, shall be retrievable using the IVOA SODA protocol within \textbf{fplaneRetrievalTime} with \textbf{fplaneRetrievalUsers} simultaneous requests for distinct areas of the sky.
+
+\begin{parameters}
+Number of simultaneous users retrieving a single large area coadd.
+&
+10
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+fplaneRetrievalUsers
+} \\\hline
+Maximum time allowed for retrieving a focal-plane sized coadd.
+&
+60
+&
+\unitname{%
+second
+}
+&
+\paramname{%
+fplaneRetrievalTime
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0181:
+Data Products Query and Download Infrastructure \newline
+
 \section{Deleted Requirements}
 
 This sections lists all the requirements that have been deleted from the official baseline.
@@ -3651,7 +4606,8 @@ This sections lists all the requirements that have been deleted from the officia
 \label{DMS-REQ-0177}
 \textbf{ID:} DMS-REQ-0177 (Priority: 1b)
 
-\textbf{Specification:} The Base Facility shall provide at least a time \textbf{minBaseDataStorage }(or half of that amount, redundantly) of raw data storage in the event of Base to Archive Center network outage.
+\textbf{Specification:}
+    The Base Facility shall provide at least a time \textbf{minBaseDataStorage }(or half of that amount, redundantly) of raw data storage in the event of Base to Archive Center network outage.
 
 \textbf{Discussion:}
  Removed as part of LCR-1238.
@@ -3684,7 +4640,8 @@ Base Data Buffer \newline
 \label{DMS-REQ-0006}
 \textbf{ID:} DMS-REQ-0006 (Priority: 1b)
 
-\textbf{Specification:} The DMS shall make available to end-users all Level-2 data products as soon as possible following the execution of the Data Release Production and the verification of science data quality.
+\textbf{Specification:}
+The DMS shall make available to end-users all Level-2 data products as soon as possible following the execution of the Data Release Production and the verification of science data quality.
 
 \textbf{Discussion:}
 Removed as part of LCR-962.
