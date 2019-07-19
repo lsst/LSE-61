@@ -745,7 +745,7 @@ Catalogs (Level 1) \newline
 \label{DMS-REQ-0273}
 \textbf{ID:} DMS-REQ-0273 (Priority: 2)
 
-\textbf{Specification:} The DMS shall produce a catalog of all Solar System Objects (SSObjects) that have been identified via Moving Object Processing. The SSObject catalog shall include for each entry attributes including at least the following: Osculating orbital elements and associated uncertainties, minimum orbit intersection distance (MOID), mean absolute magnitude and slope parameter per band and associated errors, and flags that describe conditions of the description.
+\textbf{Specification:} The DMS shall produce a catalog of all Solar System Objects (SSObjects) that have been identified via Solar System Processing. The SSObject catalog shall include for each entry attributes including at least the following: Osculating orbital elements and associated uncertainties, minimum orbit intersection distance (MOID), mean absolute magnitude and slope parameter per band and associated errors, and flags that describe conditions of the description.
 
 \textbf{Discussion: }The magnitude and angular velocity limits for identifying SSObjects are TBD. These limits may be driven more by computational resource constraints than by the raw reach of the collected data. The software may well be capable of exceeding the required limits, but at an unacceptable cost. The slope parameter will be poorly constrained until later in the survey. A baseline algorithm and acceptance criteria should be developed prior to verification.
 
@@ -759,7 +759,7 @@ Catalogs (Level 1) \newline
 \label{DMS-REQ-0323}
 \textbf{ID:} DMS-REQ-0323 (Priority: 3)
 
-\textbf{Specification:} The LSST database shall provide functions to compute, for every SSObject, the phase angle for every observation, and the reduced and absolute asteroid magnitudes in all LSST bands.
+\textbf{Specification:} The LSST database shall supply functions or tables to provide, for every SSObject, at least the phase angle for every observation, and the reduced and absolute asteroid magnitudes in all LSST bands.
 
 \emph{Derived from Requirements:}
 
@@ -2104,7 +2104,7 @@ Level 1 Moving Object Quality \newline
 \label{DMS-REQ-0089}
 \textbf{ID:} DMS-REQ-0089 (Priority: 1b)
 
-\textbf{Specification:} Detected moving objects and associated metadata shall be available for public access in the DMS science data archive within time \textbf{L1PublicT }of their generation by the DMS.
+\textbf{Specification:} Observed Solar System objects and associated metadata shall be available for public access in the DMS science data archive within time \textbf{L1PublicT }of their generation by the DMS.
 
 \emph{Derived from Requirements:}
 
@@ -3845,7 +3845,7 @@ Degraded Operational States \newline
 \label{DMS-REQ-0185}
 \textbf{ID:} DMS-REQ-0185 (Priority: 1a)
 
-\textbf{Specification:} The Archive Center shall provide computing, storage, and network infrastructure to support, simultaneously: nightly processing including image processing, detection, association, and moving object pipelines, and the generation of all time-critical data products, i.e. alerts; the data release production, including Level-2 data product creation, permanent storage for all data products (with provenance), including federated Level-3 products; and serve data for replication to data centers and end user sites.
+\textbf{Specification:} The Archive Center shall provide computing, storage, and network infrastructure to support, simultaneously: nightly processing including image processing, detection, association, and Solar System processing, and the generation of all time-critical data products, i.e. alerts; the data release production, including Level-2 data product creation, permanent storage for all data products (with provenance), including federated Level-3 products; and serve data for replication to data centers and end user sites.
 
 \emph{Derived from Requirements:}
 
