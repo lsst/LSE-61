@@ -9,7 +9,7 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{1496}
+\setDocUpstreamVersion{1497}
 
 \date{2019-08-26}
 
@@ -333,13 +333,14 @@ Calibration Exposures Per Day \newline
 \textbf{ID:} DMS-REQ-0004 (Priority: 1b)
 
 \textbf{Specification:}
-\textbf{Specification}: With the exception of alerts and Solar System Objects, all Level 1 Data Products \textit{shall} be made public within time \textbf{L1PublicT} (LSR-REQ-0104) of the acquisition of the raw image data.
+With the exception of alerts and Solar System Objects, all Level 1 Data Products shall be made public within time \textbf{L1PublicT} of the acquisition of the raw image data.
 
-For visits resulting in fewer than \textbf{nAlertVisitPeak}, LSST \textit{shall} be capable of supporting the distribution of at least \textbf{OTR1} % of alerts via the LSST alert distribution system within time \textbf{OTT1} from the conclusion of the camera's readout of the raw exposures used to generate each alert.
+For visits resulting in fewer than \textbf{nAlertVisitPeak}, LSST shall be capable of supporting the distribution of at least \textbf{OTR1} per cent of alerts via the LSST alert distribution system within time \textbf{OTT1} from the conclusion of the camera's readout of the raw exposures used to generate each alert.
 
 Solar System Object orbits will, on average, be calculated before the following night's observing finishes and the results \textit{shall} be made available within time \textbf{L1PublicT} of those calculations being completed.
 
-\textbf{Discussion:} Because of the processing flow of SSObject orbit determination, meeting the base 24-hours-after-data-acquisition requirement would be far more challenging than for the other L1 Data Products, but the system throughput has to be good enough such that a back log can not build up.
+\textbf{Discussion:}
+    Because of the processing flow of SSObject orbit determination, meeting the base \textbf{L1PublicT}-hours-after-data-acquisition requirement would be far more challenging than for the other L1 Data Products, but the system throughput has to be good enough such that a back log can not build up.
 
 \begin{parameters}
 Maximum time from the acquisition of science data to the public release of associated Level 1 Data Products (except alerts)
@@ -374,6 +375,17 @@ percent
 &
 \paramname{%
 OTR1
+} \\\hline
+The instantaneous peak number of alerts per standard visit.
+&
+40000
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+nAlertVisitPeak
 } \\\hline
 \end{parameters}
 
