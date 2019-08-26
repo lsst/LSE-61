@@ -1,4 +1,4 @@
-\documentclass[SE,toc]{lsstdoc}
+\documentclass[SE,toc,lsstdraft]{lsstdoc}
 
 % We use commands to make it easy to find where parameter names and units
 % are defined in the tables, and to allow hyphenation.
@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{1358}
+\setDocUpstreamVersion{1494}
 
-\date{2019-03-08}
+\date{2019-08-23}
 
 %% Allow arbitrary latex to be inserted at the end of the document.
 %% Define a new version of this command in metadata.tex. It will
@@ -332,7 +332,12 @@ Calibration Exposures Per Day \newline
 \label{DMS-REQ-0004}
 \textbf{ID:} DMS-REQ-0004 (Priority: 1b)
 
-\textbf{Specification:} With the exception of alerts and Solar System Objects, all Level 1 Data Products shall be made public within time \textbf{L1PublicT} (LSR-REQ-0104) of the acquisition of the raw image data. Alerts shall be made available within time \textbf{OTT1} (LSR-REQ-0101) from the conclusion of readout of the raw exposures used to generate each alert to the distribution of the alert to community distribution mechanisms.  Solar System Object orbits shall, on average, be calculated before the following night's observing finishes and the results shall be made available within time \textbf{L1PublicT} of those calculations being completed.
+\textbf{Specification:}
+\textbf{Specification}: With the exception of alerts and Solar System Objects, all Level 1 Data Products \textit{shall} be made public within time \textbf{L1PublicT} (LSR-REQ-0104) of the acquisition of the raw image data.
+
+For visits resulting in fewer than \textbf{nAlertVisitPeak}, LSST \textit{shall} be capable of supporting the distribution of at least \textbf{OTR1} % of alerts via the LSST alert distribution system within time \textbf{OTT1} from the conclusion of the camera's readout of the raw exposures used to generate each alert.
+
+Solar System Object orbits will, on average, be calculated before the following night's observing finishes and the results \textit{shall} be made available within time \textbf{L1PublicT} of those calculations being completed.
 
 \textbf{Discussion:} Because of the processing flow of SSObject orbit determination, meeting the base 24-hours-after-data-acquisition requirement would be far more challenging than for the other L1 Data Products, but the system throughput has to be good enough such that a back log can not build up.
 
@@ -358,6 +363,17 @@ minute
 &
 \paramname{%
 OTT1
+} \\\hline
+Fraction of detectable alerts for which an alert is actually transmitted within latency \textbf{OTT1} (see LSR-REQ-0101).
+&
+98
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+OTR1
 } \\\hline
 \end{parameters}
 
@@ -1271,8 +1287,6 @@ The Project should produce a technical note, during the construction era, detail
 
 \emph{Derived from Requirements:}
 
-OSS-REQ-0033:
-Survey Planning and Performance Monitoring \newline
 OSS-REQ-0391:
 Data Product Conventions \newline
 
@@ -1307,8 +1321,6 @@ We are considering the provision of services which allow computations based on M
 
 OSS-REQ-0061:
 Data Visualization \newline
-OSS-REQ-0033:
-Survey Planning and Performance Monitoring \newline
 
 \subsection{Calibration Data Products}
 
@@ -1712,6 +1724,121 @@ OSS-REQ-0127:
 Level 1 Data Product Availability \newline
 OSS-REQ-0184:
 Transient Alert Publication \newline
+
+\paragraph{Alert Stream Distribution}\hfill  % Force subsequent text onto new line
+
+\label{DMS-REQ-0391}
+\textbf{ID:} DMS-REQ-0391
+
+\textbf{Specification:}
+\textbf{Specification}: LSST \textit{shall} be capable of supporting the transmission of at least \textbf{NumStreams} full alert streams out of the alert distribution system within \textbf{OTT1}.
+
+\textbf{Discussion:}
+\textbf{Discussion}: This requirement establishes the minimum capacity needed for timely transmission of alerts to community brokers.
+
+\\
+Derived from Requirements: OSS-REQ-0127, OSS-REQ-0184
+
+\begin{parameters}
+The minimum number of full streams that can be transmitted out of the alert distribution system.
+&
+
+&
+\unitname{%
+unitless
+}
+&
+\paramname{%
+numStreams
+} \\\hline
+\end{parameters}
+
+\paragraph{Alert Delay and Failure Tolerances}\hfill  % Force subsequent text onto new line
+
+\label{DMS-REQ-0392}
+\textbf{ID:} DMS-REQ-0392
+
+\textbf{Specification:}
+\textbf{Specification}: The system \textit{shall} reliably produce alerts for standard science visits read out in the camera [and specified to be analyzed by Data Management] such that no more than \textbf{sciVisitAlertDelay} % of visits will fail to have at least \textbf{OTR1} % of its alerts distributed via the LSST alert distribution system within \textbf{OTT1}, and no more than \textbf{sciVisitAlertFailure} % of visits will fail to generate and distribute alerts (integrated over all stages of data handling)
+
+\textbf{Discussion:}
+\textbf{Discussion}: As with \hyperref[DMS-REQ-0004]{DMS-REQ-0004}, this specification applies to visits which should have resulted in fewer than \textbf{nAlertVisitPeak}.
+
+\\
+Derived from Requirements: OSS-REQ-0112
+
+\begin{parameters}
+Maximum fraction of science visits with less than OTR1 % of the alerts distributed within OTT1
+\\
+\\
+\\
+\\
+&
+1%
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+sciVisitAlertDelay
+} \\\hline
+Maximum fraction of visits for which alerts are not generated or distributed
+\\
+\\
+\\
+&
+0.1%
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+sciVisitAlertFailure
+} \\\hline
+\end{parameters}
+
+\paragraph{Performance Requirements for Transient Alert Distribution}\hfill  % Force subsequent text onto new line
+
+\label{DMS-REQ-0393}
+\textbf{ID:} DMS-REQ-0393
+
+\textbf{Specification:}
+\textbf{Specification}: The system \textit{shall} be able to identify and distribute an average of at least \textbf{nAlertVisitAvg} alerts per standard visit during a given night, and at least \textbf{nAlertVisitPeak} for a single standard visit.
+
+Performance \textit{shall} degrade gracefully beyond that limit (average of at least \textbf{nAlertVisitAvg} alerts per standard visit during a given night).
+
+\textbf{Discussion:}
+\textbf{Discussion}: The term 'degrade gracefully' means that visits with an excess of difference-image sources should not cause any DMS downtime; i.e., the system does not crash and is able to distribute alerts from that visit, potentially with greater latency.
+
+\\
+Derived from Requirements: LSR-REQ-0101, OSS-REQ-0193
+
+\begin{parameters}
+
+&
+
+&
+\unitname{%
+
+}
+&
+\paramname{%
+
+} \\\hline
+
+&
+000
+&
+\unitname{%
+
+}
+&
+\paramname{%
+nAlertVisitPeak
+} \\\hline
+\end{parameters}
 
 \subsubsection{Alert Filtering Service}
 
