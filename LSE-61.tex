@@ -9,7 +9,7 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{1495}
+\setDocUpstreamVersion{1496}
 
 \date{2019-08-26}
 
@@ -1780,11 +1780,7 @@ The system shall reliably produce alerts for standard science visits read out in
 As with \hyperref[DMS-REQ-0004]{DMS-REQ-0004}, this specification applies to visits which should have resulted in fewer than \textbf{nAlertVisitPeak}.
 
 \begin{parameters}
-Maximum fraction of science visits with less than OTR1 per cent of the alerts distributed within OTT1
-\\
-\\
-\\
-\\
+Maximum fraction of science visits with less than OTR1 per cent of the alerts distributed within OTT1.
 &
 1
 &
@@ -1795,10 +1791,7 @@ percent
 \paramname{%
 sciVisitAlertDelay
 } \\\hline
-Maximum fraction of visits for which alerts are not generated or distributed
-\\
-\\
-\\
+Maximum fraction of visits for which alerts are not generated or distributed.
 &
 0.1
 &
@@ -1831,7 +1824,7 @@ minute
 \paramname{%
 OTT1
 } \\\hline
-
+The instantaneous peak number of alerts per standard visit.
 &
 40000
 &
@@ -1863,7 +1856,7 @@ Performance shall degrade gracefully beyond that limit (average of at least \tex
 The term 'degrade gracefully' means that visits with an excess of difference-image sources should not cause any DMS downtime; i.e., the system does not crash and is able to distribute alerts from that visit, potentially with greater latency.
 
 \begin{parameters}
-
+The instantaneous peak number of alerts per standard visit.
 &
 40000
 &
@@ -1874,8 +1867,7 @@ integer
 \paramname{%
 nAlertVisitPeak
 } \\\hline
-The nightly minimum average number of alerts per standard visit
-\\
+The nightly minimum average number of alerts per standard visit.
 &
 10000
 &
