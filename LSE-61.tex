@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{1494}
+\setDocUpstreamVersion{1495}
 
-\date{2019-08-23}
+\date{2019-08-26}
 
 %% Allow arbitrary latex to be inserted at the end of the document.
 %% Define a new version of this command in metadata.tex. It will
@@ -1728,53 +1728,65 @@ Transient Alert Publication \newline
 \paragraph{Alert Stream Distribution}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0391}
-\textbf{ID:} DMS-REQ-0391
+\textbf{ID:} DMS-REQ-0391 (Priority: 2)
 
 \textbf{Specification:}
-\textbf{Specification}: LSST \textit{shall} be capable of supporting the transmission of at least \textbf{NumStreams} full alert streams out of the alert distribution system within \textbf{OTT1}.
+LSST shall be capable of supporting the transmission of at least \textbf{numStreams} full alert streams out of the alert distribution system within \textbf{OTT1}.
 
 \textbf{Discussion:}
-\textbf{Discussion}: This requirement establishes the minimum capacity needed for timely transmission of alerts to community brokers.
-
-\\
-Derived from Requirements: OSS-REQ-0127, OSS-REQ-0184
+This requirement establishes the minimum capacity needed for timely transmission of alerts to community brokers.
 
 \begin{parameters}
 The minimum number of full streams that can be transmitted out of the alert distribution system.
 &
-
+5
 &
 \unitname{%
-unitless
+integer
 }
 &
 \paramname{%
 numStreams
 } \\\hline
+The latency of reporting optical transients following the completion of readout of the last image of a visit
+&
+1
+&
+\unitname{%
+minute
+}
+&
+\paramname{%
+OTT1
+} \\\hline
 \end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0127:
+Level 1 Data Product Availability \newline
+OSS-REQ-0184:
+Transient Alert Publication \newline
 
 \paragraph{Alert Delay and Failure Tolerances}\hfill  % Force subsequent text onto new line
 
 \label{DMS-REQ-0392}
-\textbf{ID:} DMS-REQ-0392
+\textbf{ID:} DMS-REQ-0392 (Priority: 2)
 
 \textbf{Specification:}
-\textbf{Specification}: The system \textit{shall} reliably produce alerts for standard science visits read out in the camera [and specified to be analyzed by Data Management] such that no more than \textbf{sciVisitAlertDelay} % of visits will fail to have at least \textbf{OTR1} % of its alerts distributed via the LSST alert distribution system within \textbf{OTT1}, and no more than \textbf{sciVisitAlertFailure} % of visits will fail to generate and distribute alerts (integrated over all stages of data handling)
+The system shall reliably produce alerts for standard science visits read out in the camera [and specified to be analyzed by Data Management] such that no more than \textbf{sciVisitAlertDelay} per cent of visits will fail to have at least \textbf{OTR1} per cent of its alerts distributed via the LSST alert distribution system within \textbf{OTT1}, and no more than \textbf{sciVisitAlertFailure} per cent of visits will fail to generate and distribute alerts (integrated over all stages of data handling)
 
 \textbf{Discussion:}
-\textbf{Discussion}: As with \hyperref[DMS-REQ-0004]{DMS-REQ-0004}, this specification applies to visits which should have resulted in fewer than \textbf{nAlertVisitPeak}.
-
-\\
-Derived from Requirements: OSS-REQ-0112
+As with \hyperref[DMS-REQ-0004]{DMS-REQ-0004}, this specification applies to visits which should have resulted in fewer than \textbf{nAlertVisitPeak}.
 
 \begin{parameters}
-Maximum fraction of science visits with less than OTR1 % of the alerts distributed within OTT1
+Maximum fraction of science visits with less than OTR1 per cent of the alerts distributed within OTT1
 \\
 \\
 \\
 \\
 &
-1%
+1
 &
 \unitname{%
 percent
@@ -1788,7 +1800,7 @@ Maximum fraction of visits for which alerts are not generated or distributed
 \\
 \\
 &
-0.1%
+0.1
 &
 \unitname{%
 percent
@@ -1797,48 +1809,91 @@ percent
 \paramname{%
 sciVisitAlertFailure
 } \\\hline
-\end{parameters}
-
-\paragraph{Performance Requirements for Transient Alert Distribution}\hfill  % Force subsequent text onto new line
-
-\label{DMS-REQ-0393}
-\textbf{ID:} DMS-REQ-0393
-
-\textbf{Specification:}
-\textbf{Specification}: The system \textit{shall} be able to identify and distribute an average of at least \textbf{nAlertVisitAvg} alerts per standard visit during a given night, and at least \textbf{nAlertVisitPeak} for a single standard visit.
-
-Performance \textit{shall} degrade gracefully beyond that limit (average of at least \textbf{nAlertVisitAvg} alerts per standard visit during a given night).
-
-\textbf{Discussion:}
-\textbf{Discussion}: The term 'degrade gracefully' means that visits with an excess of difference-image sources should not cause any DMS downtime; i.e., the system does not crash and is able to distribute alerts from that visit, potentially with greater latency.
-
-\\
-Derived from Requirements: LSR-REQ-0101, OSS-REQ-0193
-
-\begin{parameters}
-
+Fraction of detectable alerts for which an alert is actually transmitted within latency \textbf{OTT1} (see LSR-REQ-0101).
 &
-
+98
 &
 \unitname{%
-
+percent
 }
 &
 \paramname{%
-
+OTR1
+} \\\hline
+The latency of reporting optical transients following the completion of readout of the last image of a visit
+&
+1
+&
+\unitname{%
+minute
+}
+&
+\paramname{%
+OTT1
 } \\\hline
 
 &
-000
+40000
 &
 \unitname{%
-
+integer
 }
 &
 \paramname{%
 nAlertVisitPeak
 } \\\hline
 \end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0112:
+Science Visit Alert Generation Reliability \newline
+
+\paragraph{Performance Requirements for Transient Alert Distribution}\hfill  % Force subsequent text onto new line
+
+\label{DMS-REQ-0393}
+\textbf{ID:} DMS-REQ-0393 (Priority: 2)
+
+\textbf{Specification:}
+The system shall be able to identify and distribute an average of at least \textbf{nAlertVisitAvg} alerts per standard visit during a given night, and at least \textbf{nAlertVisitPeak} for a single standard visit.
+
+Performance shall degrade gracefully beyond that limit (average of at least \textbf{nAlertVisitAvg} alerts per standard visit during a given night).
+
+\textbf{Discussion:}
+The term 'degrade gracefully' means that visits with an excess of difference-image sources should not cause any DMS downtime; i.e., the system does not crash and is able to distribute alerts from that visit, potentially with greater latency.
+
+\begin{parameters}
+
+&
+40000
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+nAlertVisitPeak
+} \\\hline
+The nightly minimum average number of alerts per standard visit
+\\
+&
+10000
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+nAlertVisitAvg
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+LSR-REQ-0101:
+Data Processing for Single Visits and Transients \newline
+OSS-REQ-0193:
+Alerts per Visit \newline
 
 \subsubsection{Alert Filtering Service}
 
