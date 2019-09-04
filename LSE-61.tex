@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{1497}
+\setDocUpstreamVersion{1503}
 
-\date{2019-08-26}
+\date{2019-09-04}
 
 %% Allow arbitrary latex to be inserted at the end of the document.
 %% Define a new version of this command in metadata.tex. It will
@@ -327,7 +327,7 @@ Calibration Exposures Per Day \newline
 
 \subsection{Level 1 Data Products}
 
-\subsubsection{Nightly Data Accessible Within 24 hrs}
+\subsubsection{Nightly Data Accessible Within Specified Time}
 
 \label{DMS-REQ-0004}
 \textbf{ID:} DMS-REQ-0004 (Priority: 1b)
@@ -1862,7 +1862,7 @@ Science Visit Alert Generation Reliability \newline
 \textbf{Specification:}
 The system shall be able to identify and distribute an average of at least \textbf{nAlertVisitAvg} alerts per standard visit during a given night, and at least \textbf{nAlertVisitPeak} for a single standard visit.
 
-Performance shall degrade gracefully beyond that limit (average of at least \textbf{nAlertVisitAvg} alerts per standard visit during a given night).
+Performance shall degrade gracefully beyond \textbf{nAlertVisitAvg}.
 
 \textbf{Discussion:}
 The term 'degrade gracefully' means that visits with an excess of difference-image sources should not cause any DMS downtime; i.e., the system does not crash and is able to distribute alerts from that visit, potentially with greater latency.
@@ -2068,7 +2068,7 @@ Level 1 Moving Object Quality \newline
 \emph{Derived from Requirements:}
 
 \hyperref[DMS-REQ-0004]{DMS-REQ-0004}:
-Nightly Data Accessible Within 24 hrs \newline
+Nightly Data Accessible Within Specified Time \newline
 \hyperref[DMS-REQ-0086]{DMS-REQ-0086}:
 Produce Orbit Catalog \newline
 OSS-REQ-0127:
