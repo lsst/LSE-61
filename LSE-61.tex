@@ -1,4 +1,4 @@
-\documentclass[SE,toc]{lsstdoc}
+\documentclass[SE,toc,lsstdraft]{lsstdoc}
 
 % We use commands to make it easy to find where parameter names and units
 % are defined in the tables, and to allow hyphenation.
@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{1358}
+\setDocUpstreamVersion{1560}
 
-\date{2019-03-08}
+\date{2019-10-15}
 
 %% Allow arbitrary latex to be inserted at the end of the document.
 %% Define a new version of this command in metadata.tex. It will
@@ -327,14 +327,20 @@ Calibration Exposures Per Day \newline
 
 \subsection{Level 1 Data Products}
 
-\subsubsection{Nightly Data Accessible Within 24 hrs}
+\subsubsection{Nightly Data Accessible Within Specified Time}
 
 \label{DMS-REQ-0004}
 \textbf{ID:} DMS-REQ-0004 (Priority: 1b)
 
-\textbf{Specification:} With the exception of alerts and Solar System Objects, all Level 1 Data Products shall be made public within time \textbf{L1PublicT} (LSR-REQ-0104) of the acquisition of the raw image data. Alerts shall be made available within time \textbf{OTT1} (LSR-REQ-0101) from the conclusion of readout of the raw exposures used to generate each alert to the distribution of the alert to community distribution mechanisms.  Solar System Object orbits shall, on average, be calculated before the following night's observing finishes and the results shall be made available within time \textbf{L1PublicT} of those calculations being completed.
+\textbf{Specification:}
+With the exception of alerts and Solar System Objects, all Level 1 Data Products shall be made public within time \textbf{L1PublicT} of the acquisition of the raw image data.
 
-\textbf{Discussion:} Because of the processing flow of SSObject orbit determination, meeting the base 24-hours-after-data-acquisition requirement would be far more challenging than for the other L1 Data Products, but the system throughput has to be good enough such that a back log can not build up.
+For visits resulting in fewer than \textbf{nAlertVisitPeak}, LSST shall be capable of supporting the distribution of at least \textbf{OTR1} per cent of alerts via the LSST alert distribution system within time \textbf{OTT1} from the conclusion of the camera's readout of the raw exposures used to generate each alert.
+
+Solar System Object orbits will, on average, be calculated before the following night's observing finishes and the results \textit{shall} be made available within time \textbf{L1PublicT} of those calculations being completed.
+
+\textbf{Discussion:}
+    Because of the processing flow of SSObject orbit determination, meeting the base \textbf{L1PublicT}-after-data-acquisition requirement would be far more challenging than for the other L1 Data Products, but the system throughput has to be good enough such that a back log can not build up.
 
 \begin{parameters}
 Maximum time from the acquisition of science data to the public release of associated Level 1 Data Products (except alerts)
@@ -358,6 +364,28 @@ minute
 &
 \paramname{%
 OTT1
+} \\\hline
+The instantaneous peak number of alerts per standard visit.
+&
+40000
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+nAlertVisitPeak
+} \\\hline
+Fraction of detectable alerts for which an alert is actually transmitted within latency \textbf{OTT1} (see LSR-REQ-0101).
+&
+98
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+OTR1
 } \\\hline
 \end{parameters}
 
@@ -801,6 +829,18 @@ Nightly Summary Products \newline
 \hyperref[DMS-REQ-0100]{DMS-REQ-0100}:
 Generate Calibration Report Within Specified Time \newline
 
+\subsubsection{Data Management Nightly Reporting}
+
+\label{DMS-REQ-0394}
+\textbf{ID:} DMS-REQ-0394
+
+\textbf{Specification:} The LSST Data Management subsystem shall produce a searchable - interactive nightly report(s), from information published in the EFD by each subsystem, summarizing performance and behavior over a user defined period of time (e.g. the previous 24 hours).
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0406:
+Subsystem Nightly Reporting \newline
+
 \subsubsection{Regenerating L1 Data Products During Data Release Processing}
 
 \label{DMS-REQ-0325}
@@ -1210,10 +1250,10 @@ Data Product Conventions \newline
 \textbf{ID:} DMS-REQ-0380 (Priority: 1b)
 
 \textbf{Specification:}
-The Data Management system shall include a secure and authenticated Internet endpoint for an IVOA-compliant HiPS service.  This service shall be advertised via Registry as well as in the HiPS community mechanism operated by CDS, or whatever equivalent mechanism may exist in the LSST operations era.
+The Data Management system shall include a secure and authenticated Internet endpoint for an IVOA-compliant HiPS service.  This service shall be advertised via Registry as well as in the HiPS community mechanism operated by CDS, or whatever equivalent mechanism may exist in the LSST operations era.
 
 \textbf{Discussion:}
-The DM HiPS service will be available only to data rights holders.  LSST EPO will also operate a world-public HiPS service, but with its spatial resolution limited to approximately one arcsecond.
+The DM HiPS service will be available only to data rights holders.  LSST EPO will also operate a world-public HiPS service, but with its spatial resolution limited to approximately one arcsecond.
 
 \emph{Derived from Requirements:}
 
@@ -1226,10 +1266,10 @@ Data Access \newline
 \textbf{ID:} DMS-REQ-0381 (Priority: 2)
 
 \textbf{Specification:}
-The HiPS maps produced by the Data Management system shall provide for straightforward linkage from the HiPS data to the underlying LSST coadded images.  This SHOULD be implemented using a mechanism supported by both the LSST Science Platform and by community tools.
+The HiPS maps produced by the Data Management system shall provide for straightforward linkage from the HiPS data to the underlying LSST coadded images.  This SHOULD be implemented using a mechanism supported by both the LSST Science Platform and by community tools.
 
 \textbf{Discussion:}
-It is intended that this be done using the "HiPS Progenitor" mechanism introduced at the May 2018 IVOA meeting, or an evolution of it that emerges from the IVOA standardization process.
+It is intended that this be done using the "HiPS Progenitor" mechanism introduced at the May 2018 IVOA meeting, or an evolution of it that emerges from the IVOA standardization process.
 
 \emph{Derived from Requirements:}
 
@@ -1247,7 +1287,7 @@ Provenance \newline
 The LSST Science Platform shall support the visualization of the LSST-generated HiPS image maps as well as other HiPS maps which satisfy the IVOA HiPS Recommendation, and shall provide integrated behavior, such as the overplotting of catalog entries, comparable to that provided for individual source images (e.g., PVIs and coadd tiles).
 
 \textbf{Discussion:}
-Further details will be provided in the LSST Science Platform Requirements, \citeds{LDM-554}.
+Further details will be provided in the LSST Science Platform Requirements, \citeds{LDM-554}.
 
 \emph{Derived from Requirements:}
 
@@ -1260,21 +1300,21 @@ Data Visualization \newline
 \textbf{ID:} DMS-REQ-0383 (Priority: 1b)
 
 \textbf{Specification:}
-Data Release Production shall include the production of Multi-Order Coverage maps for the survey data, conformant with the IVOA MOC recommendation.  A separate MOC shall be produced for each filter band for the main survey.  Additional MOCs SHOULD be produced to represent special-programs datasets and other collections of on-sky data.
+Data Release Production shall include the production of Multi-Order Coverage maps for the survey data, conformant with the IVOA MOC recommendation.  A separate MOC shall be produced for each filter band for the main survey.  Additional MOCs SHOULD be produced to represent special-programs datasets and other collections of on-sky data.
 
 \textbf{Discussion:}
-It is likely to be useful to produce quite a large number of MOCs as part of releasing the data and documenting its quality.  For example, it may be useful to produce both a MOC for \emph{all} the data from a band and for only that part of the sky for which the SRD requirements in that band have been met.  It also seems useful to produce MOCs for the deep drilling fields, etc.  It may also be useful to produce MOCs on, for instance, a nightly basis, reflecting that part of the sky for which coverage was obtained in that night.  The LSST project should engage in the work begun in 2018 on the development of standards and tools for \emph{spatiotemporal} MOCs.
-
+It is likely to be useful to produce quite a large number of MOCs as part of releasing the data and documenting its quality.  For example, it may be useful to produce both a MOC for all the data from a band and for only that part of the sky for which the SRD requirements in that band have been met.  It also seems useful to produce MOCs for the deep drilling fields, etc.  It may also be useful to produce MOCs on, for instance, a nightly basis, reflecting that part of the sky for which coverage was obtained in that night.  The LSST project should engage in the work begun in 2018 on the development of standards and tools for \textit{spatiotemporal} MOCs.
+\\
 The tile resolution chosen for these MOCs should be fine enough to represent the dither pattern of the survey as well as the shape of the focal plane.  Some testing should be done to determine a suitable scale.
-
+\\
 The Project should produce a technical note, during the construction era, detailing the specific plans for creation of MOCs.
 
 \emph{Derived from Requirements:}
 
-OSS-REQ-0033:
-Survey Planning and Performance Monitoring \newline
 OSS-REQ-0391:
 Data Product Conventions \newline
+OSS-REQ-0033:
+Survey Planning and Performance Monitoring \newline
 
 \paragraph{Export MOCs As FITS}\hfill  % Force subsequent text onto new line
 
@@ -1713,6 +1753,168 @@ Level 1 Data Product Availability \newline
 OSS-REQ-0184:
 Transient Alert Publication \newline
 
+\paragraph{Alert Stream Distribution}\hfill  % Force subsequent text onto new line
+
+\label{DMS-REQ-0391}
+\textbf{ID:} DMS-REQ-0391 (Priority: 2)
+
+\textbf{Specification:}
+LSST shall be capable of supporting the transmission of at least \textbf{numStreams} full alert streams out of the alert distribution system within \textbf{OTT1}.
+
+\textbf{Discussion:}
+This requirement establishes the minimum capacity needed for timely transmission of alerts to community brokers.
+
+\begin{parameters}
+The minimum number of full streams that can be transmitted out of the alert distribution system.
+&
+5
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+numStreams
+} \\\hline
+The latency of reporting optical transients following the completion of readout of the last image of a visit
+&
+1
+&
+\unitname{%
+minute
+}
+&
+\paramname{%
+OTT1
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0184:
+Transient Alert Publication \newline
+OSS-REQ-0127:
+Level 1 Data Product Availability \newline
+
+\paragraph{Alert Delay and Failure Tolerances}\hfill  % Force subsequent text onto new line
+
+\label{DMS-REQ-0392}
+\textbf{ID:} DMS-REQ-0392 (Priority: 2)
+
+\textbf{Specification:}
+The system shall reliably produce alerts for standard science visits read out in the camera [and specified to be analyzed by Data Management] such that no more than \textbf{sciVisitAlertDelay} per cent of visits will fail to have at least \textbf{OTR1} per cent of its alerts distributed via the LSST alert distribution system within \textbf{OTT1}, and no more than \textbf{sciVisitAlertFailure} per cent of visits will fail to generate and distribute alerts (integrated over all stages of data handling)
+
+\textbf{Discussion:}
+As with \hyperref[DMS-REQ-0004]{DMS-REQ-0004}, this specification applies to visits which should have resulted in fewer than \textbf{nAlertVisitPeak}.
+
+\begin{parameters}
+The latency of reporting optical transients following the completion of readout of the last image of a visit
+&
+1
+&
+\unitname{%
+minute
+}
+&
+\paramname{%
+OTT1
+} \\\hline
+The instantaneous peak number of alerts per standard visit.
+&
+40000
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+nAlertVisitPeak
+} \\\hline
+Maximum fraction of visits for which alerts are not generated or distributed.
+&
+0.1
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+sciVisitAlertFailure
+} \\\hline
+Fraction of detectable alerts for which an alert is actually transmitted within latency \textbf{OTT1} (see LSR-REQ-0101).
+&
+98
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+OTR1
+} \\\hline
+Maximum fraction of science visits with less than \textbf{OTR1} percent of the alerts distributed within \textbf{OTT1}.
+&
+1
+&
+\unitname{%
+percent
+}
+&
+\paramname{%
+sciVisitAlertDelay
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0112:
+Science Visit Alert Generation Reliability \newline
+
+\paragraph{Performance Requirements for Transient Alert Distribution}\hfill  % Force subsequent text onto new line
+
+\label{DMS-REQ-0393}
+\textbf{ID:} DMS-REQ-0393 (Priority: 2)
+
+\textbf{Specification:}
+The system shall be able to identify and distribute an average of at least \textbf{nAlertVisitAvg} alerts per standard visit during a given night, and at least \textbf{nAlertVisitPeak} for a single standard visit.
+
+Performance shall degrade gracefully beyond \textbf{nAlertVisitAvg}.
+
+\textbf{Discussion:}
+The term 'degrade gracefully' means that visits with an excess of difference-image sources should not cause any DMS downtime; i.e., the system does not crash and is able to distribute alerts from that visit, potentially with greater latency.
+
+\begin{parameters}
+The instantaneous peak number of alerts per standard visit.
+&
+40000
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+nAlertVisitPeak
+} \\\hline
+The nightly minimum average number of alerts per standard visit.
+&
+10000
+&
+\unitname{%
+integer
+}
+&
+\paramname{%
+nAlertVisitAvg
+} \\\hline
+\end{parameters}
+
+\emph{Derived from Requirements:}
+
+LSR-REQ-0101:
+Data Processing for Single Visits and Transients \newline
+OSS-REQ-0193:
+Alerts per Visit \newline
+
 \subsubsection{Alert Filtering Service}
 
 \label{DMS-REQ-0342}
@@ -1882,7 +2084,7 @@ Level 1 Moving Object Quality \newline
 \emph{Derived from Requirements:}
 
 \hyperref[DMS-REQ-0004]{DMS-REQ-0004}:
-Nightly Data Accessible Within 24 hrs \newline
+Nightly Data Accessible Within Specified Time \newline
 \hyperref[DMS-REQ-0086]{DMS-REQ-0086}:
 Produce Orbit Catalog \newline
 OSS-REQ-0127:
@@ -4094,6 +4296,17 @@ unitless
 \paramname{%
 ResSource
 } \\\hline
+    The zero point error outlier limit.
+&
+15
+&
+\unitname{%
+millimagnitude
+}
+&
+\paramname{%
+PF4
+} \\\hline
 \end{parameters}
 
 \emph{Derived from Requirements:}
@@ -4153,7 +4366,7 @@ AM1
 50
 &
 \unitname{%
-arcsecond
+milliarcsecond
 }
 &
 \paramname{%
@@ -4276,24 +4489,24 @@ Astrometric Performance \newline
 \textbf{ID:} DMS-REQ-0362 (Priority: 1b)
 
 \textbf{Specification:}
-The DMS shall include software to enable the calculation of the elipticity correlations metrics defined in OSS-REQ-0390.
+The DMS shall include software to enable the calculation of the elipticity correlations metrics defined in OSS-REQ-0403, OSS-REQ-0404, and OSS-REQ-0405.
 
 \textbf{Discussion:}
 The relevant metrics are listed in the table below. The values in the tables are the target values for LSST but are not verified as part of this requirement.
 
 \begin{parameters}
-Median residual PSF ellipticity correlations averaged over an arbitrary field of view for separations less than 5 arcmin shall be no greater than\textbf{ TE2.}
+Maximum full-survey median for residual ellipticity correlations at scales greater than or equal to 5 arcmin.
 &
 1.0e-7
 &
 \unitname{%
-arcminuteSeparationCorrelation
+unitless (angular correlation)
 }
 &
 \paramname{%
 TE2
 } \\\hline
-The fraction of PSF ellipticity correlation residuals that can exceed the outlier limits on 1 and 5 arcminutes scales, over an arbitrary field, of view shall be no more than
+Maximum fraction of visit images that may exceed the \textbf{TE3} or \textbf{TE4} limits.
 &
 15
 &
@@ -4304,34 +4517,34 @@ percent
 \paramname{%
 TEF
 } \\\hline
-The outlier limit on the PSF ellipticity correlation residuals on 5 arcminute scales shall be no more than \textbf{TE4.}
+Per-image limit on the median residual ellipticity correlations at scales greater than or equal to 5 arcmin.
 &
 2.0e-7
 &
 \unitname{%
-arcminuteOutlierLimit
+unitless (angular correlation)
 }
 &
 \paramname{%
 TE4
 } \\\hline
-Median residual PSF ellipticity correlations averaged over an arbitrary field of view for separations less than 1 arcmin shall be no greater than \textbf{TE1.}
+Maximum full-survey median for residual ellipticity correlations at scales less than or equal to 1 arcmin.
 &
 2.0e-5
 &
 \unitname{%
-arcminuteSeparationCorrelation
+unitless (angular correlation)
 }
 &
 \paramname{%
 TE1
 } \\\hline
-The outlier limit on the PSF ellipticity correlation residuals on 1 arcminute scales shall be no more than \textbf{TE3.}
+Per-image limit on the median residual ellipticity correlations at scales less than 5 arcmin.
 &
 4.0e-5
 &
 \unitname{%
-arcminuteOutlierLimit
+unitless (angular correlation)
 }
 &
 \paramname{%
@@ -4341,8 +4554,12 @@ TE3
 
 \emph{Derived from Requirements:}
 
-OSS-REQ-0390:
-Ellipticity Correlations \newline
+OSS-REQ-0403:
+Ellipticity Correlation Function Distribution per Image \newline
+OSS-REQ-0404:
+Ellipticity Correlation Function Distribution for Full Survey (medians) \newline
+OSS-REQ-0405:
+Ellipticity Correlation Function Distribution for Full Survey (continuity) \newline
 
 \subsection{Database Performance}
 
