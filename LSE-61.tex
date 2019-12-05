@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{1560}
+\setDocUpstreamVersion{1579}
 
-\date{2019-10-15}
+\date{2019-12-04}
 
 %% Allow arbitrary latex to be inserted at the end of the document.
 %% Define a new version of this command in metadata.tex. It will
@@ -204,6 +204,18 @@ Data Product Conventions \newline
 OSS-REQ-0391:
 Data Product Conventions \newline
 
+\subsubsection{Scientific Visualization of Camera Image Data}
+
+\label{DMS-REQ-0395}
+\textbf{ID:} DMS-REQ-0395
+
+\textbf{Specification:} All scientific visualization of camera image data shall use the coordinate systems defined in \citeds{LSE-349}.
+
+\emph{Derived from Requirements:}
+
+OSS-REQ-0408:
+Scientific Visualization of Camera Image Data \newline
+
 \subsection{Data Acquisition}
 
 \subsubsection{Raw Image Assembly}
@@ -335,6 +347,8 @@ Calibration Exposures Per Day \newline
 \textbf{Specification:}
 With the exception of alerts and Solar System Objects, all Level 1 Data Products shall be made public within time \textbf{L1PublicT} of the acquisition of the raw image data.
 
+LSST shall not release image or catalog data resulting from a visit, except for the content of the public alert stream, sooner than time \textbf{L1PublicTMin} following the acquisition of the raw image data from that visit.
+
 For visits resulting in fewer than \textbf{nAlertVisitPeak}, LSST shall be capable of supporting the distribution of at least \textbf{OTR1} per cent of alerts via the LSST alert distribution system within time \textbf{OTT1} from the conclusion of the camera's readout of the raw exposures used to generate each alert.
 
 Solar System Object orbits will, on average, be calculated before the following night's observing finishes and the results \textit{shall} be made available within time \textbf{L1PublicT} of those calculations being completed.
@@ -343,7 +357,7 @@ Solar System Object orbits will, on average, be calculated before the following 
     Because of the processing flow of SSObject orbit determination, meeting the base \textbf{L1PublicT}-after-data-acquisition requirement would be far more challenging than for the other L1 Data Products, but the system throughput has to be good enough such that a back log can not build up.
 
 \begin{parameters}
-Maximum time from the acquisition of science data to the public release of associated Level 1 Data Products (except alerts)
+    Maximum time from the acquisition of science data to the release of associated Level 1 Data Products (except alerts)
 &
 24
 &
@@ -386,6 +400,17 @@ percent
 &
 \paramname{%
 OTR1
+} \\\hline
+Time images and other products (except alerts) will be embargoed before release to the consortium (or the public)
+&
+6
+&
+\unitname{%
+hour
+}
+&
+\paramname{%
+L1PublicTMin
 } \\\hline
 \end{parameters}
 
@@ -1554,7 +1579,7 @@ Data Products Handling for Special Programs \newline
     The publishing of Level 1 data products from Special Programs shall be subject to the same performance requirements of the standard Level 1 system. In particular \textbf{L1PublicT} and \textbf{OTT1}.
 
 \begin{parameters}
-Maximum time from the acquisition of science data to the public release of associated Level 1 Data Products (except alerts)
+    Maximum time from the acquisition of science data to the release of associated Level 1 Data Products (except alerts)
 &
 24
 &
@@ -2033,7 +2058,7 @@ day
 \paramname{%
 precoveryWindow
 } \\\hline
-Maximum time from the acquisition of science data to the public release of associated Level 1 Data Products (except alerts)
+    Maximum time from the acquisition of science data to the release of associated Level 1 Data Products (except alerts)
 &
 24
 &
@@ -2926,7 +2951,7 @@ Access to Previous Data Releases \newline
 \textbf{Specification:} Engineering and Facility data from the Observatory Control System and associated metadata shall be permanently archived by the DMS and available for public access within \textbf{L1PublicT} hours of their generation by the OCS.
 
 \begin{parameters}
-Maximum time from the acquisition of science data to the public release of associated Level 1 Data Products (except alerts)
+    Maximum time from the acquisition of science data to the release of associated Level 1 Data Products (except alerts)
 &
 24
 &
@@ -4305,7 +4330,7 @@ millimagnitude
 }
 &
 \paramname{%
-PF4
+PA4
 } \\\hline
 \end{parameters}
 
