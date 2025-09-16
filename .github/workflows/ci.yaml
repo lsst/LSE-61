@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0 # full history for metadata
           submodules: true
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.13"
 
@@ -30,4 +30,4 @@ jobs:
           LTD_USERNAME: ${{ secrets.LTD_USERNAME }}
         run: |
           # Use the date from docushare.
-          lander --upload --pdf LSE-61.pdf --ltd-product lse-61 --date 2024-08-29 --author "Gregory P. Dubois-Felsmann" --author "Tim Jenness" --abstract "This document contains the top-level requirements for the Data Management subsystem of the LSST, when combined with the Data Management-related requirements in the LSST System Requirements (LSR, LSE-29) and Observatory System Specifications (OSS, LSE-30)." --title "Data Management System (DMS) Requirements"
+          lander --upload --pdf LSE-61.pdf --ltd-product lse-61 --date 2025-09-15 --author "Gregory P. Dubois-Felsmann" --author "Tim Jenness" --abstract "This document contains the top-level requirements for the Data Management subsystem of the LSST, when combined with the Data Management-related requirements in the LSST System Requirements (LSR, LSE-29) and Observatory System Specifications (OSS, LSE-30)." --title "Data Management System (DMS) Requirements"
